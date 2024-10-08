@@ -1,3 +1,3 @@
-##### arpon-kapuria.github.io
+#### arpon-kapuria.github.io
 
-Feel free to steal code from this repository.
+This repository contains the source code for my personal website. Feel free to steal it.
