@@ -140,12 +140,51 @@ a:hover {
 }
 
 
+/* Experience and projects Section */
+.experience-container, .thesis-container, .project-container {
+    display: flex;
+    margin-bottom: 5px; /* Space between each experience */
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd; /* Light bottom border between sections */
+}
+
+.experience-image, .thesis-image, .project-image {
+    flex: 1;
+    max-width: 130px;
+    max-height: 130px;
+    margin-right: 20px;
+    margin-top: 12px;
+}
+
+.thesis-image {
+    padding-top: 5px;
+    max-height: 150px;
+}
+
+
+.experience-content, .thesis-content, .project-content {
+    flex: 3;
+}
+
+.experience-content p, .thesis-content p, .project-content p {
+    margin: 5px 0;
+    text-align: justify;
+}
+
+.experience-sections {
+    padding-top: 20px;
+    padding-bottom: 5px;
+    font-family: monospace;
+    font-size: x-large;
+}
+
+
 /* Footer styles */
 footer {
     text-align: center;
     padding: 20px 0;
     background-color: #fff;
-    position: absolute;
+    position: relative;
     bottom: 10px;
     left: 0;
     right: 0;
