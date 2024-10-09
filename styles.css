@@ -62,7 +62,7 @@ nav ul li a:hover {
 
 /* Main content styles */
 .main {
-    padding: 15px 10%; /* Space on top */
+    padding: 5px 10%; /* Space on top */
 }
 
 .content-container {
@@ -158,14 +158,18 @@ a:hover {
 
 
 /* Experience and projects Section */
-.experience-container, .thesis-container, .project-container {
+.experience-container {
+    padding-bottom: 20px;
+}
+
+.work-container, .thesis-container, .project-container {
     display: flex;
     margin-bottom: 5px; /* Space between each experience */
     padding: 10px 0;
     border-bottom: 1px solid #ddd; /* Light bottom border between sections */
 }
 
-.experience-image, .thesis-image, .project-image {
+.work-image, .thesis-image, .project-image {
     flex: 1;
     max-width: 130px;
     max-height: 130px;
@@ -179,17 +183,17 @@ a:hover {
 }
 
 
-.experience-content, .thesis-content, .project-content {
+.work-content, .thesis-content, .project-content {
     flex: 3;
 }
 
-.experience-content p, .thesis-content p, .project-content p {
+.work-content p, .thesis-content p, .project-content p {
     margin: 5px 0;
     text-align: justify;
 }
 
 .experience-sections-header {
-    padding-top: 20px;
+    /* padding-top: 20px; */
     padding-bottom: 5px;
     font-family: monospace, 'Crimson Pro', serif;
     font-size: large;
