@@ -114,6 +114,7 @@ a:hover {
     max-width: 100%;
     width: 200px; /* Fixed width for square image */
     height: 200px; /* Fixed height for square image */
+    cursor: pointer; /* Make the image look clickable */
 }
 
 .image-title {
@@ -125,6 +126,41 @@ a:hover {
     font-family: Reenie Beanie, cursive;
     font-size: 19px;
     font-weight: 700;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* On top of everything */
+    padding-top: 100px; /* Space at the top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 45%;
+    border-radius:1000px; /* Add rounded corners */
+}
+
+#close-modal {
+    position: absolute;
+    top: 25px;
+    right: 100px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#close-modal:hover {
+    color: #ccc;
 }
 
 
