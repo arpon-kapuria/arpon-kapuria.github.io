@@ -1,14 +1,3 @@
-
-// smoothens scrolling to sections:
-// document.querySelectorAll('a').forEach(anchor => {
-//     anchor.addEventListener('click', function(e) {
-//         e.preventDefault();
-//         document.querySelector(this.getAttribute('href')).scrollIntoView({
-//             behavior: 'smooth'
-//         });
-//     });
-// });
-
 // Get the modal
 var modal = document.getElementById('image-modal');
 
@@ -27,3 +16,4 @@ var span = document.getElementById('close-modal');
 span.onclick = function() {
     modal.style.display = "none";
 }
+
