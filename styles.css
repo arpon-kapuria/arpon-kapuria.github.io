@@ -9,7 +9,7 @@ body, h1, h2, h3, p {
 body {
     font-family: 'Crimson Pro', sans-serif;
     background-color: #fff; /* White background */
-    color: #333;
+    color: #363636;
     font-weight: 400;
     font-size: 18px;
 }
@@ -42,7 +42,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #363636;
     transition: color 0.3s;
 }
 
@@ -119,7 +119,7 @@ a:hover {
 
 .image-title {
     margin-top: 5px;
-    color: #333; /* Optional: Adjust color to match your design */
+    color: #363636; /* Optional: Adjust color to match your design */
     font-style: italic; /* Optional: Italic style */
     text-align: center; /* Center text below the image */
     width: 200%; /* Full width to ensure alignment works */
@@ -176,7 +176,7 @@ a:hover {
     padding: 0;
     display: flex; /* Use flexbox to display links in a row */
     font-size: 16px; /* Set the font size */
-    color: #333; /* Text color */
+    color: #363636; /* Text color */
     font-weight: 400; 
     font-size: larger;
 }
@@ -250,7 +250,7 @@ a:hover {
 .articles-header {
     font-size: large;
     font-family: monospace, 'Crimson Pro', serif;
-    color: #333;
+    color: #363636;
     margin-bottom: 25px; /* Space below header */
 }
 
@@ -305,7 +305,7 @@ a:hover {
 
 .article-content p {
     font-size: 16px;
-    color: #333;
+    color: #363636;
     margin-bottom: 15px;
     text-align: justify;
 }
