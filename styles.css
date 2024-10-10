@@ -218,6 +218,10 @@ a:hover {
     max-height: 150px;
 }
 
+.nitt-logo {
+    padding-top: 25px;
+}
+
 
 .work-content, .thesis-content, .project-content {
     flex: 3;
@@ -355,13 +359,20 @@ a:hover {
 
 
 /* Footer styles */
-footer {
+.footer-relative {
     text-align: center;
     padding: 20px 0;
     background-color: #fff;
     position: relative;
     bottom: 10px;
+}
+
+.footer-absolute {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #fff;
+    position: absolute;
+    bottom: 10px;
     left: 0;
     right: 0;
-    top: 5px;
 }
