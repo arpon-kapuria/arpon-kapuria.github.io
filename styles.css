@@ -81,6 +81,7 @@ a {
 
 a:hover {
     color: #ee7123; /* Optional: Change color on hover */
+    font-weight: bold;
 }
 
 .greeting {
@@ -191,6 +192,7 @@ a:hover {
 
 .links a:hover {
     color: #ee7123; /* Change to a hover color of your choice */
+    font-weight: bold;
 }
 
 
@@ -366,6 +368,7 @@ a:hover {
     background-color: #fff;
     position: relative;
     bottom: 10px;
+    top: 20px;
 }
 
 .footer-absolute {
