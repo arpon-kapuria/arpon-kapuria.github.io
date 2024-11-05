@@ -343,6 +343,106 @@ a:hover {
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
+/* Blogs Section - Articles style */
+
+/* Container for the blog post */
+.blog-post {
+    max-width: 800px;
+    padding: 2rem 2rem 1rem 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
+    line-height: 1.2;
+    text-align: justify;
+}
+
+/* Title styling */
+.blog-post h1 {
+    font-size: 2rem;
+    color: #4a90e2;
+    font-weight: 700;
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Publish time styling */
+.publish-time {
+    font-size: 0.9rem;
+    color: #666666;
+    /* text-align: center; */
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+/* Subheading styling */
+.blog-post h2 {
+    /* font-size: 1.75rem; */
+    font-size: large;
+    font-family: monospace, 'Crimson Pro', serif;
+    color: #333333;
+    margin-top: 2rem;
+    border-bottom: 2px solid #333333;
+    padding-bottom: 0.5rem;
+}
+
+/* Section headers */
+.blog-post h3 {
+    /* font-size: 1.5rem; */
+    font-size: large;
+    font-family: monospace, 'Crimson Pro', serif;
+    color: #333333;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Ordered list styling */
+.blog-post ol {
+    margin-left: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.blog-post ol li {
+    margin-bottom: 0.8rem;
+}
+
+/* Unordered list styling */
+.blog-post ul {
+    margin-left: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.blog-post ul li {
+    margin-bottom: 0.8rem;
+}
+
+/* Tips and Tricks sublist styling */
+.blog-post ol li ul {
+    margin-top: 0.5rem;
+    margin-left: 1.5rem;
+}
+
+.blog-post ol li ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Paragraph styling */
+.blog-post p {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    /* padding-top: 1rem; */
+}
+
+/* Blockquote styling for tips or highlights */
+.blog-post blockquote {
+    border-left: 4px solid #4a90e2;
+    padding-left: 1rem;
+    margin: 1.5rem 1rem;
+    color: #555;
+    font-style: italic;
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
