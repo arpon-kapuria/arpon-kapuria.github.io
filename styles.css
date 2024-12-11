@@ -8,7 +8,7 @@ body, h1, h2, h3, p {
 /* Body styles */
 body {
     font-family: 'Crimson Pro', sans-serif;
-    background-color: #fff; /* White background */
+    background-color: #ffffff; /* White background */
     color: #363636;
     font-weight: 400;
     font-size: 18px;
@@ -112,7 +112,7 @@ a:hover {
 }
 
 .bio-image img {
-    margin-top: 0px;
+    margin-top: 10px;
     max-width: 100%;
     width: 200px; /* Fixed width for square image */
     height: 200px; /* Fixed height for square image */
