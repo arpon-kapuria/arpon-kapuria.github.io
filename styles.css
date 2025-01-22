@@ -85,6 +85,8 @@ a:hover {
 }
 
 .greeting {
+    padding-top: 5px;
+    padding-bottom: 7px;
     font-family: monospace, 'Crimson Pro', serif;
     font-size: large;
 }
