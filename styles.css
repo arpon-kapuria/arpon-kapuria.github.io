@@ -305,7 +305,7 @@ a:hover {
     margin-bottom: 10px;
 }
 
-.article-content .publish-time {
+.article-content .modification-time {
     font-size: 14px;
     color: #777; /* Lighter color for publish time */
     margin-bottom: 10px;
@@ -373,7 +373,7 @@ a:hover {
 }
 
 /* Publish time styling */
-.publish-time {
+.modification-time {
     font-size: 0.9rem;
     color: #666666;
     /* text-align: center; */
