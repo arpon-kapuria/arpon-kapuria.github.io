@@ -80,7 +80,7 @@ nav a.active {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 920px) {
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -321,10 +321,12 @@ a:active {
     margin: 0;
     display: flex; /* Use flexbox to display links in a row */
     gap: 8px; /* space between icons */
+    
 }
 
 .links li {
     display: flex;
+    
 }
 
 .links a {
@@ -336,11 +338,13 @@ a:active {
     background-color: #f0f0f0; /* Light gray background */
     border-radius: 20%; /* Make it circular */
     transition: background-color 0.3s, color 0.3s;
+    
 }
 
 .links a i {
     font-size: 28px;
     color: #007BFF;
+    
 }
 
 .links a:hover i {
@@ -371,9 +375,17 @@ a:active {
     .links a {
         width: 35px;
         height: 35px;
+        
     }
     .links a i {
         font-size: 18px;
+        
+    }
+
+    .blog-post a {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        word-wrap: break-word;
     }
 }
 
@@ -444,9 +456,6 @@ a:active {
 }
 
 
-
-
-
 /* Blogs Section styles */
 .description {
     margin-bottom: 20px;
@@ -475,10 +484,12 @@ a:active {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
     transition: transform 0.3s ease-in-out;
+    /* cursor: pointer; */
 }
 
 .article-item:hover {
     transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .article-image {
@@ -502,6 +513,7 @@ a:active {
     font-size: 20px;
     color: #007BFF;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .article-content .modification-time {
@@ -514,6 +526,7 @@ a:active {
     font-size: 16px;
     color: #363636;
     margin-bottom: 15px;
+    margin-top: 25px;
     text-align: justify;
 }
 
@@ -528,11 +541,16 @@ a:active {
     color: #ee7123; /* Hover color */
 }
 
+
+
+
+
 /* Pagination Styles */
 .pagination {
     display: flex;
+    font-size: 1em;
     justify-content: center;
-    margin-top: 50px; /* Increased margin to create space */
+    margin-top: 100px; /* Increased margin to create space */
     /* margin-bottom: 10px;  */
     /* Additional space below pagination */
 }
@@ -597,19 +615,22 @@ a:active {
     font-size: large;
     font-family: monospace, 'Crimson Pro', serif;
     color: #333333;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
+    display: flex;   
+    justify-content: center;
+    margin: 1em;
 }
+
 
 /* Ordered list styling */
 .blog-post ol {
     margin-left: 1.5rem;
-    padding-left: 1.5rem;
+    /* padding-left: 1.5rem; */
 }
 
 .blog-post ol li {
     margin-bottom: 0.8rem;
 }
+ 
 
 /* Unordered list styling */
 .blog-post ul {
@@ -624,7 +645,7 @@ a:active {
 /* Tips and Tricks sublist styling */
 .blog-post ol li ul {
     margin-top: 0.5rem;
-    margin-left: 1.5rem;
+    margin-left: 0.5rem;
 }
 
 .blog-post ol li ul li {
@@ -635,52 +656,52 @@ a:active {
 .blog-post p {
     margin-top: 1rem;
     margin-bottom: 1.5rem;
-    /* padding-top: 1rem; */
 }
 
 /* Blockquote styling for tips or highlights */
 .blog-post blockquote {
     border-left: 4px solid #4a90e2;
     padding-left: 1rem;
-    margin: 1.5rem 1rem;
+    margin: 1.5rem 0 1.5rem 0;
     color: #555;
     font-style: italic;
 }
 
+@media (max-width: 768px) {
+    .article-content h3 {
+        margin-top: 15px;
+    }
+
+    .article-image {
+        display: flex;
+        align-items: center;
+    }
+}
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .blogs-container {
         padding: 10px 5%; /* Adjust padding for smaller screens */
     }
 
+    .article-content h3 {
+        font-size: 1.2em;
+    }
+
     .article-item {
         flex-direction: column; /* Stack image and text on smaller screens */
+        border-radius: 8px;
+        padding-bottom: 0;
     }
 
     .article-image {
-        max-width: 100%;
+        max-width: 50%;
         margin-bottom: 15px; /* Space between image and content */
+        margin: 0 auto 20px auto; 
+    }
+
+    .blog-post h1 {
+        font-size: 1.4em;
     }
 }
 
-
-/* Footer styles */
-.footer-relative {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #fff;
-    position: relative;
-    bottom: 10px;
-    top: 20px;
-}
-
-.footer-absolute {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #fff;
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
-}
