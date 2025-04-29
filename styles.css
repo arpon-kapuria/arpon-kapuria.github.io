@@ -42,6 +42,25 @@ header {
     flex-wrap: wrap; /* Allows stacking on small screens */
 }
 
+.header-container h1 {
+    font-family: 'Permanent Marker';
+    font-weight: 400;
+    margin-left: 50px;
+    padding-top: 10px;
+}
+
+@media (max-width: 1024px) {
+    .header-container h1 {
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container h1 {
+        margin-left: 0;
+    }
+}
+
 /* Responsive adjustments */
 @media (max-width: 920px) {
     .header-container {
@@ -182,10 +201,11 @@ a:active {
     color: #363636; /* Optional: Adjust color to match your design */
     font-style: italic; /* Optional: Italic style */
     text-align: center; /* Center text below the image */
-    width: 200%; /* Full width to ensure alignment works */
+    width: 100%; /* Full width to ensure alignment works */
     font-family: 'Reenie Beanie', 'cursive', 'Crimson Pro', serif;
     font-size: 1.1em;
     font-weight: 600;
+    margin-left: 30px;
 }
 
 /* Tablets (portrait and landscape) and below */
@@ -216,6 +236,7 @@ a:active {
 
     .image-title {
         font-size: 1em; /* Smaller title text on mobile */
+        margin-left: 0;
     }
 }
 
