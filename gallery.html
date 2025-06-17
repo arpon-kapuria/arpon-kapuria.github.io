@@ -32,12 +32,138 @@
     <main class="main">
         <div class="content-container">
             <div class="description">
-                <p> I have a passion for traveling and capturing moments along the way. Check out my <a href="https://www.instagram.com/_aaaaarrp" target="_blank"><i>Instagram</i></a>. So far, I’ve got three countries (🇧🇩 🇮🇳 🇲🇾) in my bucket, but my goal is to see the entire world. Below is a selection of photos from various locations around the globe, with a country-wise option to view pictures from specific time / place. </p>
-                <br>
-                <p>Work in progress . . .</p>
+                <p>
+                    I love to travel and take photos along the way—sometimes of places, sometimes just of little moments that catch my eye. Here are some of my favorite shots from different countries. You can filter by country if you want. If you’re curious for more, I post on <a href="https://www.instagram.com/_aaaaarrp" target="_blank"><i>Instagram</i></a> too.
+                </p>
             </div>
-    
+            <p class="notice">N.B: Work in progress, more to come soon!</p>
         </div>
+        
+
+        <!-- gallery.html -->
+        <div class="gallery-intro">
+          <div class="gallery-filters">
+            <button class="filter-btn active" data-country="all">All</button>
+            <button class="filter-btn" data-country="bd">🇧🇩 Bangladesh</button>
+            <button class="filter-btn" data-country="in">🇮🇳 India</button>
+            <button class="filter-btn" data-country="my">🇲🇾 Malaysia</button>
+          </div>
+        </div>
+        <div class="gallery-grid">
+
+          <!-- Bangladesh -->
+          <!-- <div class="gallery-item" data-country="bd">
+            <img src="travel/Bangladesh/IMG_3874.jpg" alt="Bangladesh" />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">
+                <h3>Marine Drive</h3>
+                <p>October 2024 • Kushtia, Bangladesh</p>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- India -->
+          <div class="gallery-item" data-country="in">
+            <img src="travel/india/IMG_2337.jpg" alt="India" />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">
+                <h3>Church Street</h3>
+                <p>June 2024 • Bangalore, India</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item" data-country="in">
+            <img src="travel/india/IMG_3933.jpg" alt="India" />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">
+                <h3>South Bombay</h3>
+                <p>June 2023 • Mumbai, India</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item" data-country="in">
+            <img src="travel/india/IMG_4057.jpg" alt="India" />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">
+                <h3>Marine Drive</h3>
+                <p>June 2023 • Mumbai, India</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item" data-country="in">
+            <img src="travel/india/IMG_4460.jpg" alt="India" />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">
+                <h3>IIT Bombay</h3>
+                <p>July 2023 • Mumbai, India</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item" data-country="in">
+            <img src="travel/india/IMG_9496.jpg" alt="India" />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">
+                <h3>Patrika Gate</h3>
+                <p>December 2023 • Jaipur, India</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item" data-country="in">
+            <img src="travel/india/IMG_9590.jpg" alt="India" />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">
+                <h3>Amber Fort</h3>
+                <p>December 2023 • Jaipur, India</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Malaysia -->
+          <div class="gallery-item" data-country="my">
+            <img src="travel/Malaysia/IMG_5017.jpg" alt="Malaysia" />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">
+                <h3>Petronas Twin Tower, </h3>
+                <p>July 2024 • Kuala Lumpur, Malaysia</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item" data-country="my">
+            <img src="travel/Malaysia/IMG_5029.jpg" alt="Malaysia" />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">
+                <h3>Pavilion, Bukit Bintang</h3>
+                <p>July 2024 • Kuala Lumpur, Malaysia</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item" data-country="my">
+            <img src="travel/Malaysia/IMG_5567.jpg" alt="Malaysia" />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">
+                <!-- <h3>Langkawi Seasports</h3> -->
+                <h3>Cenang Beach</h3>
+                <p>July 2024 • Langkawi, Malaysia</p>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="gallery-item" data-country="my">
+            <img src="travel/Malaysia/IMG_5582.jpg" alt="Malaysia" />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">
+                <h3>Cenang Beach</h3>
+                <p>July 2024 • Langkawi, Malaysia</p>
+              </div>
+            </div>
+          </div> -->
+        </div>
+
+        <!-- Modal overlay for enlarged gallery images -->
+        <div id="gallery-image-modal" class="modal">
+          <span id="gallery-close-modal">&times;</span>
+          <img class="modal-content" id="gallery-enlarged-image">
+        </div>
+
     </main>
     
     <script src="script.js"></script>
