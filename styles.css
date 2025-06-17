@@ -797,7 +797,7 @@ a:active {
     background: linear-gradient(0deg, rgba(60,40,20,0.7) 60%, transparent 100%);
     color: #fff;
     padding: 0.7rem 1rem;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.3s;
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
@@ -805,8 +805,15 @@ a:active {
     letter-spacing: 0.01em;
 }
 
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
+/* Always show overlay on touch devices or small screens */
+@media (hover: none) and (pointer: coarse), (max-width: 700px) {
+    .gallery-overlay {
+        opacity: 1 !important;
+        pointer-events: auto;
+    }
+    .gallery-item:hover .gallery-overlay {
+        opacity: 1 !important;
+    }
 }
     
 @media (min-width: 600px) {
