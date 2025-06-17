@@ -500,13 +500,13 @@ a:active {
 
 .article-item {
     display: flex;
-    padding: 20px;
+    padding: 25px;
     background-color: #f9f9f9; /* Light grey background for articles */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
     transition: transform 0.3s ease-in-out;
     /* cursor: pointer; */
-    /* background: linear-gradient(90deg, #e3f0fa 25%, #b7d6ee 75%); */
+    background: linear-gradient(90deg, #f4f8fb 25%, #eaf4fb 75%);
 }
 
 .article-item:hover {
@@ -516,7 +516,7 @@ a:active {
 
 .article-image {
     flex: 1;
-    max-width: 150px;
+    max-width: 100px;
     margin-right: 20px;
 }
 
@@ -745,18 +745,19 @@ a:active {
 }
 
 .filter-btn {
-    background: #f5e9e0;
+    background: linear-gradient(90deg, #eaf4fb 0%, #d1e7f7 100%);
     border: none;
     padding: 0.6rem 1.2rem;
     border-radius: 999px;
-    color: #362f2f;
+    color: #1a2a3a;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s;
 }
 
 .filter-btn.active, .filter-btn:hover {
-    background: #e2cdb0;
+    background: linear-gradient(90deg, #3574a1 0%, #0a4486 100%);
+    color: #f4f8fb;
 }
 
 .gallery-grid {
@@ -844,15 +845,14 @@ a:active {
 /* Notice Styles */
 
 .notice {
-    /* background: linear-gradient(90deg, #e3f0fa 0%, #b7d6ee 100%); */
-    color: #22577a;
+    /* background: linear-gradient(90deg, #f4f8fb 0%, #eaf4fb 100%); */
+    color: #1a2a3a;
     font-weight: 650;
-    border-left: 5px solid #22577a;
+    border-left: 5px solid #0a4486;
     border-radius: 6px;
     padding: 0.7em 1.2em;
-    /* margin: 1.5em 0 2em 0; */
     font-size: 1.08rem;
     letter-spacing: 0.01em;
-    /* box-shadow: 0 2px 8px rgba(34, 87, 122, 0.07); */
-    /* text-align: center; */
+    /* box-shadow: 0 2px 8px rgba(123, 176, 214, 0.07);
+    text-align: center; */
 }
