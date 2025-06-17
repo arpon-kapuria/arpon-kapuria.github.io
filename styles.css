@@ -745,7 +745,7 @@ a:active {
 }
 
 .filter-btn {
-    background: linear-gradient(90deg, #eaf4fb 0%, #d1e7f7 100%);
+    background: linear-gradient(90deg, #eaf4fb 0%, #b6d5eb 100%);
     border: none;
     padding: 0.6rem 1.2rem;
     border-radius: 999px;
@@ -757,7 +757,7 @@ a:active {
 
 .filter-btn.active, .filter-btn:hover {
     background: linear-gradient(90deg, #3574a1 0%, #0a4486 100%);
-    color: #f4f8fb;
+    color: #ebf1f8;
 }
 
 .gallery-grid {
@@ -848,7 +848,7 @@ a:active {
     /* background: linear-gradient(90deg, #f4f8fb 0%, #eaf4fb 100%); */
     color: #1a2a3a;
     font-weight: 650;
-    border-left: 5px solid #0a4486;
+    border-left: 5px solid #3574a1;
     border-radius: 6px;
     padding: 0.7em 1.2em;
     font-size: 1.08rem;
