@@ -12,22 +12,21 @@
     <title>Experience | Arpon Kapuria</title>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <h1>Arpon Kapuria</h1>
-            <nav>
-                <ul>
-                    <li><a href="/index.html">About Me</a></li>
-                    <li><a href="/experience.html" style="color: #007BFF">Experiences</a></li>
-                    <!-- <li><a href="/publications.html">Publications</a></li> -->
-                    <li><a href="/blogs.html">Blogs</a></li>
-                    <li><a href="/gallery.html">Gallery</a></li>
-                    <li><a href="/docs/Resume | Arpon Kapuria.pdf" target="_blank">Resume/CV</a></li>
-                </ul>
-            </nav>
+    <!-- NAV BAR (Inspired by yuedong.us/lab/lablist/) -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-logo">Arpon Kapuria</a>
+        <button class="navbar-toggle" aria-label="Toggle navigation">&#9776;</button>
+        <div class="navbar-links">
+          <a href="index.html">About Me</a>
+          <a href="experience.html" class="active">Experience</a>
+          <!-- <a href="publications.html">Publications</a> -->
+          <a href="blogs.html">Blogs</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="/docs/Resume | Arpon Kapuria.pdf" target="_blank">Resume/CV</a>
         </div>
-        <hr class="header-divider">
-    </header>
+      </div>
+    </nav>
 
     <main class="main">
         <div class="content-container"> 
@@ -75,7 +74,7 @@
                 <div class="thesis-container">
                     <img src="/images/thesis.png" alt="BTech-Thesis" class="thesis-image">
                     <div class="thesis-content">
-                        <p><strong>Thresholding Binarized Neural Networks to Improve Accuracy in Large Language Models Training</strong></p>
+                        <p class="title"><strong>Thresholding Binarized Neural Networks to Improve Accuracy in Large Language Models Training</strong></p>
                         <p>Undergraduate Thesis – 2024 | NIT Trichy, India</p>
                         <p><a href="/docs/b-tech-thesis.pdf" target="_blank">Thesis / PDF</a></p>
                         <!-- <br> -->
@@ -91,7 +90,7 @@
                 <div class="work-container">
                     <img src="/images/amir-lab.png" alt="AMIR Lab" class="work-image">
                     <div class="work-content">
-                        <p><strong> Advanced Machine Intelligence Research (AMIR) Lab </strong></p>
+                        <p class="title"><strong> Advanced Machine Intelligence Research (AMIR) Lab </strong></p>
                         <p>Research Assistant</p>
                         <p>February 2025 – Present | Bangladesh</p>
                         <p>Investigating LLM reasoning capabilities to improve performance on complex tasks, with a focus on reducing hallucinations and achieving human-like decision-making.</p>
@@ -103,7 +102,7 @@
                 <div class="work-container">
                     <img src="/images/iitb.svg" alt="IIT Bombay" class="work-image">
                     <div class="work-content">
-                        <p><strong>Indian Institute of Technology Bombay</strong></p>
+                        <p class="title"><strong>Indian Institute of Technology Bombay</strong></p>
                         <p>Research Intern</p>
                         <p>May 2023 – July 2023 | MeDAL Lab | India</p>
                         <p>Worked on enhancing a Self-Supervised Learning Framework <a href="https://proceedings.neurips.cc/paper/2020/hash/f3ada80d5c4ee70142b17b8192b2958e-Abstract.html" target="_blank">(BYOL)</a> for better representation learning. Created a user friendly system for DICOM image anonymization.</p>
@@ -115,7 +114,7 @@
                 <div class="work-container">
                     <img src="/images/nitt.png" alt="NIT Trichy" class="work-image">
                     <div class="work-content">
-                        <p><strong>National Institute of Technology Tiruchirappalli</strong></p>
+                        <p class="title"><strong>National Institute of Technology Tiruchirappalli</strong></p>
                         <p>Undergraduate Reasearch Assistant</p>
                         <p>October 2022 – February 2023 | Industrial Automation Lab | India</p>
                         <p>Developed a Flutter app to automate the operations and billing for a power cluster in Assam, India, which serves around 200 homes. This project was funded under <i>SUSTENCE</i> , a Govt. of India initiative for carbon-neutral energy communities.</p>
@@ -131,7 +130,7 @@
                 <div class="project-container">
                     <img src="images/cold-mail.jpg" alt="cold-mail-generator" class="project-image">
                     <div class="project-content">
-                        <p><strong>Retrieval Augmented Generation (RAG) Powered Cold Email Generator</strong></p>
+                        <p class="title"><strong>Retrieval Augmented Generation (RAG) Powered Cold Email Generator</strong></p>
                         <p>April 2025 | <a href="https://github.com/arpon-kapuria/cold-mail-generator" target="_blank">Code / Instructions</a></p>
                         <p>Developed a Python and Langchain-based RAG system that generates personalized emails matching graduate applicants with professors based on research alignment. This pipeline leverages Llama-4-Maverick LLM, Jina AI embeddings and FAISS vector database with Cohere's reranker to generate highly contextual cold emails for improved response rates.</p>
                         <p><strong>Tech Used:</strong> Python, LangChain, FAISS</p>
@@ -142,7 +141,7 @@
                 <div class="project-container">
                     <img src="/images/smoke.avif" alt="thomas-shelby-smoking" class="project-image">
                     <div class="project-content">
-                        <p><strong>NoSmokeZone: AI on the Hunt for Smokers</strong></p>
+                        <p class="title"><strong>NoSmokeZone: AI on the Hunt for Smokers</strong></p>
                         <p>December 2023 – January 2024 | <a href="https://github.com/arpon-kapuria/NoSmokeZone-AI-on-the-Hunt-for-Smokers" target="_blank">Code / Instructions</a></p>
                         <p>Trained advanced CNN architectures (VGG16, ResNet-50, EfficientNetV2) and Vision Transformer for smoker detection to enhance public health surveillance. Conducted a comparative analysis to evaluate model effectiveness and identify areas for improvement.</p>
                         <p><strong>Tech Used:</strong> Python, TensorFlow, Keras, OpenCV</p>
@@ -153,7 +152,7 @@
                 <div class="project-container">
                     <img src="/images/c-compiler.png" alt="c-compiler-intermediate-code" class="project-image">
                     <div class="project-content">
-                        <p><strong>C Compiler for while loop with nested while loop and/or if-else constructs.</strong></p>
+                        <p class="title"><strong>C Compiler for while loop with nested while loop and/or if-else constructs.</strong></p>
                         <p>March 2023 – April 2023 | <a href="https://github.com/arpon-kapuria/C-Compiler-while-nested-while-if-else" target="_blank">Code / Instructions</a></p>
                         <p>Built and automated a simulation of the front-end and back-end phases of a C compiler, focusing on If-Else, While, and nested If-Else-While constructs. It covers six phases of a compiler. This project was part of an academic course Compiler Design <i>(CSPC62)</i>.</p>
                         <p><strong>Tech Used:</strong> C, Yacc, Python, Shell</p>
@@ -164,7 +163,7 @@
                 <div class="project-container">
                     <img src="images/9-box-puzzle.png" alt="9-box-puzzle" class="project-image">
                     <div class="project-content">
-                        <p><strong>9 Box Puzzle – Android App</strong></p>
+                        <p class="title"><strong>9 Box Puzzle – Android App</strong></p>
                         <p>December 2022 | <a href="https://github.com/arpon-kapuria/9-Box-Puzzle-Android-App" target="_blank">Code / Instructions</a></p>
                         <p>Developed a 9 box puzzle game in Java with a 3x3 grid, featuring an AI-driven solution using the <i>A*</i> algorithm. The game includes a home menu, how-to-play guide, optimal solution visualization, and a performance tracker based on user statistics and puzzle difficulty.</p>
                         <p><strong>Tech Used:</strong> Java, Android Studio, <i>A*</i> Algorithm</p>
@@ -175,7 +174,7 @@
                 <div class="project-container">
                     <img src="/images/malicious-website.png" alt="workflow-malicious-website-detection" class="project-image">
                     <div class="project-content">
-                        <p><strong>Malicious Website Detection using Machine Learning</strong></p>
+                        <p class="title"><strong>Malicious Website Detection using Machine Learning</strong></p>
                         <p>September 2022 – November 2022 | <a href="https://github.com/arpon-kapuria/AIML-Project" target="_blank">Code / Instructions</a></p>
                         <p>Trained a machine learning model with 94% accuracy to detect malicious websites. Built a Chrome extension using JavaScript to extract webpage features and classify sites, incorporating user feedback for continual learning. The model retrained daily, improving accuracy over time.</p>
                         <p><strong>Tech Used:</strong> Python, Flask, HTML/CSS, JavaScript, Chrome Extension Tools</p>
@@ -186,7 +185,7 @@
                 <div class="project-container">
                     <img src="/images/cube-runner.png" alt="cube-runner" class="project-image">
                     <div class="project-content">
-                        <p><strong>Cube Runner</strong></p>
+                        <p class="title"><strong>Cube Runner</strong></p>
                         <p>August 2022 | <a href="https://github.com/arpon-kapuria/Cube-Runner-Unity/tree/main/Builds/Macos/CubeRunner.app/Contents/MacOS" target="_blank">MacOS Build</a> | <a href="https://www.youtube.com/watch?v=wCKYLeuLw0c" target="_blank"> Demo / Video</a></p>
                         <p>This is the first game I created using Unity. It's a low budget <a href="https://imangistudios.com/thegames/temple-run/" target="_blank">Temple Run</a> but with a cube. It has 3 levels. With each level the the speed of the cube increases which makes it harder in the last round to finish up.
                         Inspired from - <a href="https://youtube.com/@brackeys?si=D31STlE58z4Tgb-N" target="_blank">Brackeys</a> <3 </p>

@@ -83,4 +83,15 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    // Responsive Navbar Toggle for Mobile
+    (function() {
+      var toggle = document.querySelector('.navbar-toggle');
+      var links = document.querySelector('.navbar-links');
+      if (toggle && links) {
+        toggle.addEventListener('click', function() {
+          links.classList.toggle('open');
+        });
+      }
+    })();
 });
