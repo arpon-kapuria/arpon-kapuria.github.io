@@ -344,7 +344,8 @@ a:hover {
 .social-links {
     display: flex;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 80px;
+    margin-bottom: 20px;
 }
 .links {
     list-style-type: none;
