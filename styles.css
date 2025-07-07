@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6{
 }
 .navbar-logo {
     font-family: var(--font-marker);
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: #fff;
     letter-spacing: 1px;
     text-decoration: none;
