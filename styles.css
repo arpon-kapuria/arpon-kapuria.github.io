@@ -7,7 +7,7 @@
     --color-accent: #ff7926;
 
     /* --color-bg: #ffffff; */
-    --color-bg: #121721;
+    --color-bg: #161b24;
     --color-bg-secondary: #060811;
 
     --color-bg-light: #edf2f7;
@@ -17,7 +17,7 @@
     --color-shadow-hover: rgba(30,40,60,0.13);
 
     /* --color-text: #363636; */
-    --color-text: #b0afaf;
+    --color-text: #b5b2b2;
     --color-text-dark: #152752;
     --color-text-light: #f6f4f4;
     --color-text-title: #c6c9ce;
@@ -29,7 +29,7 @@
     --font-main: 'Spectral', 'Crimson Pro', sans-serif;
     --font-serif: 'PT Serif', 'Crimson Pro', serif;
     --font-logo: "Major Mono Display", monospace, 'Permanent Marker', cursive;
-    --font-bio-title: 'Reenie Beanie', 'cursive', 'Crimson Pro', serif;
+    --font-bio-title: "Caveat", 'Reenie Beanie', 'cursive', 'Crimson Pro', serif;
     --font-mono: monospace, 'Crimson Pro', serif;
     --font-gallery: 'Inter', sans-serif;
 
@@ -281,7 +281,7 @@ a:hover {
     margin-top: 5px;
     color: var(--color-text);
     font-family: var(--font-bio-title);
-    font-size: 1.3em;
+    font-size: 1.15em;
     font-weight: 600;
     margin-left: 30px;
 }
@@ -300,13 +300,13 @@ a:hover {
     .bio-text { flex: 1; padding-right: 0; }
     .bio-image { flex: 1; width: 100%; }
     .bio-image img { width: 150px; height: 150px; margin-top:20px; margin-left: 0; }
-    .image-title { font-size: 1em; margin-left: 0; }
+    .image-title { font-size: 0.95em; margin-left: 0; }
 }
 @media (max-width: 480px) {
     .bio-container { flex-direction: column; }
     .bio-image { flex: 1; width: 100%; }
     .bio-image img { width: 130px; height: 130px; margin-left: 0; }
-    .image-title { font-size: 0.9em; }
+    .image-title { font-size: 0.8em; }
 }
 
 /* ========================================================================
@@ -464,14 +464,14 @@ a:hover {
     align-items: center;
     padding: 10px 0px 5px 0px;
     /* background: linear-gradient(270deg, var(--color-bg-light) 30%, var(--color-bg-lighter) 100%); */
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
     margin-bottom: 0.7em;
     transition: transform 0.16s, box-shadow 0.16s, border 0.16s;
 }
 .article-item:hover {
     transform: translateY(-5px) scale(1.1);
     box-shadow: var(--shadow-card-hover);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
     border: 0.5px solid #cee1ee;
     border-color: #2d87c3;
     padding: 20px 20px 20px 20px;
@@ -486,7 +486,7 @@ a:hover {
 .article-content h3 {
     font-size: 1em;
     line-height: 1.2;
-    color: #c8a17f;
+    color: 	var(--color-text-title);
     font-family: var(--font-serif);
     font-weight: 600;
     margin: 0 0 0.18em 0;
