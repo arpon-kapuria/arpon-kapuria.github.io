@@ -21,9 +21,8 @@
     --color-text-dark: #152752;
     --color-text-light: #f6f4f4;
     --color-text-title: #c6c9ce;
-    --color-muted: #7b7a7a;
     --color-gallery-overlay: rgba(60,40,20,0.7);
-    --color-border-left: #3574a1;
+    --color-notice-border-left: #6298bc;
 
     /* Fonts */
     --font-main: 'Spectral', 'Crimson Pro', sans-serif;
@@ -486,7 +485,8 @@ a:hover {
 .article-content h3 {
     font-size: 1em;
     line-height: 1.2;
-    color: 	var(--color-text-title);
+    /* color: 	var(--color-text-title); */
+    color: var(--color-notice-border-left);
     font-family: var(--font-serif);
     font-weight: 600;
     margin: 0 0 0.18em 0;
@@ -501,9 +501,9 @@ a:hover {
 .article-content h3 a:hover { color: var(--color-accent); }
 .article-date {
     font-size: 0.85em;
-    color: var(--color-muted);
     margin-top: 0.3em;
     margin-bottom: 0.1em;
+    padding-left: 2px;
     font-style: italic;
 }
 @media (max-width: 768px) {
@@ -582,7 +582,7 @@ a:hover {
     margin-bottom: 1.5rem;
 }
 .blog-post blockquote {
-    border-left: 4px solid var(--color-border-left);
+    border-left: 4px solid var(--color-notice-border-left);
     padding-left: 1rem;
     margin: 1.5rem 0 1.5rem 0;
     color: var(--color-text);
@@ -712,7 +712,7 @@ a:hover {
 
 .notice {
     color: var(--color-bg-lighter);
-    border-left: 5px solid var(--color-border-left);
+    border-left: 5px solid var(--color-notice-border-left);
     border-radius: var(--radius-notice);
     padding: 0.7em 1.2em;
     font-size: 1rem;
