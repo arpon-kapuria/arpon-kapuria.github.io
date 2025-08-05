@@ -26,9 +26,9 @@
     --color-border-left: #3574a1;
 
     /* Fonts */
-    --font-main: 'Spectral', 'Crimson Pro', 'sans-serif';
+    --font-main: 'Spectral', 'Crimson Pro', sans-serif;
     --font-serif: 'PT Serif', 'Crimson Pro', serif;
-    --font-marker: 'Permanent Marker', cursive;
+    --font-logo: "Major Mono Display", monospace, 'Permanent Marker', cursive;
     --font-bio-title: 'Reenie Beanie', 'cursive', 'Crimson Pro', serif;
     --font-mono: monospace, 'Crimson Pro', serif;
     --font-gallery: 'Inter', sans-serif;
@@ -107,7 +107,7 @@ h1, h2, h3, h4, h5, h6{
     height: 56px;
 }
 .navbar-logo {
-    font-family: var(--font-marker);
+    font-family: var(--font-logo);
     font-size: 1.5rem;
     color: #fff;
     letter-spacing: 1px;
