@@ -485,7 +485,6 @@ a:hover {
 .article-content h3 {
     font-size: 1em;
     line-height: 1.2;
-    /* color: 	var(--color-text-title); */
     color: var(--color-notice-border-left);
     font-family: var(--font-serif);
     font-weight: 600;
