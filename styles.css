@@ -2,25 +2,23 @@
    0. CSS VARIABLES (THEME)
    ======================================================================== */
 :root {
-    /* Colors */
+    /* Link colors */
     --color-link: #4a90e2;
     --color-accent: #ff7926;
 
-    /* --color-bg: #ffffff; */
-    --color-bg: #161b24;
-    --color-bg-secondary: #060811;
+    /* Navbar */
+    --color-navbar-bg: #060811;
+    --color-navbar-text: #ffffff;
 
-    --color-bg-light: #edf2f7;
-    --color-bg-lighter: #deeefc;
-    --color-border: #ddd;
+    /* Dark theme */
+    --color-dark-bg: #161b24;
+    --color-dark-text: #b5b2b2;
+    --color-dark-lighter-text: #c6c9ce;
+    --color-dark-section-border: #ddd;
+
+    /* Common colors */
     --color-shadow: rgba(30,40,60,0.07);
     --color-shadow-hover: rgba(30,40,60,0.13);
-
-    /* --color-text: #363636; */
-    --color-text: #b5b2b2;
-    --color-text-dark: #152752;
-    --color-text-light: #f6f4f4;
-    --color-text-title: #c6c9ce;
     --color-gallery-overlay: rgba(60,40,20,0.7);
     --color-notice-border-left: #6298bc;
 
@@ -57,8 +55,8 @@
 /* Base Typography & Body */
 body {
     font-family: var(--font-main);
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    background-color: var(--color-dark-bg);
+    color: var(--color-dark-text);
     font-weight: 400;
     font-size: clamp(0.92rem, 1.15vw, 1.01rem);
     line-height: 1.2;
@@ -68,11 +66,11 @@ body {
 
 h1, h2, h3, h4, h5, h6{
     font-family: inherit;
-    color: var(--color-text-title);
+    color: var(--color-dark-lighter-text);
 }
 
 .title, .title h1 {
-    color: var(--color-text-title);
+    color: var(--color-dark-lighter-text);
 }
 
 .greeting {
@@ -86,8 +84,8 @@ h1, h2, h3, h4, h5, h6{
 
 .navbar {
     width: 100%;
-    background: var(--color-bg-secondary);
-    color: #fff;
+    background: var(--color-navbar-bg);
+    color: var(--color-navbar-text);
     position: fixed;
     top: 0;
     left: 0;
@@ -108,7 +106,7 @@ h1, h2, h3, h4, h5, h6{
 .navbar-logo {
     font-family: var(--font-logo);
     font-size: 1.5rem;
-    color: #fff;
+    color: var(--color-navbar-text);
     letter-spacing: 1px;
     text-decoration: none;
 }
@@ -118,7 +116,7 @@ h1, h2, h3, h4, h5, h6{
     /* TODO: Change gap value to 1.6 when publications is added */
 }
 .navbar-links a {
-    color: #fff;
+    color: var(--color-navbar-text);
     text-decoration: none;
     font-size: 1.05rem;
     font-family: var(--font-main);
@@ -139,7 +137,7 @@ h1, h2, h3, h4, h5, h6{
     display: none;
     background: none;
     border: none;
-    color: #fff;
+    color: var(--color-navbar-text);
     font-size: 2rem;
     cursor: pointer;
     margin-left: auto;
@@ -171,7 +169,7 @@ h1, h2, h3, h4, h5, h6{
         position: absolute;
         top: 56px;
         right: 0;
-        background: #060811;
+        background: var(--color-navbar-bg);
         width: 180px;
         flex-direction: column;
         align-items: flex-start;
@@ -223,8 +221,6 @@ h1, h2, h3, h4, h5, h6{
 .content-container {
     max-width: 850px;
     margin: 0 auto;
-    background-color: var(--color-bg);
-    color: var(--color-text);
     padding: 10px clamp(7px, 5vw, 35px) clamp(10px, 5vw, 50px);
     border-radius: 8px;
     box-sizing: border-box;
@@ -278,7 +274,6 @@ a:hover {
 .bio-image img:hover { transform: scale(1.05); }
 .image-title {
     margin-top: 5px;
-    color: var(--color-text);
     font-family: var(--font-bio-title);
     font-size: 1.15em;
     font-weight: 600;
@@ -377,7 +372,7 @@ a:hover {
 }
 .links a i {
     font-size: 30px;
-    color: var(--color-bg);
+    color: var(--color-dark-bg);
 }
 .links a:hover i { color: var(--color-accent); }
 @media (max-width: 912px) {
@@ -405,7 +400,7 @@ a:hover {
     display: flex;
     margin-bottom: 5px;
     padding: 10px 0;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-dark-section-border);
 }
 .work-image, .thesis-image, .project-image {
     flex: 1;
@@ -462,7 +457,7 @@ a:hover {
     display: flex;
     align-items: center;
     padding: 10px 0px 5px 0px;
-    /* background: linear-gradient(270deg, var(--color-bg-light) 30%, var(--color-bg-lighter) 100%); */
+    /* background: linear-gradient(270deg, #edf2f7 30%, #deeefc 100%); */
     margin-bottom: 0.7em;
     transition: transform 0.16s, box-shadow 0.16s, border 0.16s;
 }
@@ -534,11 +529,9 @@ a:hover {
 
 .blog-post {
     max-width: 800px;
-    padding: 2rem 0rem 1rem 0rem;
-    background-color: var(--color-bg);
+    padding: 2rem 2rem 1rem 2rem;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    color: var(--color-text);
     font-size: clamp(0.95rem, 1.3vw, 1.05rem);
     line-height: 1.2;
     text-align: justify;
@@ -552,9 +545,10 @@ a:hover {
 }
 .modification-time {
     font-size: 0.9rem;
-    color: var(--color-text-light);
+    color: var(--color-dark-lighter-text);
     margin-bottom: 1.5rem;
     font-style: italic;
+    font-weight: 500;
 }
 .blog-post h2, .blog-post h3 {
     font-family: var(--font-mono);
@@ -584,7 +578,6 @@ a:hover {
     border-left: 4px solid var(--color-notice-border-left);
     padding-left: 1rem;
     margin: 1.5rem 0 1.5rem 0;
-    color: var(--color-text);
     font-style: italic;
 }
 @media (max-width: 480px) {
@@ -606,7 +599,7 @@ a:hover {
     padding: 10px 15px;
     text-decoration: none;
     border-radius: 5px;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-dark-section-border);
     margin: 0 5px;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -710,10 +703,11 @@ a:hover {
    ======================================================================== */
 
 .notice {
-    color: var(--color-bg-lighter);
+    color: var(--color-dark-lighter-text);
     border-left: 5px solid var(--color-notice-border-left);
     border-radius: var(--radius-notice);
     padding: 0.7em 1.2em;
     font-size: 1rem;
     letter-spacing: 0.01em;
+    font-weight: bold;
 }
