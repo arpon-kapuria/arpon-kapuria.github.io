@@ -467,7 +467,7 @@ a:hover {
 .articles-header {
     font-size: large;
     font-family: monospace, 'Crimson Pro', serif;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
 }
 .articles-list {
     display: flex;
@@ -490,6 +490,101 @@ a:hover {
     border-color: #2d87c3;
     padding: 20px 20px 20px 20px;
 }
+
+/* --------------- Container for the filters ---------------- */
+.articles-filters {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.2rem;
+    margin-bottom: 15px;
+}
+
+/* Filter buttons */
+.filter-button {
+    cursor: pointer;
+    padding: 0.3em 0.7em;
+    font-family: monospace;
+    font-weight: 600;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    border: 1.5px solid;
+    background: transparent;
+    transition: background-color 0.25s, color 0.25s;
+    user-select: none;
+    color: inherit;
+}
+
+.filter-button.active {
+    background-color: currentColor;
+}
+
+/* Individual filter button colors */
+.filter-research {
+    color: #e76f51;
+    border-color: #e76f51;
+}
+
+.filter-paper_summaries {
+    color: #f4a261;
+    border-color: #f4a261;
+}
+
+.filter-dev_journal {
+    color: #1cbaa7;
+    border-color: #1cbaa7;
+}
+
+.filter-higher_education {
+    color: #a480de;
+    border-color: #a480de;
+}
+
+/* Container for date and tags */
+.date-filters-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.3em;
+}
+
+/* Article filter tags */
+.article-filter {
+    font-family: monospace;
+    font-weight: 600;
+    font-size: 0.7rem;
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+    white-space: nowrap;
+    user-select: none;
+    margin-left: 0.5rem;
+}
+
+/* Tag background colors matching buttons but lighter */
+.article-filter.filter-research {
+    color: #e76f51;
+    background-color: rgba(231, 111, 81, 0.12);
+}
+
+.article-filter.filter-paper_summaries {
+    color: #f4a261;
+    background-color: rgba(244, 162, 97, 0.12);
+}
+
+.article-filter.filter-dev_journal {
+    color: #1cbaa7;
+    background-color: rgba(42, 157, 143, 0.12);
+}
+
+.article-filter.filter-higher_education {
+    color: #a480de;
+    background-color: rgba(216, 180, 254, 0.18);
+}
+
+.article-metadata {
+    display: flex;
+    align-items: center; /* vertical alignment */
+}
+
 .article-content {
     flex: 1;
     min-width: 0;
