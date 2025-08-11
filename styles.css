@@ -241,7 +241,7 @@ h1, h2, h3, h4, h5, h6{
 .content-container {
     max-width: 850px;
     margin: 0 auto;
-    padding: 10px clamp(7px, 5vw, 35px) clamp(10px, 5vw, 50px);
+    padding: 10px clamp(7px, 3vw, 35px) clamp(10px, 5vw, 50px);
     border-radius: 8px;
     box-sizing: border-box;
     padding-bottom: 20px;
@@ -494,8 +494,10 @@ a:hover {
 /* --------------- Container for the filters ---------------- */
 .articles-filters {
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-end;
     gap: 0.2rem;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
@@ -616,9 +618,20 @@ a:hover {
     font-style: italic;
 }
 @media (max-width: 768px) {
-    .article-content h3 { margin-top: 0 !important; }
+    .article-content h3 { 
+        margin-top: 0 !important; 
+    }
+    .filter-button {
+        font-size: 0.6rem;
+    }
+    .article-filter {
+        font-size: 0.6rem;
+    }
 }
 @media (max-width: 480px) {
+    .filter-button {
+        font-size: 0.55rem;
+    }
     .article-item {
         flex-direction: column;
         align-items: flex-start;
@@ -631,9 +644,15 @@ a:hover {
         width: 100%;
         font-size: 0.88em;
     }
+    .article-metadata {
+        padding-bottom: 0.7em;
+    }
+    .article-filter {
+        font-size: 0.6rem;
+        
+    }
     .article-date {
         font-size: 1em;
-        padding-bottom: 0.7em;
     }
 }
 
