@@ -3,7 +3,7 @@
    ======================================================================== */
 :root {
     /* Link colors */
-    --color-link: #4a90e2;
+    --color-link: #3b91cf;
     --color-accent: #ff7926;
 
     /* Navbar */
@@ -19,20 +19,20 @@
     /* Light theme */
     --color-light-bg: #ffffff;
     --color-light-text: #363636;
+    --color-light-bright-link-title: #2a75ab;
 
     /* Common colors */
     --color-shadow: rgba(30,40,60,0.07);
     --color-shadow-hover: rgba(30,40,60,0.13);
     --color-gallery-overlay: rgba(60,40,20,0.7);
     --color-notice-border-left: #6298bc;
-
+    
     /* Fonts */
     --font-main: 'Spectral', 'Crimson Pro', sans-serif;
     --font-serif: 'PT Serif', 'Crimson Pro', serif;
     --font-logo: "Major Mono Display", monospace, 'Permanent Marker', cursive;
     --font-bio-title: "Caveat", 'Reenie Beanie', 'cursive', 'Crimson Pro', serif;
     --font-mono: monospace, 'Crimson Pro', serif;
-    --font-gallery: 'Inter', sans-serif;
 
     /* Border radius */
     --radius-card: 12px;
@@ -107,6 +107,19 @@ h1, h2, h3, h4, h5, h6{
     padding: 0 2rem;
     height: 56px;
 }
+.navbar-logo-switch {
+    display: flex;
+    align-items: center;
+}
+
+#theme-toggle {
+    cursor: pointer;
+    font-size: 1.25rem; 
+    margin-top: 0.5px;
+    margin-left: 20px; 
+    vertical-align: middle;
+}
+
 .navbar-logo {
     font-family: var(--font-logo);
     font-size: 1.5rem;
@@ -147,13 +160,6 @@ h1, h2, h3, h4, h5, h6{
     margin-left: auto;
     z-index: 200;
 }
-
-@media (min-width: 768px) {
-    .navbar-links a.active {
-        border-bottom: 2px solid var(--color-link);
-    }
-}
-
 @media (max-width: 900px) {
     .navbar-container {
         flex-direction: row;
@@ -165,6 +171,12 @@ h1, h2, h3, h4, h5, h6{
     .navbar-logo {
         margin-left: 0;
         font-size: 1.1rem;
+    }
+    #theme-toggle {
+        font-size: 1rem; 
+        margin-top: 1.5px;
+        margin-left: 12px; /* adjust space between text and icon */
+        vertical-align: middle;
     }
     .navbar-toggle {
         display: block;
@@ -198,7 +210,11 @@ h1, h2, h3, h4, h5, h6{
         border-bottom: none;
     }
 }
-
+@media (min-width: 768px) {
+    .navbar-links a.active {
+        border-bottom: 2px solid var(--color-link);
+    }
+}
 @media (max-width: 480px) {
     .navbar-links {
         width: 100vw;
@@ -486,7 +502,7 @@ a:hover {
     line-height: 1.2;
     color: var(--color-notice-border-left);
     font-family: var(--font-serif);
-    font-weight: 600;
+    font-weight: 450;
     margin: 0 0 0.18em 0;
     letter-spacing: 0.01em;
 }
@@ -663,8 +679,7 @@ a:hover {
     position: absolute;
     bottom: 0; left: 0; right: 0;
     background: linear-gradient(0deg, var(--color-gallery-overlay) 50%, transparent 100%);
-    color: #fff;
-    font-family: var(--font-gallery);
+    color: var(--color-dark-lighter-text);
     padding: 0.7rem 1rem;
     opacity: 1;
     transition: opacity 0.3s;
@@ -673,7 +688,7 @@ a:hover {
     letter-spacing: 0.01em;
 }
 .gallery-caption h3 {
-    color: var(--color-dark-lighter-text);
+    color: var(--color-light-bg);
 }
 
 @media (hover: none) and (pointer: coarse), (max-width: 700px) {
@@ -715,4 +730,42 @@ a:hover {
     font-size: 1rem;
     letter-spacing: 0.01em;
     font-weight: bold;
+}
+
+/* ========================================================================
+   14. LIGHT THEME OVERRIDE
+   ======================================================================== */
+
+body.light-theme {
+    background-color: var(--color-light-bg);
+    color: var(--color-light-text);
+}
+
+body.light-theme a {
+    font-weight: 450;
+}
+
+body.light-theme a:hover {
+    font-weight: bold;
+}
+
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme h6,
+body.light-theme .title,
+body.light-theme .title h1,
+body.light-theme .modification-time,
+body.light-theme .notice {
+    color: var(--color-light-text);
+}
+
+body.light-theme .article-content h3 {
+    color: var(--color-light-bright-link-title);
+}
+
+body.light-theme .gallery-caption h3 {
+    color: var(--color-light-bg);
 }

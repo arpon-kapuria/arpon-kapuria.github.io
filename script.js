@@ -94,4 +94,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
     })();
+
+    // Theme Toggle logic
+    const toggleBtn = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    function updateToggleTitle() {
+        if (body.classList.contains("light-theme")) {
+            toggleBtn.title = "Switch to Dark Mode";
+        } else {
+            toggleBtn.title = "Switch to Light Mode";
+        }
+    }
+
+    // Load saved theme or default to 'light'
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        body.classList.remove("light-theme");
+        toggleBtn.style.color = "#f5f5f5"; // icon color for dark
+    } else {
+        // Default to light theme
+        body.classList.add("light-theme");
+        toggleBtn.style.color = "#6298bc"; // icon color for light
+    }
+    updateToggleTitle();
+
+    // Toggle on click
+    toggleBtn.addEventListener("click", () => {
+        body.classList.toggle("light-theme");
+        if (body.classList.contains("light-theme")) {
+            toggleBtn.style.color = "#6298bc";
+            localStorage.setItem("theme", "light");
+        } else {
+            toggleBtn.style.color = "#f5f5f5";
+            localStorage.setItem("theme", "dark");
+        }
+        updateToggleTitle();
+    });
 });
