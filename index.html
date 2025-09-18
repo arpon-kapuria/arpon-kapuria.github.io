@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Major+Mono+Display&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Permanent+Marker&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Iceland&family=Caveat:wght@400..700&family=Major+Mono+Display&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Permanent+Marker&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Reenie+Beanie&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -36,33 +36,33 @@
     <main class="main">
         <div class="content-container">
             <p class="greeting"><b>Hey there !</b></p>
+            
+            <div class="about-container">
+                <div class="bio-image-container">
+                    <div id="intro" class="bio-text">
+                        <br>
+                        <p> I’m Arpon, from Bangladesh — a Computer Science graduate on paper and a traveler at heart. I find joy in building intelligent systems as much as I do in exploring new places and cultures.</p> <br>
+                        
+                        <p> I completed my B.Tech in Computer Science & Engineering from <a href="https://www.nitt.edu/" target="_blank">NIT Trichy</a>, India in August 2024. I was a recipient of the ICCR <a href="https://www.iccr.gov.in/" target="_blank">(Indian Council for Cultural Relations)</a> scholarship in 2020. During my undergraduate studies, I interned at <a href="https://www.iitb.ac.in/" target="_blank">IIT Bombay</a>'s <a href="https://www.ee.iitb.ac.in/web/labs/medical-deep-learning-and-artificial-intelligence-lab-medal/" target="_blank">MeDAL</a> Lab, where I worked on contrastive learning methods for self-supervised image representation learning. Currently, I am working as a Research Assistant at the <a href="https://amirl.org/" target="_blank">Advanced Machine Intelligence Research Lab </a>(AMIR Lab) .</p>
 
-            <div class="bio-container">
-                
-                <div id="intro" class="bio-text">
-                    <br>
-                    <p> I’m Arpon, from Bangladesh — a Computer Science graduate on paper and a traveler at heart. I find joy in building intelligent systems as much as I do in exploring new places and cultures.</p> <br>
-                    
-                    <p> I completed my B.Tech in Computer Science & Engineering from <a href="https://www.nitt.edu/" target="_blank">NIT Trichy</a>, India in August 2024. I was a recipient of the ICCR <a href="https://www.iccr.gov.in/" target="_blank">(Indian Council for Cultural Relations)</a> scholarship in 2020. During my undergraduate studies, I interned at <a href="https://www.iitb.ac.in/" target="_blank">IIT Bombay</a>'s <a href="https://www.ee.iitb.ac.in/web/labs/medical-deep-learning-and-artificial-intelligence-lab-medal/" target="_blank">MeDAL</a> Lab, where I worked on contrastive learning methods for self-supervised image representation learning. Currently, I am working as a Research Assistant at the <a href="https://amirl.org/" target="_blank">Advanced Machine Intelligence Research Lab </a>(AMIR Lab) .</p>
+                    </div>
 
+                    <div class="bio-image">
+                        <img id="profile-image" src="/images/udaipur.PNG" alt="arpon-kapuria-convocation-day">
+                        <p class="image-title"> Rajasthan, India ' 2024</p>
+                    </div>
+
+                    <!-- The modal overlay for the enlarged image -->
+                    <div id="image-modal" class="modal">
+                        <span id="close-modal">&times;</span>
+                        <img class="modal-content" id="enlarged-image">
+                    </div>
                 </div>
 
-                <div class="bio-image">
-                    <img id="profile-image" src="/images/udaipur.PNG" alt="arpon-kapuria-convocation-day">
-                    <p class="image-title"> Rajasthan, India ' 2024</p>
-                </div>
+                <p class="bio-text"> My primary interest lies in designing efficient and robust model architectures that can learn meaningful representations across diverse modalities. Lately, I have been drawn to language modeling, with a focus on trustworthiness through hallucination mitigation, retrieval-augmented generation and enhancing reasoning capabilities. My long term goal is to develop AI systems with human-level reasoning and grounded intelligence, capable of trustworthy autonomous decision-making. When I'm not working, you’ll probably find me solving problems on <a href="https://leetcode.com/u/arpon_" target="_blank">LeetCode</a> or <a href="https://www.deep-ml.com/profile/4WGysk4rhvMuA2rWEkH2KaIHTv93">Deep-ML</a>.</p>
 
-                <!-- The modal overlay for the enlarged image -->
-                <div id="image-modal" class="modal">
-                    <span id="close-modal">&times;</span>
-                    <img class="modal-content" id="enlarged-image">
-                </div>
-                
+                <p class="bio-text">Feel free to reach out if you’re up for a collab or just want to chat about tech, travel or anything !</p>
             </div>
-
-            <p class="bio-text"> My primary interest lies in designing efficient and robust model architectures that can learn meaningful representations across diverse modalities. Lately, I have been drawn to language modeling, with a focus on trustworthiness through hallucination mitigation, retrieval-augmented generation and enhancing reasoning capabilities. My long term goal is to develop AI systems with human-level reasoning and grounded intelligence, capable of trustworthy autonomous decision-making. When I'm not working, you’ll probably find me solving problems on <a href="https://leetcode.com/u/arpon_" target="_blank">LeetCode</a> or <a href="https://www.deep-ml.com/profile/4WGysk4rhvMuA2rWEkH2KaIHTv93">Deep-ML</a>.</p>
-
-            <p class="bio-text">Feel free to reach out if you’re up for a collab or just want to chat about tech, travel or anything !</p>
 
             <div class="social-links">
                 <ul class="links">
@@ -73,13 +73,77 @@
                     <li><a href="https://www.facebook.com/everythinissoweird" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a></li>
                 </ul>
             </div>
-                      
-            
-            
-            
+
+            <div class="recent-news-container">
+                <h2 class="greeting">Recent News</h2>
+
+                <div class="news-box">
+
+                    <ul class="news-list">
+                        <li>
+                            <span class="news-date">2025 | July</span>
+                            <span class="news-event">Posted a beginner's guide on <a href="https://azure-lamb-4e6.notion.site/Open-Source-Contribution-Beginner-s-Guide-241db05ef512803ea054f771bf33e098" target="_blank">Open Source Contribution</a>, including a contribution to HuggingFace !</span>
+                        </li>
+                        <li>
+                            <span class="news-date">2025 | June</span>
+                            <span class="news-event">Posted short summaries of three RAG-based papers: <a href="https://azure-lamb-4e6.notion.site/RULE-Reliable-Multimodal-RAG-for-Factuality-in-Medical-Vision-Language-Models-219db05ef51280c78cbaf07f7d188da4" target="_blank">RULE</a>, <a href="https://azure-lamb-4e6.notion.site/Rationale-Guided-Retrieval-Augmented-Generation-for-Medical-Question-Answering-218db05ef512804dad87d319e3e0236b" target="_blank">Rationale Guided RAG</a> and <a href="https://azure-lamb-4e6.notion.site/ConSens-Assessing-Context-Grounding-in-Open-Book-Question-Answering-217db05ef5128035a972ef920b7540e0" target="_blank">ConSens</a> !</span>
+                        </li>
+                        <li>
+                            <span class="news-date">2025 | June</span>
+                            <span class="news-event">Launched a <a href="./gallery.html" target="_blank">Gallery</a> section on my website featuring photos from my tours !</span>
+                        </li>
+                        <li>
+                            <span class="news-date">2025 | April</span>
+                            <span class="news-event">Try out this <a href="https://github.com/arpon-kapuria/cold-mail-generator" target="_blank">Cold Email Generator</a> I made using RAG !</span>
+                        </li>
+                        <li>
+                            <span class="news-date">2025 | January</span>
+                            <span class="news-event">Joined <strong style="color: red;">AMIR Lab</strong> as a Research Assistant. I will be working on improving reasoning, decision-making and trustworthiness in vision/language models !</span>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="news-list">
+                        <li>
+                            <span class="news-date">2024 | November</span>
+                            <span class="news-event">Posted an article on <a href="./Blogs/ielts-study-plan.html" target="_blank">IELTS Preparation</a> including materials and study plan !</span>
+                        </li>
+                        <li>
+                            <span class="news-date">2024 | November</span>
+                            <span class="news-event">Posted an article on step-by-step <a href="./Blogs/gre-study-plan.html" target="_blank">GRE Preparation</a> with materials and strategies !</span>
+                        </li>
+                        <li>
+                            <span class="news-date">2024 | August</span>
+                            <span class="news-event"><strong style="color: red;">Graduated</strong> from NIT Trichy, India with a B.Tech degree in Computer Science and Engineering.</span>
+                        </li>
+                    </ul>
+
+                    <ul class="news-list">
+                        <li>
+                            <span class="news-date">2023 | November</span>
+                            <span class="news-event">Posted a short note on <a href="https://azure-lamb-4e6.notion.site/Self-Supervised-Learning-SSL-253db05ef51280c58d5fd979aae445a4?source=copy_link" target="_blank">Self Supervised Learning (SSL) !</a></span>
+                        </li>
+                        <li>
+                            <span class="news-date">2023 | May</span>
+                            <span class="news-event"> Will be spending the summer at <strong style="color: red;">IIT Bombay</strong> as a Reaserch Intern !</span>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+
         </div>
     </main>
+
+    <footer>
+        <div class="footer-container">
+            <p class="copyright">© 2025 Arpon Kapuria. MIT License</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
