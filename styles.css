@@ -78,18 +78,6 @@ h1, h2, h3, h4, h5, h6{
     color: var(--color-dark-lighter-text);
 }
 
-.greeting {
-    padding-bottom: 5px;
-    font-family: monospace, 'Crimson Pro', serif;
-    font-size: large;
-}
-
-@media (max-width: 900px) {
-    .greeting {
-        font-size: medium;
-    }
-}
-
 
 /* ========================================================================
                                 HEADER & NAVIGATION
@@ -245,6 +233,7 @@ h1, h2, h3, h4, h5, h6{
 .main {
     padding: clamp(10px, 4vw, 20px);
     flex: 1;
+    min-height: 100vh;
 }
 
 .content-container {
@@ -276,6 +265,18 @@ a:hover {
                                 BIO SECTION
    ======================================================================== */
 
+.greeting {
+    padding-bottom: 5px;
+    font-family: monospace, 'Crimson Pro', serif;
+    font-size: large;
+}
+
+@media (max-width: 900px) {
+    .greeting {
+        font-size: medium;
+    }
+}
+
 .about-container {
     margin-bottom: 40px;
 }
@@ -283,11 +284,12 @@ a:hover {
 .bio-image-container {
     display: flex;
     /* align-items: flex-start; */
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    margin-top: 20px;
 }
 .bio-text {
     flex: 2;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     text-align: justify;
 }
 
@@ -298,11 +300,11 @@ a:hover {
     align-items: center;
 }
 .bio-image img {
-    margin-top: 30px;
+    /* margin-top: 35px; */
     max-width: 100%;
     margin-left: 30px;
-    width: 190px;
-    height: 190px;
+    width: 185px;
+    height: 185px;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
@@ -314,14 +316,17 @@ a:hover {
     font-weight: 600;
     margin-left: 30px;
 }
-@media (max-width: 1024px) {
-    #intro {
-        margin-top: 10px;
-    }
+@media (max-width: 1356px) {
     .bio-image img {
-        margin-top: 30px;
-        width: 170px;
-        height: 170px;   
+        width: 160px;
+        height: 160px;   
+    }
+}
+@media (max-width: 1024px) {
+    .bio-image img {
+        /* margin-top: 30px; */
+        width: 160px;
+        height: 160px;   
     }
 }
 @media (max-width: 768px) {
@@ -487,11 +492,11 @@ a:hover {
     color: var(--color-link);
 }
 
-/* Event column */
-/* .news-event {
-    font-style: italic;
-} */
-
+@media (max-width: 768px) {
+    .news-list li {
+        grid-template-columns: 125px 1fr; /* left fixed width, right flexible */
+    }
+}
 /* ========================================================================
                             EXPERIENCE & PROJECTS
    ======================================================================== */
@@ -548,7 +553,8 @@ a:hover {
 .articles-header {
     font-size: large;
     font-family: monospace, 'Crimson Pro', serif;
-    margin-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 .articles-list {
     display: flex;
@@ -572,11 +578,36 @@ a:hover {
     padding: 20px 20px 20px 20px;
 }
 
+@media (max-width: 768px) {
+    .articles-header {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .articles-header {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+}
+
 /* --------------- Container for the filters ---------------- */
-.articles-filters {
+
+.article-tag-icon {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.25rem;
+    padding-right: 10px;
+}
+
+/* Mirror the icon */
+.article-tag-icon i.mirrored {
+    transform: scaleX(-1); /* flips horizontally */
+}
+.article-filter-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 0.2rem;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -588,7 +619,7 @@ a:hover {
     padding: 0.3em 0.7em;
     font-family: monospace;
     font-weight: 600;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     border-radius: 4px;
     border: 1.5px solid;
     background: transparent;
@@ -692,7 +723,7 @@ a:hover {
     margin-top: 0;
 }
 .article-content h3 a:hover { color: var(--color-accent); }
-.article-date {
+.article-metadata-date {
     font-size: 0.85em;
     margin-top: 0.3em;
     margin-bottom: 0.1em;
@@ -700,19 +731,25 @@ a:hover {
     font-style: italic;
 }
 @media (max-width: 768px) {
+    .article-tag-icon {
+        padding-right: 5px;
+    }
     .article-content h3 { 
         margin-top: 0 !important; 
     }
     .filter-button {
-        font-size: 0.6rem;
+        font-size: 0.55rem;
     }
     .article-filter {
-        font-size: 0.6rem;
+        font-size: 0.55rem;
     }
 }
 @media (max-width: 480px) {
+    .article-tag-icon {
+        padding-right: 3px;
+    }
     .filter-button {
-        font-size: 0.55rem;
+        font-size: 0.5rem;
     }
     .article-item {
         flex-direction: column;
@@ -730,10 +767,10 @@ a:hover {
         padding-bottom: 0.7em;
     }
     .article-filter {
-        font-size: 0.6rem;
+        font-size: 0.5rem;
         
     }
-    .article-date {
+    .article-metadata-date {
         font-size: 1em;
     }
 }
@@ -934,7 +971,6 @@ a:hover {
 
 .footer-container {
     margin: 0;
-    box-sizing: border-box;
     padding: 3rem 0 1.5rem;
     text-align: center;
     font-weight: 500;
