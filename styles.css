@@ -463,9 +463,9 @@ a:hover {
 
 /* Scrollable news box */
 .news-box {
-    max-height: 250px;          /* height of the box */
+    max-height: 245px;          /* height of the box */
     overflow-y: auto;           /* scroll if content exceeds */
-    border: 1px solid;
+    border-top: 1px solid;
     border-radius: 5px;
     padding: 1rem;
     scroll-behavior: smooth;
