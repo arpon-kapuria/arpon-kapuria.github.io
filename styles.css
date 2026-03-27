@@ -126,7 +126,7 @@ h1, h2, h3, h4, h5, h6{
 }
 .navbar-links {
     display: flex;
-    gap: 2rem;
+    gap: 1.6rem;
     /* TODO: Change gap value to 1.6 when publications is added */
 }
 .navbar-links a {
@@ -951,6 +951,53 @@ a:hover {
 @media (max-width: 400px) {
     .filter-btn { font-size: 0.85rem; padding: 0.22rem 0.5rem; min-width: 54px; }
 }
+
+/* ========================================================================
+                            RESOURCES SECTION
+   ======================================================================== */
+
+.resource-section {
+  margin-bottom: 2rem;
+}
+
+.resource-section h2 {
+  font-size: larger;
+  margin-top: 2rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-mono);
+}
+
+.resource-subsection {
+  margin-bottom: 0.75rem;
+}
+
+.resource-subsection h3 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  font-family: var(--font-mono);
+}
+
+.resource-subsection ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resource-subsection ul li {
+  padding: 0.2rem 0;
+  margin-left: 1.5rem;
+}
+
+.resource-subsection ul li a {
+  text-decoration: none;
+  color: var(--color-link);
+}
+
+.resource-subsection ul li a:hover {
+  text-decoration: underline;
+}
+
+
 
 /* ========================================================================
                                     NOTICE
