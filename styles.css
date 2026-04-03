@@ -512,9 +512,9 @@ a:hover {
 .work-image, .thesis-image, .project-image {
     flex: 1;
     max-width: 120px;
-    max-height: 120px;
+    max-height: 150px;
     margin-right: 20px;
-    margin-top: 15px;
+    align-self: center;
 }
 .thesis-image { padding-top: 5px; max-height: 150px; }
 .work-content, .thesis-content, .project-content { flex: 3; }
@@ -536,7 +536,7 @@ a:hover {
     .work-image, .thesis-image, .project-image {
         margin-right: 0;
         margin-bottom: 10px;
-        max-width: 120px;
+        max-width: 60px;
         max-height: 120px;
     }
     .work-content, .thesis-content, .project-content { flex: none; }
