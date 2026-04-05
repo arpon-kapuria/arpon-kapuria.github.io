@@ -22,26 +22,7 @@
     </script>
 </head>
 <body>
-    <!-- NAV BAR (Inspired by yuedong.us/lab/lablist/) -->
-    <nav class="navbar">
-      <div class="navbar-container">
-        <div class="navbar-logo-switch">
-            <a href="index.html" class="navbar-logo">Arpon Kapuria</a>
-            <i id="theme-toggle" class="fas fa-adjust"></i>
-        </div>
-
-        <button class="navbar-toggle" aria-label="Toggle navigation">&#9776;</button>
-        <div class="navbar-links">
-          <a href="index.html">About Me</a>
-          <a href="experience.html" class="active">Experience</a>
-          <!-- <a href="publications.html">Publications</a> -->
-          <a href="blogs.html">Writings</a>
-          <a href="gallery.html">Gallery</a>
-          <a href="resources.html">Resources</a>
-          <a href="/docs/arpon-kapuria-CV.pdf" target="_blank">CV</a>
-        </div>
-      </div>
-    </nav>
+    <div id="navbar"></div>
 
     <main class="main">
         <div class="content-container"> 
@@ -81,22 +62,21 @@
                 </div>
             </div>
     -->
-
-            <div class="experience-container">
+            
+            <!-- Bachelor's Thesis -->
+            <!-- <div class="experience-container">
                 <h2 class="experience-sections-header">Bachelor's Thesis</h2>
 
-                <!-- Bachelor's Thesis -->
                 <div class="thesis-container">
                     <img src="/images/thesis.png" alt="BTech-Thesis" class="thesis-image">
                     <div class="thesis-content">
                         <p class="title"><strong>Thresholding Binarized Neural Networks to Improve Accuracy in Large Language Models Training</strong></p>
                         <p>Undergraduate Thesis – 2024 | NIT Trichy, India</p>
                         <p><a href="/docs/b-tech-thesis.pdf" target="_blank">Thesis / PDF</a></p>
-                        <!-- <br> -->
                         <p>Under the supervision of <a href="https://www.nitt.edu/home/academics/departments/cse/faculty/nrs/" target="_blank">Prof. N Ramasubramanian</a>, my team and I worked on improving accuracy during a large- language model training while reducing the model size. We developed a thresholding mechanism that compressed the model while enhancing its overall performance.</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
     
             <div class="experience-container">
                 <h2 class="experience-sections-header">Work Experience</h2>
@@ -159,7 +139,7 @@
                         <p class="title"><strong>Retrieval Augmented Generation (RAG) Powered Cold Email Generator</strong></p>
                         <p>April 2025 | <a href="https://github.com/arpon-kapuria/cold-mail-generator" target="_blank">Code / Instructions</a></p>
                         <p>Developed a Python and Langchain-based RAG system that generates personalized emails matching graduate applicants with professors based on research alignment. This pipeline leverages Llama-4-Maverick chat model (Groq AI), Jina AI Embeddings model and Cohere's Reranker to generate highly contextual cold emails for improved response rates.</p>
-                        <p><strong>Tech Used:</strong> Python, LangChain, FAISS (Vector DB)</p>
+                        <p><strong>Tech Used:</strong> Python, LangChain, FAISS (Vector DB), BeautifulSoup4</p>
                     </div>
                 </div>
 
@@ -226,12 +206,9 @@
         </div>
     </main>
 
-    <footer>
-        <div class="footer-container">
-            <p class="copyright">© 2025 Arpon Kapuria. MIT License</p>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
-    <script src="script.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/loadComponents.js"></script>
 </body>
 </html>
