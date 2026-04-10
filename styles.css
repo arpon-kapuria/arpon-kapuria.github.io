@@ -145,6 +145,12 @@ h1, h2, h3, h4, h5, h6{
     /* border-bottom: 2px solid var(--color-link); */
 }
 
+.nav-inline-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem; /* very tight spacing */
+}
+
 /* ===================== NAVBAR DROPDOWN FOR MOBILE ===================== */
 
 .navbar-toggle {
@@ -157,7 +163,7 @@ h1, h2, h3, h4, h5, h6{
     margin-left: auto;
     z-index: 200;
 }
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .navbar-container {
         flex-direction: row;
         height: 56px;
@@ -199,12 +205,26 @@ h1, h2, h3, h4, h5, h6{
     }
     .navbar-links a {
         width: 100%;
-        padding: 0.8em 1.2em;
+        padding: 0.8em 0.7em;
         font-size: 1rem;
         border-bottom: 1px solid #222a3a;
     }
     .navbar-links a:last-child {
         border-bottom: none;
+    }
+
+    .nav-inline-group {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.8em 0.7em;  
+    }
+
+    .nav-inline-group a {
+        width: auto; 
+        padding: 0;
+        border-bottom: none;    
     }
 }
 @media (min-width: 768px) {
@@ -222,7 +242,7 @@ h1, h2, h3, h4, h5, h6{
     }
     .navbar-links a {
         font-size: 0.98rem;
-        padding: 0.8em 0.7em;
+        /* padding: 0.8em 0.7em; */
     }
 }
 
@@ -551,7 +571,7 @@ a:hover {
     margin-bottom: 20px;
     text-align: justify;
 }
-.articles-header {
+.article-sections-header {
     font-size: large;
     font-family: monospace, 'Crimson Pro', serif;
     margin-top: 40px;
@@ -956,15 +976,11 @@ a:hover {
                             RESOURCES SECTION
    ======================================================================== */
 
-.resource-section {
-  margin-bottom: 2rem;
-}
-
-.resource-section h2 {
-  font-size: larger;
-  margin-top: 2rem;
-  margin-bottom: 1.25rem;
-  font-family: var(--font-mono);
+.resources-sections-header {
+    font-size: larger;
+    font-family: monospace, 'Crimson Pro', serif;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .resource-subsection {
@@ -977,15 +993,9 @@ a:hover {
   font-family: var(--font-mono);
 }
 
-.resource-subsection ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 .resource-subsection ul li {
   padding: 0.2rem 0;
-  margin-left: 1.5rem;
+  margin-left: 2rem;
 }
 
 .resource-subsection ul li a {
