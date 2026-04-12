@@ -647,6 +647,7 @@ a:hover {
     transition: background-color 0.25s, color 0.25s;
     user-select: none;
     color: inherit;
+    letter-spacing: 0.13em;
 }
 
 .filter-button.active {
@@ -759,7 +760,8 @@ a:hover {
         margin-top: 0 !important; 
     }
     .filter-button {
-        font-size: 0.55rem;
+        font-size: 0.5rem;
+        letter-spacing: 0.08em;
     }
     .article-filter {
         font-size: 0.55rem;
@@ -771,6 +773,7 @@ a:hover {
     }
     .filter-button {
         font-size: 0.5rem;
+        letter-spacing: 0.04em;
     }
     .article-item {
         flex-direction: column;
@@ -980,7 +983,7 @@ a:hover {
     font-size: larger;
     font-family: monospace, 'Crimson Pro', serif;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .resource-subsection {
