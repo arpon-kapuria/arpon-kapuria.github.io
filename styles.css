@@ -327,9 +327,19 @@ a:hover {
     width: 185px;
     height: 185px;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out;
+
+    /* Optimization */
+    will-change: transform;
+    transform: translateZ(0); 
+    
+    /* The "Buttery" Transition */
+    transition: 
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.bio-image img:hover { transform: scale(1.05); }
+.bio-image img:hover {
+    transform: scale(1.05);
+}
 .image-title {
     margin-top: 7px;
     font-family: var(--font-bio-title);
