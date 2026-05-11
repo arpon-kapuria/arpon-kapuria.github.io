@@ -50,81 +50,102 @@ window.UI = (function () {
     });
   }
 
-  // Profile image slideshow
-  function initProfileSlideshow() {
+  // Image Modal for profile picture 
+  function initImageModal() {
     const img = document.getElementById("profile-image");
-    const title = document.querySelector(".image-title");
 
     const modal = document.getElementById("image-modal");
     const modalImg = document.getElementById("enlarged-image");
     const closeBtn = document.getElementById("close-modal");
 
-    if (!img) return;
+    if (!img || !modal || !modalImg || !closeBtn) return;
 
-    const slides = [
-      {
-        src: "/images/udaipur.PNG",
-        title: "Rajasthan, India ' 2024"
-      },
-      {
-        src: "/images/arpon-kapuria-face-gemini.png",
-        title: "Gemini Enhanced Portrait"
-      }
-    ];
+    // Open modal
+    img.addEventListener("click", () => {
+      modal.style.display = "block";
 
-    let index = 0;
-    let interval = null;
-
-    // Preload (avoids flicker)
-    slides.forEach(s => {
-      const i = new Image();
-      i.src = s.src;
+      // Always use current visible image
+      modalImg.src = img.src;
     });
 
-    function showSlide(i) {
-      img.style.opacity = 0;
+    // Close button
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
 
-      setTimeout(() => {
-        img.src = slides[i].src;
-        if (title) title.textContent = slides[i].title;
-        img.style.opacity = 1;
-      }, 300);
-    }
-
-    function start() {
-      interval = setInterval(() => {
-        index = (index + 1) % slides.length;
-        showSlide(index);
-      }, 5000);
-    }
-
-    function stop() {
-      clearInterval(interval);
-    }
-
-    // ▶ start slideshow
-    start();
-
-    // ✅ Pause on hover
-    img.addEventListener("mouseenter", stop);
-    img.addEventListener("mouseleave", start);
-
-    // ✅ Modal (always uses correct current slide)
-    if (modal && modalImg && closeBtn) {
-      img.addEventListener("click", () => {
-        modal.style.display = "block";
-        modalImg.src = slides[index].src;
-      });
-
-      closeBtn.onclick = () => {
+    // Click outside closes modal
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
         modal.style.display = "none";
-      };
-
-      modal.onclick = (e) => {
-        if (e.target === modal) modal.style.display = "none";
-      };
-    }
+      }
+    });
   }
+
+
+  // // Profile Image Slideshow 
+  // function initProfileSlideshow() {
+  //   const img = document.getElementById("profile-image");
+  //   const title = document.querySelector(".image-title");
+
+  //   if (!img) return;
+
+  //   const slides = [
+  //     {
+  //       src: "/images/udaipur.PNG",
+  //       title: "Rajasthan, India ' 2024"
+  //     },
+  //     {
+  //       src: "/images/arpon-kapuria-face-gemini.png",
+  //       title: "Gemini Enhanced Portrait"
+  //     }
+  //   ];
+
+  //   let index = 0;
+  //   let interval = null;
+
+  //   // Preload images
+  //   slides.forEach((slide) => {
+  //     const preload = new Image();
+  //     preload.src = slide.src;
+  //   });
+
+  //   function showSlide(i) {
+  //     img.style.opacity = 0;
+
+  //     setTimeout(() => {
+  //       img.src = slides[i].src;
+
+  //       if (title) {
+  //         title.textContent = slides[i].title;
+  //       }
+
+  //       img.style.opacity = 1;
+  //     }, 300);
+  //   }
+
+  //   function start() {
+  //     stop();
+
+  //     interval = setInterval(() => {
+  //       index = (index + 1) % slides.length;
+  //       showSlide(index);
+  //     }, 5000);
+  //   }
+
+  //   function stop() {
+  //     clearInterval(interval);
+  //   }
+
+  //   // Initial slide
+  //   showSlide(index);
+
+  //   // Start slideshow
+  //   start();
+
+  //   // Pause on hover
+  //   img.addEventListener("mouseenter", stop);
+  //   img.addEventListener("mouseleave", start);
+  // }
 
   // Renders gallery and initializes related features
   function initGallery() {
@@ -265,7 +286,8 @@ window.UI = (function () {
 
   // Initializes page-specific features
   function initPage() {
-    initProfileSlideshow();
+    initImageModal();
+    // initProfileSlideshow();
     initGallery();
     initArticleFilters();
   }
