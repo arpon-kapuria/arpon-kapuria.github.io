@@ -960,9 +960,7 @@ a:hover {
 
     .blog-metadata {
         font-size: 13px;
-
         gap: 4px;
-
         margin-bottom: 15px;
     }
 
@@ -980,7 +978,14 @@ a:hover {
     .blog-metadata .theme-toggle i {
         font-size: 0.95rem;
     }
+}
 
+@media (max-width: 386px) {
+    .blog-metadata {
+        font-size: 12px;
+        /* gap: 4px;
+        margin-bottom: 15px; */
+    }
 }
 
 /* ========================================================================
