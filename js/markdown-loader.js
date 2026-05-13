@@ -136,9 +136,6 @@ function initReadingTime() {
   // Minimum 1 minute
   readingTime = Math.max(1, readingTime);
 
-  // Add 2 minute buffer
-  readingTime += 1;
-
   // Render
   readingTimeElement.innerText =
     `${readingTime} min read`;
@@ -151,7 +148,7 @@ async function loadMarkdownArticle() {
 
     if (!article) return;
 
-    const fetchPath = `/content/${article}.md`;
+    const fetchPath = `/blogs/${article}.md`;
 
     const response =
       await fetch(fetchPath);

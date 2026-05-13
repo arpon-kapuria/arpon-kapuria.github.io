@@ -873,8 +873,8 @@ a:hover {
 }
 .blog-content {
     /* text-align: justify; */
-    line-height: 1.4;
-    font-size: clamp(0.95rem, 1.3vw, 1rem);
+    line-height: 1.6;
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
 }
 .blog-post h2, .blog-post h3 {
     font-family: var(--font-mono);
@@ -936,6 +936,10 @@ a:hover {
         flex-wrap: wrap;
     }
 
+    .blog-content {
+        line-height: 1.55;
+    }
+
     .blog-post h1 {
         font-size: 1.9rem;
         line-height: 1.3;
@@ -950,6 +954,10 @@ a:hover {
 }
 
 @media (max-width: 480px) {
+
+    .blog-content {
+        line-height: 1.5;
+    }
 
     .blog-post h1 {
         font-size: 1.65rem;
@@ -994,8 +1002,8 @@ a:hover {
 /* ========================================= */
 
 .blog-content-md {
-    line-height: 1.7;
-    font-size: clamp(0.95rem, 1.3vw, 1rem);
+    line-height: 1.6;
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
 }
 
 /* Headings */
@@ -1019,11 +1027,16 @@ a:hover {
 }
 
 .blog-content-md h2 {
-    font-size: 1.6rem;
+    font-size: 1.65rem;
 }
 
 .blog-content-md h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Horizontal Rules */
+.blog-content-md hr {
+    border-bottom: 1px solid #333333;
 }
 
 /* Paragraphs */
@@ -1079,12 +1092,12 @@ a:hover {
 
 .blog-content-md code {
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-    font-size: 0.8rem;
+    /* font-size: 0.8rem; */
 }
 
 .blog-content-md pre code {
     color: #e2e8f0;
-    line-height: 1.7;
+    line-height: 1.6;
     background: none;
     padding: 0;
 }
@@ -1093,6 +1106,7 @@ a:hover {
     margin: 0.5rem 0;
     border-radius: 12px;
     overflow: hidden;
+    font-size: clamp(0.75rem, 1.3vw, 0.9rem);
     /* border: 1px solid rgba(255,255,255,0.06); */
     /* box-shadow: 0 8px 32px rgba(0,0,0,0.25); */
 }
@@ -1138,7 +1152,7 @@ a:hover {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .blog-content-md {
-        line-height: 1.65;
+        line-height: 1.55;
     }
 
     .blog-content-md h2 {
@@ -1146,7 +1160,7 @@ a:hover {
     }
 
     .blog-content-md h3 {
-        font-size: 1.25rem;
+        font-size: 0.95rem;
     }
 
     .blog-content-md ol,
@@ -1154,16 +1168,11 @@ a:hover {
         margin-left: 1.2rem;
         padding-left: 1rem;
     }
-
-    .blog-content-md code {
-        font-size: 0.7rem;
-    }
 }
 
 @media (max-width: 480px) {
     .blog-content-md {
-        font-size: 0.96rem;
-        line-height: 1.6;
+        line-height: 1.5;
     }
 
     .blog-content-md h2 {
@@ -1171,7 +1180,7 @@ a:hover {
     }
 
     .blog-content-md h3 {
-        font-size: 1.15rem;
+        font-size: 0.9rem;
     }
 
     .blog-content-md p {

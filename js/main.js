@@ -316,7 +316,7 @@ window.UI = (function () {
 	// Minimum 1 minute
 	readingTime = Math.max(1, readingTime);
 
-	// Add 2 minute buffer
+	// Add 1 minute buffer
 	readingTime += 1;
 
 	// Render
