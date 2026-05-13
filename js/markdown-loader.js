@@ -1,8 +1,3 @@
-const BASE_PATH =
-  window.location.hostname.includes("github.io")
-  ? "/arpon-kapuria.github.io"
-  : "";
-
 function enhanceCodeBlocks() {
     const codeBlocks = document.querySelectorAll(".blog-content-md pre");
 
@@ -156,14 +151,11 @@ async function loadMarkdownArticle() {
 
     if (!article) return;
 
-    console.log(
-      `Fetching: ../content/${article}.md`
-    );
-
     // Fetch markdown file
-    const response = await fetch(
-      `${BASE_PATH}/content/${article}.md`
-    );
+    const response = 
+      await fetch(
+        `/content/${article}.md`
+      );
 
     if (!response.ok) {
       document.getElementById("blog-content-md").innerHTML = "<p>Article not found.</p>";
