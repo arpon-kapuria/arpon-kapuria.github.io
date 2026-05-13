@@ -156,10 +156,10 @@ async function loadMarkdownArticle() {
     const response =
       await fetch(fetchPath);
 
-    if (!response.ok) {
-      document.getElementById("blog-content-md").innerHTML = "<p>Article not found.</p>";
-      return;
-    }
+    // if (!response.ok) {
+    //   document.getElementById("blog-content-md").innerHTML = "<p>Article not found.</p>";
+    //   return;
+    // }
 
     const rawMarkdown = await response.text();
 
