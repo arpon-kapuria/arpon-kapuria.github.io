@@ -97,6 +97,53 @@ function enhanceCodeBlocks() {
     });
 }
 
+// Calculates blog reading time dynamically
+function initReadingTime() {
+
+// Main article container
+const article =
+  document.querySelector(".blog-post");
+
+// Element where reading time will appear
+const readingTimeElement =
+  document.getElementById("reading-time");
+
+if (!article || !readingTimeElement) return;
+
+// Get all readable text
+const text = article.innerText;
+
+// Count words
+const words =
+  text.trim().split(/\s+/).length;
+
+// Count code blocks
+const codeBlocks =
+  article.querySelectorAll("pre code").length;
+
+// Count images
+const images =
+  article.querySelectorAll("img").length;
+
+// Base reading speed
+let readingTime =
+  Math.ceil(words / 220);
+
+// Technical adjustments
+readingTime += codeBlocks * 1;
+readingTime += Math.ceil(images * 0.3);
+
+// Minimum 1 minute
+readingTime = Math.max(1, readingTime);
+
+// Add 2 minute buffer
+readingTime += 1;
+
+// Render
+readingTimeElement.innerText =
+  `${readingTime} min read`;
+}
+
 async function loadMarkdownArticle() {
     // Get article name from URL
     const params = new URLSearchParams(window.location.search);
@@ -104,8 +151,12 @@ async function loadMarkdownArticle() {
 
     if (!article) return;
 
+    console.log(
+      `Fetching: ../content/${article}.md`
+    );
+
     // Fetch markdown file
-    const response = await fetch(`../blogs/${article}.md`);
+    const response = await fetch(`../content/${article}.md`);
 
     if (!response.ok) {
       document.getElementById("blog-content-md").innerHTML = "<p>Article not found.</p>";
