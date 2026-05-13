@@ -100,48 +100,48 @@ function enhanceCodeBlocks() {
 // Calculates blog reading time dynamically
 function initReadingTime() {
 
-// Main article container
-const article =
-  document.querySelector(".blog-post");
+  // Main article container
+  const article =
+    document.querySelector(".blog-post");
 
-// Element where reading time will appear
-const readingTimeElement =
-  document.getElementById("reading-time");
+  // Element where reading time will appear
+  const readingTimeElement =
+    document.getElementById("reading-time");
 
-if (!article || !readingTimeElement) return;
+  if (!article || !readingTimeElement) return;
 
-// Get all readable text
-const text = article.innerText;
+  // Get all readable text
+  const text = article.innerText;
 
-// Count words
-const words =
-  text.trim().split(/\s+/).length;
+  // Count words
+  const words =
+    text.trim().split(/\s+/).length;
 
-// Count code blocks
-const codeBlocks =
-  article.querySelectorAll("pre code").length;
+  // Count code blocks
+  const codeBlocks =
+    article.querySelectorAll("pre code").length;
 
-// Count images
-const images =
-  article.querySelectorAll("img").length;
+  // Count images
+  const images =
+    article.querySelectorAll("img").length;
 
-// Base reading speed
-let readingTime =
-  Math.ceil(words / 220);
+  // Base reading speed
+  let readingTime =
+    Math.ceil(words / 220);
 
-// Technical adjustments
-readingTime += codeBlocks * 1;
-readingTime += Math.ceil(images * 0.3);
+  // Technical adjustments
+  readingTime += codeBlocks * 1;
+  readingTime += Math.ceil(images * 0.3);
 
-// Minimum 1 minute
-readingTime = Math.max(1, readingTime);
+  // Minimum 1 minute
+  readingTime = Math.max(1, readingTime);
 
-// Add 2 minute buffer
-readingTime += 1;
+  // Add 2 minute buffer
+  readingTime += 1;
 
-// Render
-readingTimeElement.innerText =
-  `${readingTime} min read`;
+  // Render
+  readingTimeElement.innerText =
+    `${readingTime} min read`;
 }
 
 async function loadMarkdownArticle() {
@@ -151,11 +151,22 @@ async function loadMarkdownArticle() {
 
     if (!article) return;
 
-    // Fetch markdown file
-    const response = 
-      await fetch(
-        `/content/${article}.md`
-      );
+    const fetchPath = `/content/${article}.md`;
+
+    console.log("FETCHING:", fetchPath);
+
+    const response =
+      await fetch(fetchPath);
+
+    console.log(
+      "FINAL URL:",
+      response.url
+    );
+
+    console.log(
+      "CONTENT TYPE:",
+      response.headers.get("content-type")
+    );
 
     if (!response.ok) {
       document.getElementById("blog-content-md").innerHTML = "<p>Article not found.</p>";
