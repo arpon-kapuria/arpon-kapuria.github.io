@@ -153,20 +153,8 @@ async function loadMarkdownArticle() {
 
     const fetchPath = `/content/${article}.md`;
 
-    console.log("FETCHING:", fetchPath);
-
     const response =
       await fetch(fetchPath);
-
-    console.log(
-      "FINAL URL:",
-      response.url
-    );
-
-    console.log(
-      "CONTENT TYPE:",
-      response.headers.get("content-type")
-    );
 
     if (!response.ok) {
       document.getElementById("blog-content-md").innerHTML = "<p>Article not found.</p>";
