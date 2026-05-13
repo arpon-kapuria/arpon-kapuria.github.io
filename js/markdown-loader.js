@@ -151,19 +151,19 @@ async function loadMarkdownArticle() {
 
     if (!article) return;
 
-    const fetchPath = `../content/${article}.md`;
+    const fetchPath = `/content/${article}.md`;
 
     const response =
       await fetch(fetchPath);
 
-    // if (!response.ok) {
-    //   document.getElementById("blog-content-md").innerHTML = "<p>Article not found.</p>";
-    //   return;
-    // }
+    if (!response.ok) {
+      document.getElementById("blog-content-md").innerHTML = "<p>Article not found.</p>";
+      return;
+    }
 
     const rawMarkdown = await response.text();
 
-    // Extract frontmattera
+    // Extract frontmatter
     const frontmatterRegex = /---([\s\S]*?)---/;
     const match = rawMarkdown.match(frontmatterRegex);
 
