@@ -151,7 +151,7 @@ async function loadMarkdownArticle() {
 
     if (!article) return;
 
-    const fetchPath = `/content/${article}.md`;
+    const fetchPath = `../content/${article}.md`;
 
     const response =
       await fetch(fetchPath);
