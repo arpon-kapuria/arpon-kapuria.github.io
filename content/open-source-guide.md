@@ -1,7 +1,4 @@
 ---
-Author: Arpon Kapuria
-Status: Published
-
 title: Open Source Contribution - A Beginner’s Guide!
 meta-title: Open Source Guide
 
