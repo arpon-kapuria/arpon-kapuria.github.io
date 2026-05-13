@@ -988,6 +988,201 @@ a:hover {
     }
 }
 
+
+/* ========================================= */
+/* BLOG POSTS (MARKDOWN TYPOGRAPHY) */
+/* ========================================= */
+
+.blog-content-md {
+    line-height: 1.7;
+    font-size: clamp(0.95rem, 1.3vw, 1rem);
+}
+
+/* Headings */
+.blog-content-md h1,
+.blog-content-md h2,
+.blog-content-md h3,
+.blog-content-md h4,
+.blog-content-md h5,
+.blog-content-md h6 {
+    line-height: 1.3;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+    border-bottom: none;
+    text-decoration: none;
+}
+
+.blog-content-md h2,
+.blog-content-md h3 {
+    font-family: var(--font-mono);
+    padding-bottom: 0;
+}
+
+.blog-content-md h2 {
+    font-size: 1.6rem;
+}
+
+.blog-content-md h3 {
+    font-size: 1rem;
+}
+
+/* Paragraphs */
+.blog-content-md p {
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+/* Lists */
+.blog-content-md ol,
+.blog-content-md ul {
+    margin: 0.6rem 0 1rem 1.5rem;
+    padding-left: 1.2rem;
+    line-height: 1.2;
+}
+
+.blog-content-md li {
+    margin-bottom: 0.45rem;
+}
+
+/* Nested Lists */
+.blog-content-md li ul,
+.blog-content-md li ol {
+    margin-top: 0.35rem;
+    margin-bottom: 0.35rem;
+}
+
+/* Blockquote */
+.blog-content-md blockquote {
+    border-left: 4px solid var(--color-notice-border-left);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+}
+
+/* Inline Code */
+.blog-content-md p code,
+.blog-content-md li code {
+    background: rgba(247, 170, 16, 0.08);
+    padding: 0.1rem 0.2rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+/* Code blocks */
+.blog-content-md pre {
+    /* background: #0b1120; */
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 1.25rem;
+    overflow-x: auto;
+}
+
+.blog-content-md code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 0.8rem;
+}
+
+.blog-content-md pre code {
+    color: #e2e8f0;
+    line-height: 1.7;
+    background: none;
+    padding: 0;
+}
+
+.code-block-wrapper {
+    margin: 0.5rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    /* border: 1px solid rgba(255,255,255,0.06); */
+    /* box-shadow: 0 8px 32px rgba(0,0,0,0.25); */
+}
+
+.code-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 1.25rem;
+    background: #111827;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.code-language {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    text-transform: lowercase;
+}
+
+.copy-code-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: color 0.2s ease;
+}
+
+.copy-code-btn:hover {
+    color: white;
+}
+
+/* Prism */
+.blog-content-md pre[class*="language-"] {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    background: #0f172a !important;
+    padding: 1.25rem !important;
+    overflow-x: auto;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .blog-content-md {
+        line-height: 1.65;
+    }
+
+    .blog-content-md h2 {
+        font-size: 1.5rem;
+    }
+
+    .blog-content-md h3 {
+        font-size: 1.25rem;
+    }
+
+    .blog-content-md ol,
+    .blog-content-md ul {
+        margin-left: 1.2rem;
+        padding-left: 1rem;
+    }
+
+    .blog-content-md code {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-content-md {
+        font-size: 0.96rem;
+        line-height: 1.6;
+    }
+
+    .blog-content-md h2 {
+        font-size: 1.35rem;
+    }
+
+    .blog-content-md h3 {
+        font-size: 1.15rem;
+    }
+
+    .blog-content-md p {
+        margin-bottom: 0.9rem;
+    }
+
+    .blog-content-md li {
+        margin-bottom: 0.35rem;
+    }
+}
+
 /* ========================================================================
                                 PAGINATION
    ======================================================================== */
