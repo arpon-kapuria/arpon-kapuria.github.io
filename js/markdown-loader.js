@@ -8,6 +8,12 @@ function enhanceCodeBlocks() {
 
         if (!code) return;
 
+        if (
+          block.parentElement.classList.contains(
+            "code-block-wrapper"
+          )
+        ) return;
+
         // Get Language
         const languageClass =
           [...code.classList]
@@ -99,7 +105,7 @@ async function loadMarkdownArticle() {
     if (!article) return;
 
     // Fetch markdown file
-    const response = await fetch(`/blogs/${article}.md`);
+    const response = await fetch(`../blogs/${article}.md`);
 
     if (!response.ok) {
       document.getElementById("blog-content-md").innerHTML = "<p>Article not found.</p>";
@@ -108,7 +114,7 @@ async function loadMarkdownArticle() {
 
     const rawMarkdown = await response.text();
 
-    // Extract frontmatter
+    // Extract frontmattera
     const frontmatterRegex = /---([\s\S]*?)---/;
     const match = rawMarkdown.match(frontmatterRegex);
 
