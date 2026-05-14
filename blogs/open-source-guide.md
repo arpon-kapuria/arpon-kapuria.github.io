@@ -2,7 +2,7 @@
 Author: Arpon Kapuria
 Status: Published
 
-title: Open Source Contribution - Beginner’s Guide!
+title: Open Source Contribution - Beginner’s Guide !
 category: Dev Journal
 
 date: July 31, 2025
