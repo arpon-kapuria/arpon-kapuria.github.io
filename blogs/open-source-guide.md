@@ -2,14 +2,14 @@
 Author: Arpon Kapuria
 Status: Published
 
-title: Open Source Contribution - A Beginner’s Guide!
-meta-title: Open Source Guide
+title: Open Source Contribution - Beginner’s Guide!
+category: Dev Journal
 
 date: July 31, 2025
 modified: July 31, 2025
 
-category: Dev Journal
-description: A beginner-friendly guide to making your first open source contribution, from finding issues to submitting pull requests on GitHub.
+meta-title: Open Source Guide
+meta-description: A beginner-friendly guide to making your first open source contribution, from finding issues to submitting pull requests on GitHub.
 ---
 
 **C**ontributing to open source is one of the most rewarding ways to grow as a developer. It improves your skills, helps you collaborate with experienced engineers and allows you to give back to the community. If you're just getting started, this guide walks you through a hands-on workflow—using Hugging Face’s [transformers](https://github.com/huggingface/transformers) repo as a real-world example.
@@ -66,7 +66,8 @@ git commit -m "chore: update model card for Cohere R7B"
 git push origin improve-cohere2-docs
 ```
 
-Then go to your GitHub fork and click **"Compare & pull request"**. <br> 
+Then go to your GitHub fork and click **"Compare & pull request"**.
+
 Write a clear PR description explaining **what you changed** and **why**. Most repos provide a template for this.
 
 ### 5. Responding to Reviews

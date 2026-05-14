@@ -189,7 +189,7 @@ async function loadMarkdownArticle() {
 
     // SEO Metadata
     const metaTitle = metadata["meta-title"] || metadata.title || "";
-    const metaDescription = metadata.description || "";
+    const metaDescription = metadata["meta-description"] || "";
 
     // Primary Meta
     document.getElementById("meta-title-tag")?.setAttribute("content", metaTitle);
