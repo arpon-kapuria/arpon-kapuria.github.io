@@ -6,6 +6,11 @@ The website is currently built using vanilla HTML, CSS, and JavaScript with a li
 
 **TODO**
 
+- [x] ~~Add theme toggling feature~~
+- [x] ~~Add a Gallery page~~
+- [x] ~~Add a Recent News section~~
+- [x] ~~Add a Resources section~~
+- [ ] Migrate old articles from Notion to Markdown `[WIP]`
 - [ ] Improve metadata rendering and social previews for markdown articles
 - [ ] Add article search feature
 - [ ] Migrate to Next.js + Supabase in future iterations
