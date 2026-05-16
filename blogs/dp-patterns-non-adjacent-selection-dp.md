@@ -12,12 +12,12 @@ meta-title: DP Patterns - Non Adjacent Selection DP
 meta-description: A beginner-friendly guide to making your first open source contribution, from finding issues to submitting pull requests on GitHub.
 ---
 
-## Problem Statement
+### Background
 <hr>
 
 Many problems require selecting elements from a list or array to **maximize a total value** while following a constraint:
 
-> **If you pick one element, you cannot pick certain "adjacent" elements.**
+> *If you pick one element, you cannot pick certain "adjacent" elements.*
 > 
 
 The **goal** is to **maximize the total sum or points** obtained while respecting these adjacency constraints. 
@@ -39,23 +39,23 @@ For example:
 4. *Custom adjacency rule*
     - Skip elements within k distance (generalized form)
 
-## Understanding the Pattern
+### Understanding the Pattern
 <hr>
 
 This family of problems can be abstracted as **Non-Adjacent Selection DP**:
 
-- We are allowed to **pick or skip elements**.
-- Picking an element **conflicts with one or more other elements** (cannot pick them).
-- We aim to **maximize total gain**.
+- We are allowed to *pick or skip elements*.
+- Picking an element *conflicts with one or more other elements* (cannot pick them).
+- We aim to *maximize total gain*.
 
-### Key Insights:
+**Key Insights:**
 
-1. **Conflict is either index-based or value-based**.
+1. Conflict is either *index-based* or *value-based*.
     - Index-based: adjacency in array (House Robber).
     - Value-based: adjacency in values (Delete and Earn, Maximum Total Damage).
-2. **Grouping duplicates** is often useful.
+2. *Grouping duplicates* is often useful.
     - If multiple elements have the same value, treat them as a single unit with combined weight using Hashmap.
-3. **DP formulation**: choose the maximum between **skipping** or **taking plus best non-conflicting previous**.
+3. *DP formulation*: choose the maximum between *skipping* or *taking plus best non-conflicting previous*.
 
 **Mathematically:**
 
@@ -65,45 +65,45 @@ dp[i] = max(dp[i-1], value[i] + dp[last non-adjacent index])
 
 **Look for these clues:**
 
-- You can **pick or skip elements**.
-- Picking an element **prevents picking neighbors**.
+- You can *pick or skip elements*.
+- Picking an element *prevents picking neighbors*.
     - Index-based neighbors → House Robber
     - Value-based neighbors → Delete and Earn
-- Goal: **maximize total sum / points**.
-- Duplicates exist → consider **grouping**.
+- Goal: *maximize total sum / points*.
+- Duplicates exist → consider *grouping*.
 
-## Approach
+### Approach
 <hr>
 
-- **Compress / Group Elements** (if necessary)
+- *Compress / Group Elements* (if necessary)
     - For value-based problems, count the total contribution of each unique value. Use a hashmap.
-- **Sort Keys / Values** (for value-based adjacency)
+- *Sort Keys / Values* (for value-based adjacency)
     - Sorting helps identify adjacency in value-based problems.
-- **Define DP State**
+- *Define DP State*
     - `dp[i]` = maximum total sum considering elements up to `i`.
-- **Decide Skip or Take**
+- *Decide Skip or Take*
     - Skip: `dp[i-1]`
     - Take: `value[i] + dp[last non-conflicting index]`
-- **Compute Last Non-Conflicting Element**
+- *Compute Last Non-Conflicting Element*
     - Index-based: `i-2` (House Robber)
     - Value-based: find last key < current - conflict distance (linear search or binary search)
-- **Iterate and Update DP**
+- *Iterate and Update DP*
     - Fill `dp[i]` for all `i`.
-- **Return Result**
+- *Return Result*
     - Maximum is `dp[n-1]`.
 
-## Template
+### Template
 <hr>
 
 How to Use This Template:
 
-1. **Set `k`** according to problem constraints:
+1. *Set `k`* according to problem constraints:
     - If taking `x` blocks `x-1` and `x+1`, `k=1`
     - If taking `x` blocks `x-2` to `x+2`, `k=2`
     - Generalizable to any integer `k`
-2. **Aggregate duplicates** before DP → use frequency map.
-3. **Sort unique keys** to make adjacency checking easy.
-4. **Iterate DP** → skip or take current value based on last non-conflicting element.
+2. *Aggregate duplicates* before DP → use frequency map.
+3. *Sort unique keys* to make adjacency checking easy.
+4. *Iterate DP* → skip or take current value based on last non-conflicting element.
 
 ```cpp
 #include <bits/stdc++.h>

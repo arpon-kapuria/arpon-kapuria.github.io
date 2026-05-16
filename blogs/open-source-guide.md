@@ -14,10 +14,10 @@ meta-description: A beginner-friendly guide to making your first open source con
 
 **C**ontributing to open source is one of the most rewarding ways to grow as a developer. It improves your skills, helps you collaborate with experienced engineers and allows you to give back to the community. If you're just getting started, this guide walks you through a hands-on workflow—using Hugging Face’s [transformers](https://github.com/huggingface/transformers) repo as a real-world example.
 
-## Working on a Feature 
+### Working on a Feature 
 <hr>
 
-### 1. Finding the Right Issue 
+**1. Finding the Right Issue**
 
 Before writing any code, identify a task you can contribute to. Good entry points often include documentation fixes or minor enhancements.
 
@@ -29,9 +29,9 @@ For Hugging Face Transformers:
     - Documentation
     - Help Wanted
 
-**Example**: You choose to update the model card for the `Cohere R7B` model.
+*Example:* You choose to update the model card for the `Cohere R7B` model.
 
-### 2. Setting Up Your Development Environment
+**2. Setting Up Development Environment**
 
 First we need to fork the repository to your GitHub account (click the “Fork” button on GitHub).
 
@@ -44,7 +44,7 @@ cd transformers
 git checkout -b improve-cohere2-docs
 ```
 
-### 3. Making the Improvements
+**3. Making the Improvements**
 
 Edit the appropriate file based on your issue. For Cohere2, refer to this file:
 
@@ -55,7 +55,7 @@ docs/source/en/model_doc/cohere2.md
 
 Make your improvements (e.g., fixing typos, clarifying descriptions, etc.).
 
-### 4. Submit Your Changes for Reviews
+**4. Submit Your Changes for Reviews**
 
 ```bash
 # Stage and commit your changes
@@ -66,11 +66,9 @@ git commit -m "chore: update model card for Cohere R7B"
 git push origin improve-cohere2-docs
 ```
 
-Then go to your GitHub fork and click **"Compare & pull request"**.
+Then go to your GitHub fork and click **Compare & pull request**. Write a clear PR description explaining *what you changed* and *why*. Most repos provide a template for this.
 
-Write a clear PR description explaining **what you changed** and **why**. Most repos provide a template for this.
-
-### 5. Responding to Reviews
+**5. Responding to Reviews**
 
 After submitting your PR:
 - A maintainer might review your code and leave suggestions.
@@ -83,18 +81,18 @@ git commit -m "fix: addressed PR feedback"
 git push origin improve-cohere2-docs
 ```
 
-### 6. Pull Request Merged
+**6. Pull Request Merged**
 
 Once your contribution is accepted, maintainer will merge your pull request. <br>
 
 > **Congrats!** You’ve made your first open source contribution.
 
-## Working on Another Feature
+### Working on Another Feature
 <hr>
 
-### 1. Sync Local Repository
+**1. Sync Local Repository**
 
-Before you start the next issue, **sync your local repository** to avoid conflicts:
+Before you start the next issue, *sync your local repository* to avoid conflicts:
 
 ```bash
 # Switch to your main branch
@@ -114,7 +112,7 @@ git merge upstream/main
 git push origin main
 ```
 
-### 2. Start Your Next Contribution
+**2. Start Your Next Contribution**
 
 ```bash
 # Create a new feature branch

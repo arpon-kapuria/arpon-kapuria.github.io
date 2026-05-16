@@ -1027,11 +1027,11 @@ a:hover {
 }
 
 .blog-content-md h2 {
-    font-size: 1.65rem;
+    font-size: 1.75rem;
 }
 
 .blog-content-md h3 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 
 /* Horizontal Rules */
@@ -1088,6 +1088,27 @@ a:hover {
     color: #e2e8f0;
     padding: 1.25rem;
     overflow-x: auto;
+}
+
+/* Images */
+.blog-content-md img {
+    width: 100%;
+    max-width: 720px;
+    max-height: 420px;
+    display: block;
+    margin: 1.8rem auto;
+    /* border-radius: 8px; */
+    object-fit: contain;
+}
+
+/* Image captions */
+.blog-content-md img + em {
+    display: block;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-dark-lighter-text);
+    margin-top: -0.4rem;
+    margin-bottom: 1.4rem;
 }
 
 .blog-content-md code {
@@ -1160,7 +1181,7 @@ a:hover {
     }
 
     .blog-content-md h3 {
-        font-size: 0.95rem;
+        font-size: 1.05rem;
     }
 
     .blog-content-md ol,
@@ -1168,6 +1189,8 @@ a:hover {
         margin-left: 1.2rem;
         padding-left: 1rem;
     }
+
+
 }
 
 @media (max-width: 480px) {
