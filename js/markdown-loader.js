@@ -206,6 +206,24 @@ async function loadMarkdownArticle() {
     // Render Markdown
     document.getElementById("blog-content-md").innerHTML = marked.parse(markdown);
 
+    renderMathInElement(
+      document.getElementById("blog-content-md"), 
+      {
+        delimiters: [
+          {
+            left: "$$",
+            right: "$$",
+            display: true
+          },
+          {
+            left: "$",
+            right: "$",
+            display: false
+          }
+        ]
+      }
+    );
+
     // Open markdown links in new tab
     document.querySelectorAll(".blog-content-md a").forEach(link => {
       link.setAttribute("target", "_blank");
