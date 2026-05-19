@@ -1027,11 +1027,12 @@ a:hover {
 }
 
 .blog-content-md h2 {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
 }
 
 .blog-content-md h3 {
     font-size: 1.3rem;
+    margin-top: 1.2rem;
 }
 
 /* Horizontal Rules */
@@ -1070,6 +1071,69 @@ a:hover {
     padding-left: 1rem;
     margin: 1.5rem 0;
     font-style: italic;
+}
+
+/* Table Wrapper */
+.blog-content-md .comparison-table {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+/* Table */
+.blog-content-md table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #0f172a;
+    color: #e2e8f0;
+    border:
+      0.5px solid rgba(255,255,255,0.08);
+    box-shadow:
+      0 8px 30px rgba(0,0,0,0.12);
+    font-size: 0.95rem;
+}
+
+/* Header */
+.blog-content-md th {
+    background:
+      rgba(255,255,255,0.05);
+    font-weight: 600;
+    text-align: left;
+    padding: 0.6rem 1.1rem;
+    border-bottom:
+      1px solid rgba(255,255,255,0.08);
+}
+
+/* Cells */
+.blog-content-md td {
+    padding: 0.6rem 1.1rem;
+    vertical-align: top;
+    border-bottom:
+      1px solid rgba(255,255,255,0.05);
+}
+
+/* Last Row */
+.blog-content-md tr:last-child td {
+    border-bottom: none;
+}
+
+/* Alternate Rows */
+.blog-content-md tr:nth-child(even) {
+    background:
+      rgba(255,255,255,0.015);
+}
+
+/* Inline code inside table */
+.blog-content-md table code {
+    background:
+      rgba(255, 170, 0, 0.08);
+    color: #fbbf24;
+    padding: 0.15rem 0.4rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
 }
 
 /* Inline Code */
@@ -1125,7 +1189,7 @@ a:hover {
 
 .code-block-wrapper {
     margin: 0.5rem 0;
-    border-radius: 12px;
+    border-radius: 6px;
     overflow: hidden;
     font-size: clamp(0.75rem, 1.3vw, 0.9rem);
     /* border: 1px solid rgba(255,255,255,0.06); */
@@ -1177,11 +1241,12 @@ a:hover {
     }
 
     .blog-content-md h2 {
-        font-size: 1.5rem;
+        font-size: 1.45rem;
     }
 
     .blog-content-md h3 {
         font-size: 1.1rem;
+        margin-top: 1rem;
     }
 
     .blog-content-md ol,
@@ -1190,7 +1255,20 @@ a:hover {
         padding-left: 1rem;
     }
 
+    .blog-content-md .comparison-table {
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
 
+    .blog-content-md table {
+        min-width: 720px;
+        font-size: 0.88rem;
+    }
+
+    .blog-content-md th,
+    .blog-content-md td {
+        padding: 0.75rem 0.9rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1199,7 +1277,7 @@ a:hover {
     }
 
     .blog-content-md h2 {
-        font-size: 1.35rem;
+        font-size: 1.3rem;
     }
 
     .blog-content-md h3 {

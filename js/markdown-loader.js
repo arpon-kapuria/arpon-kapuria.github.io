@@ -203,6 +203,11 @@ async function loadMarkdownArticle() {
     document.getElementById("meta-twitter-title")?.setAttribute("content", metaTitle);
     document.getElementById("meta-twitter-description")?.setAttribute("content", metaDescription);
 
+    marked.setOptions({
+      gfm: true,
+      breaks: true
+    });
+
     // Render Markdown
     document.getElementById("blog-content-md").innerHTML = marked.parse(markdown);
 
