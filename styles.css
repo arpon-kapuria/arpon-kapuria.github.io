@@ -560,7 +560,7 @@ a:hover {
 .work-image, .thesis-image, .project-image {
     flex: 1;
     max-width: 120px;
-    max-height: 150px;
+    max-height: 120px;
     margin-right: 20px;
     align-self: center;
 }
@@ -584,7 +584,7 @@ a:hover {
     .work-image, .thesis-image, .project-image {
         margin-right: 0;
         margin-bottom: 10px;
-        max-width: 60px;
+        max-width: 100px;
         max-height: 120px;
     }
     .work-content, .thesis-content, .project-content { flex: none; }
