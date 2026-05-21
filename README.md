@@ -11,6 +11,7 @@ The website is currently built using vanilla HTML, CSS, and JavaScript with a li
 - [x] ~~Add a Recent News section~~
 - [x] ~~Add a Resources section~~
 - [ ] Migrate old articles from Notion to Markdown `[WIP]`
+- [ ] Remove tags from article tiles and replace them with topic
 - [ ] Improve metadata rendering and social previews for markdown articles
 - [ ] Add article search feature
 - [ ] Migrate to Next.js + Supabase in future iterations
