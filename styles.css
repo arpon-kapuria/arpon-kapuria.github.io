@@ -587,12 +587,20 @@ a:hover {
     padding: 10px 0;
     border-bottom: 1px solid var(--color-dark-section-border);
 }
-.work-image, .thesis-image, .project-image {
+.work-image, .thesis-image {
     flex: 1;
     max-width: 120px;
     max-height: 120px;
     margin-right: 20px;
     align-self: center;
+}
+.project-image {
+    max-width: 120px;
+    max-height: 150px;
+    margin-right: 20px;
+    align-self: center;
+    object-fit: contain;
+    transform: scale(1.15);
 }
 .thesis-image { padding-top: 5px; max-height: 150px; }
 .work-content, .thesis-content, .project-content { flex: 3; }
