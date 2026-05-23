@@ -99,46 +99,39 @@ function enhanceCodeBlocks() {
 
 // Calculates blog reading time dynamically
 function initReadingTime() {
-
-  // Main article container
-  const article =
-    document.querySelector(".blog-post");
-
-  // Element where reading time will appear
-  const readingTimeElement =
-    document.getElementById("reading-time");
-
+  const article = document.querySelector(".blog-post");
+  const readingTimeElement = document.getElementById("reading-time");
   if (!article || !readingTimeElement) return;
 
-  // Get all readable text
-  const text = article.innerText;
+  const PROSE_WPM = 220;
+  const CODE_WPM = 80; // reading code is slower, but measured separately
 
-  // Count words
-  const words =
-    text.trim().split(/\s+/).length;
+  // Extract and remove code blocks before counting prose words
+  const cloned = article.cloneNode(true);
+  const codeBlocks = cloned.querySelectorAll("pre code");
 
-  // Count code blocks
-  const codeBlocks =
-    article.querySelectorAll("pre code").length;
+  let totalCodeWords = 0;
+  codeBlocks.forEach(block => {
+    const codeText = block.innerText || block.textContent;
+    totalCodeWords += codeText.trim().split(/\s+/).length;
+    block.remove(); // remove from clone so prose count isn't polluted
+  });
 
-  // Count images
-  const images =
-    article.querySelectorAll("img").length;
+  // Count prose words (code removed)
+  const proseText = cloned.innerText;
+  const proseWords = proseText.trim().split(/\s+/).length;
 
-  // Base reading speed
-  let readingTime =
-    Math.ceil(words / 220);
+  // Count images in original
+  const images = article.querySelectorAll("img").length;
 
-  // Technical adjustments
-  readingTime += codeBlocks * 1;
-  readingTime += Math.ceil(images * 0.3);
+  // Calculate time
+  const proseTime = proseWords / PROSE_WPM;
+  const codeTime = totalCodeWords / CODE_WPM;
+  const imageTime = images * 0.3;
 
-  // Minimum 1 minute
-  readingTime = Math.max(1, readingTime);
+  const readingTime = Math.max(1, Math.ceil(proseTime + codeTime + imageTime)) + 2;
 
-  // Render
-  readingTimeElement.innerText =
-    `${readingTime} min read`;
+  readingTimeElement.innerText = `${readingTime} min read`;
 }
 
 async function loadMarkdownArticle() {

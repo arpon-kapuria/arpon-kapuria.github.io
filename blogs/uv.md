@@ -2,7 +2,7 @@
 title: UV & Modern Dependency Management !
 category: Dev Journal
 
-date: April 25, 2026
+date: February 24, 2026
 modified: April 25, 2026
 
 meta-title: UV & Modern Dependency Management
