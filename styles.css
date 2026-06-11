@@ -629,6 +629,39 @@ a:hover {
     .work-content p, .thesis-content p, .project-content p { text-align: justify; }
 }
 
+.project-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    margin-bottom: 0.5rem;
+}
+
+.project-topics {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.topic {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 0.15rem 0.65rem;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1;
+
+    border: 1px solid #d0d7de;
+    border-radius: 5px;
+
+    background: #f6f8fa;
+    color: #57606a;
+}
+
 /* ========================================================================
                         BLOGS: ARTICLE LIST & TILES
    ======================================================================== */
