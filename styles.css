@@ -275,7 +275,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .content-container {
-    max-width: 900px;
+    max-width: 890px;
     margin: 0 auto;
     padding: 10px clamp(7px, 3vw, 35px) clamp(10px, 5vw, 50px);
     border-radius: 8px;
