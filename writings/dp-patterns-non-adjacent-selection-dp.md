@@ -1,24 +1,20 @@
 ---
-Author: Arpon Kapuria
-Status: Published
-
-title: Dynamic Programming Patterns - Non Adjacent Selection DP !
-category: Dev Journal
+title: Dynamic Programming Patterns - Non Adjacent Selection DP 
+description: A pattern-based guide to identifying and solving Non-Adjacent Selection Dynamic Programming problems using a common template and practice problems.
 
 date: October 11, 2025
 modified: October 11, 2025
 
-meta-title: DP Patterns - Non Adjacent Selection DP
-meta-description: A beginner-friendly guide to making your first open source contribution, from finding issues to submitting pull requests on GitHub.
+author: Arpon Kapuria
+category: Dev Journal
+tags: Dynamic Programming, Algorithms
 ---
 
-### Background
-<hr>
+## Background
 
 Many problems require selecting elements from a list or array to **maximize a total value** while following a constraint:
 
 > *If you pick one element, you cannot pick certain "adjacent" elements.*
-> 
 
 The **goal** is to **maximize the total sum or points** obtained while respecting these adjacency constraints. 
 
@@ -27,20 +23,19 @@ For example:
 - In *[Delete and Earn](https://leetcode.com/problems/delete-and-earn/description/)* problem, picking a number removes all numbers equal to `x-1` and `x+1`.
 - In *[House Robber](https://leetcode.com/problems/house-robber/description/)* problem, picking a house prevents picking its neighboring houses.
 
-📚 **Typical variations under this pattern include:**
+### 1.1 Typical variations 
 
-1. *Index adjacency restriction*
+- *Index adjacency restriction*
     - House Robber problems (cannot pick consecutive indices)
-2. *Value adjacency restriction*
+- *Value adjacency restriction*
     - Delete and Earn (cannot pick numbers x-1, x+1)
     - Maximum Total Damage (cannot pick powers within ±2)
-3. *Weighted elements*
+- *Weighted elements*
     - Each element has a weight or frequency
-4. *Custom adjacency rule*
+- *Custom adjacency rule*
     - Skip elements within k distance (generalized form)
 
-### Understanding the Pattern
-<hr>
+## Understanding the Pattern
 
 This family of problems can be abstracted as **Non-Adjacent Selection DP**:
 
@@ -48,7 +43,7 @@ This family of problems can be abstracted as **Non-Adjacent Selection DP**:
 - Picking an element *conflicts with one or more other elements* (cannot pick them).
 - We aim to *maximize total gain*.
 
-**Key Insights:**
+### 2.1 Key Insights
 
 1. Conflict is either *index-based* or *value-based*.
     - Index-based: adjacency in array (House Robber).
@@ -57,13 +52,13 @@ This family of problems can be abstracted as **Non-Adjacent Selection DP**:
     - If multiple elements have the same value, treat them as a single unit with combined weight using Hashmap.
 3. *DP formulation*: choose the maximum between *skipping* or *taking plus best non-conflicting previous*.
 
-**Mathematically:**
+### 2.2 Mathematically
 
 ```cpp
 dp[i] = max(dp[i-1], value[i] + dp[last non-adjacent index])
 ```
 
-**Look for these clues:**
+### 2.3 Look for these clues
 
 - You can *pick or skip elements*.
 - Picking an element *prevents picking neighbors*.
@@ -72,8 +67,7 @@ dp[i] = max(dp[i-1], value[i] + dp[last non-adjacent index])
 - Goal: *maximize total sum / points*.
 - Duplicates exist → consider *grouping*.
 
-### Approach
-<hr>
+## Approach
 
 - *Compress / Group Elements* (if necessary)
     - For value-based problems, count the total contribution of each unique value. Use a hashmap.
@@ -92,8 +86,7 @@ dp[i] = max(dp[i-1], value[i] + dp[last non-adjacent index])
 - *Return Result*
     - Maximum is `dp[n-1]`.
 
-### Template
-<hr>
+## Template
 
 How to Use This Template:
 
@@ -149,8 +142,7 @@ long long nonAdjacentSelectionDP(const vector<int>& nums, int k) {
 }
 ```
 
-### Problems to Practice
-<hr>
+## Problems to Practice
 
 - [198. House Robber - LeetCode](https://leetcode.com/problems/house-robber/description/) (Index based)
 - [213. House Robber II - LeetCode](https://leetcode.com/problems/house-robber-ii/description/) (Index based)

@@ -1,23 +1,20 @@
 ---
-Author: Arpon Kapuria
-Status: Published
-
-title: Open Source Contribution - Beginner’s Guide !
-category: Dev Journal
+title: Open Source Contribution - Beginner’s Guide 
+description: A beginner-friendly guide to making your first open source contribution, from finding issues to submitting pull requests on GitHub.
 
 date: July 31, 2025
 modified: July 31, 2025
 
-meta-title: Open Source Guide
-meta-description: A beginner-friendly guide to making your first open source contribution, from finding issues to submitting pull requests on GitHub.
+author: Arpon Kapuria
+category: Dev Journal
+tags: Open Source, SWE
 ---
 
 **C**ontributing to open source is one of the most rewarding ways to grow as a developer. It improves your skills, helps you collaborate with experienced engineers and allows you to give back to the community. If you're just getting started, this guide walks you through a hands-on workflow—using Hugging Face’s [transformers](https://github.com/huggingface/transformers) repo as a real-world example.
 
-### Working on a Feature 
-<hr>
+## Working on a Feature 
 
-**1. Finding the Right Issue**
+### 1.1 Finding an Issue
 
 Before writing any code, identify a task you can contribute to. Good entry points often include documentation fixes or minor enhancements.
 
@@ -31,7 +28,7 @@ For Hugging Face Transformers:
 
 *Example:* You choose to update the model card for the `Cohere R7B` model.
 
-**2. Setting Up Development Environment**
+### 1.2 Setting Up Development Environment
 
 First we need to fork the repository to your GitHub account (click the “Fork” button on GitHub).
 
@@ -44,7 +41,7 @@ cd transformers
 git checkout -b improve-cohere2-docs
 ```
 
-**3. Making the Improvements**
+### 1.3 Making the Improvements
 
 Edit the appropriate file based on your issue. For Cohere2, refer to this file:
 
@@ -55,7 +52,7 @@ docs/source/en/model_doc/cohere2.md
 
 Make your improvements (e.g., fixing typos, clarifying descriptions, etc.).
 
-**4. Submit Your Changes for Reviews**
+### 1.4 Submit Your Changes for Reviews
 
 ```bash
 # Stage and commit your changes
@@ -68,7 +65,7 @@ git push origin improve-cohere2-docs
 
 Then go to your GitHub fork and click **Compare & pull request**. Write a clear PR description explaining *what you changed* and *why*. Most repos provide a template for this.
 
-**5. Responding to Reviews**
+### 1.5 Responding to Reviews
 
 After submitting your PR:
 - A maintainer might review your code and leave suggestions.
@@ -81,16 +78,15 @@ git commit -m "fix: addressed PR feedback"
 git push origin improve-cohere2-docs
 ```
 
-**6. Pull Request Merged**
+### 1.6 Pull Request Merged
 
 Once your contribution is accepted, maintainer will merge your pull request. <br>
 
 > **Congrats!** You’ve made your first open source contribution.
 
-### Working on Another Feature
-<hr>
+## Working on Another Feature
 
-**1. Sync Local Repository**
+### 2.1 Sync Local Repository
 
 Before you start the next issue, *sync your local repository* to avoid conflicts:
 
@@ -112,7 +108,7 @@ git merge upstream/main
 git push origin main
 ```
 
-**2. Start Your Next Contribution**
+### 2.2 Start Your Next Contribution
 
 ```bash
 # Create a new feature branch
@@ -126,10 +122,11 @@ git push origin improve-gemini-docs
 
 Then, open a new pull request as before.
 
-### Optional: Cleanup Old Branches
-<hr>
+## Cleanup Old Branches 
 
-Keep your fork tidy by deleting old branches once they’re merged:
+Keep your fork tidy by deleting old branches once they’re merged. 
+
+Although this is optional.
 
 ```bash
 # Delete local branch
@@ -139,8 +136,7 @@ git branch -d improve-cohere2-docs
 git push origin --delete improve-cohere2-docs
 ```
 
-### Final Tips
-<hr>
+## Final Words
 
 - Read the **CONTRIBUTING.md** file if available in the repository.
 - Keep commits atomic and messages clear.

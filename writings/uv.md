@@ -1,16 +1,16 @@
 ---
-title: UV & Modern Dependency Management !
-category: Dev Journal
+title: UV - Modern Dependency Management 
+description: A beginner-friendly guide to UV, the modern Python package and dependency manager.
 
 date: February 24, 2026
 modified: April 25, 2026
 
-meta-title: UV & Modern Dependency Management
-meta-description: A beginner friendly guide to the modern dependency management library - UV.
-
 author: Arpon Kapuria
-status: Published
+category: Dev Journal
+tags: AWS, Tooling, Infrastructure
 ---
+
+## What is uv ?
 
 **UV** is a fast Python package installer and environment manager. It replaces traditional workflows involving:
 
@@ -35,8 +35,7 @@ After successful run, the project should be initialised with the following files
 - `pyproject.toml` - Main configuration file with project metadata & dependencies
 - `uv.lock` - This file is created when a package is installed, maintains a proper dependencies structure
 
-### Handling Virtual Environments
-<hr>
+## Handling Virtual Environments
 
 When working on Python projects, we usually create a virtual environment manually using:
 
@@ -46,7 +45,7 @@ python -m venv venv
 
 But, in most cases, `uv` automatically creates and manages a virtual environment for you. You do not always need to manually create one.
 
-**1. Creating an Environment Explicitly:**
+### 2.1 Creating an Environment
 
 You can manually create a virtual environment using the following command. This creates a `.venv/` folder in your project directory.
 
@@ -54,7 +53,7 @@ You can manually create a virtual environment using the following command. This 
 uv venv
 ```
 
-**2. Installing Packages with `uv` :**
+### 2.2 Installing Packages with `uv` 
 
 If you run:
 
@@ -69,7 +68,7 @@ uv add pandas
 
 You do not need to create it manually beforehand.
 
-**3. Running Code with `uv` :**
+### 2.3 Running Code with `uv` 
 
 If you run:
 
@@ -103,12 +102,11 @@ source .venv/bin/activate
 
 But with normal `uv` workflow → activation is unnecessary.
 
-### Handling Packages
-<hr>
+## Handling Packages
 
 `uv` provides a simple and modern way to manage dependencies in your Python project. Unlike traditional `pip`, it integrates directly with your project configuration and lock files, ensuring reproducibility.
 
-**1. Installing Packages**
+### 3.1 Installing Package
 
 To add a package to your project:
 
@@ -142,7 +140,7 @@ uv add --group "group_name" pandas
 # ex: uv add --group dataViz pandas (here dataViz is a group)
 ```
 
-**2. Removing Packages**
+### 3.2 Removing Package
 
 To remove a dependency:
 
@@ -155,7 +153,7 @@ This:
 - Updates the lock file
 - Uninstalls it from the environment
 
-**3. When a Package Is Not Found**
+### 3.3 When a Package Is Not Found
 
 If a package is not available through the default registry, you can fall back to pip-compatible mode:
 
@@ -176,7 +174,7 @@ Best practice:
 - Use `uv add` for project dependencies.
 - Use `uv pip` only for temporary or quick installs.
 
-**4. Viewing the Dependency Tree**
+### 3.4 Viewing the Dependency Tree
 
 To inspect the full dependency graph:
 
@@ -191,7 +189,7 @@ This shows:
 
 It is extremely helpful when debugging version conflicts.
 
-**5. Updating Dependencies**
+### 3.5 Updating Dependencies
 
 To update a specific package:
 
@@ -213,7 +211,7 @@ uv lock --upgrade
 uv sync
 ```
 
-**6. Syncing the Environment**
+### 3.6 Syncing the Environment
 
 If you clone a project and want to install all dependencies:
 
@@ -232,7 +230,7 @@ uv sync --locked
 
 This reads from the lock file and installs exact versions.
 
-**7. Managing Python Versions**
+### 3.7. Managing Python Versions
 
 List available Python versions:
 
@@ -248,7 +246,7 @@ uv python install 3.13
 
 This allows consistent Python environments across machines.
 
-**8. Updating uv**
+### 3.8 Updating uv
 
 To update `uv` to the latest version:
 
@@ -256,10 +254,9 @@ To update `uv` to the latest version:
 uv self update
 ```
 
-<br>
-
-### A Quick Demo
 <hr>
+
+## Appendix: A Quick Demo
 
 ```bash
 # To create a new FastAPI project and pin it to python 3.13

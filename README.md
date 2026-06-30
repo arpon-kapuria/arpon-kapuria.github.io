@@ -4,7 +4,7 @@ The website is currently built using vanilla HTML, CSS, and JavaScript with a li
 
 <br>
 
-**TODO**
+**Features**
 
 - [x] ~~Add theme toggling feature~~
 - [x] ~~Add a Gallery page~~
@@ -14,7 +14,12 @@ The website is currently built using vanilla HTML, CSS, and JavaScript with a li
 - [ ] Add project logo  
 - [x] ~~Remove tags from article tiles and replace them with topic tags (non-clickable). Improve the ui~~
 - [x] ~~Add project tags by topics~~
-- [ ] Improve metadata rendering and social previews for markdown articles
 - [ ] Add article/projects search feature
-- [ ] Improve projects section on experience page
 - [ ] Migrate to Next.js + Supabase in future iterations
+
+**Fixes**
+
+- [x] [Blogs] Math Equation rendering
+- [x] [Blogs] Blockquote
+- [x] [Blogs] Code Blocks header and color
+- [ ] [Blogs] Paragraph spacing and height

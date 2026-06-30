@@ -1,20 +1,17 @@
 ---
-title: AWS Nuke - The Powerful AWS Resources Destroyer !
-category: Dev Journal
+title: AWS Nuke - AWS Resources Destroyer
+description: Hands on with a tool designed to delete all resources in an AWS account in one go.
 
 date: May 02, 2026
 modified: May 02, 2026
 
-meta-title: AWS Nuke - The Powerful AWS Resources Destroyer
-meta-description: Hands on with an open source tool designed to delete all resources in an AWS account in one go.
-
 author: Arpon Kapuria
-status: Published
+category: Dev Journal
+tags: AWS, Tooling, Infrastructure
 ---
 
 
-### Background
-<hr>
+## Background
 
 When working with AWS, especially during experimentation, you quickly accumulate resources—EC2 instances, S3 buckets, IAM roles, VPCs, etc. These can lead to unexpected billing and clutter. There is no one button solution from AWS to remove all these resources. You need to do it manually.
 
@@ -28,36 +25,34 @@ Think of it as:
 
 > “Reset my AWS account to zero, except the things I whitelist.”
 
-### Key concepts
-<hr>
+## Key concepts
 
 Although most of the people understand these concepts, but still iterating them for those who don’t.
 
-**1. Account vs Profile**
+#### 1. Account vs Profile
 
 - *Account ID* → AWS account (e.g., `458973149831`)
 - *Profile* → Local AWS CLI credentials
 
 > AWS Nuke uses your **profile to authenticate**, not the account ID directly. There are other ways to authenticate with AWS CLI. You can find them `aws-nuke`’s official documentation.
 
-**2. Filters (Critical Safety Mechanism)**
+#### 1. Filters (Critical Safety Mechanism)
 
 Filters define what should **NOT be deleted**. Without filters → you can lock yourself out.
 
 
-**3. Dry Run vs Real Run**
+#### 3. Dry Run vs Real Run
 
 - `-dry-run` → shows what *would* be deleted.
 - `-no-dry-run` → actually deletes
 
 > Always dry run first.
 
-### Installation
-<hr>
+## Installation
 
 To use `aws-nuke`, we need to configure aws cli first. We need to create an IAM user with an access key in a particular region. This setup is shown for macos.
 
-**1. AWS CLI Setup (Mandatory First Step)**
+### 3.1 AWS CLI Setup (Mandatory First Step)
 
 Configure AWS CLI:
 
@@ -93,7 +88,7 @@ Expected:
 }
 ```
 
-**2. AWS Nuke Installation**
+### 3.2 AWS Nuke Installation
 
 There are different ways to install `aws-nuke`, such as `github-release`, `Homebrew tap`, `Homebrew core`. We will be using `Homebrew tap` (macos) as it’s directly maintained by the author.
 
@@ -108,11 +103,11 @@ aws-nuke --version
 ```
 
 
-**3. Configuration file (Config.yaml)**
+### 3.3 Configuration file (Config.yaml)
 
 This is the most important part. Configuration file contains everything. It tells `aws-nuke` what to delete and what not to. There are a lot of filters we can use to keep resources/roles from deleting. This file needs to configured properly.
 
-**Minimal Safe Config**
+#### Minimal Safe Config
 
 ```yaml
 # aws-nuke/config.yaml
@@ -136,7 +131,7 @@ accounts:
         - "aws-nuke-example -> *"
 ```
 
-**Explanation**
+#### Explanation
 
 ```yaml
 regions:
@@ -164,7 +159,7 @@ accounts:
 
 (accounts) Target account to clean.
 
-**Filters (MOST IMPORTANT)**
+#### Filters (MOST IMPORTANT)
 
 ```yaml
 IAMUser:
@@ -199,10 +194,9 @@ There are more filters we can use for more control over the resources. Refer to 
 - Your access keys get deleted ❌
 - You lose access permanently ❌
 
-### Running AWS Nuke
-<hr>
+## Running AWS Nuke
 
-**1. Dry Run from terminal**
+### 4.1 Dry Run from terminal
 
 ```bash
 aws-nuke nuke -c aws-nuke/config.yaml --profile aws-nuke-example --dry-run
@@ -216,16 +210,15 @@ Check:
 - IAM user is NOT listed
 - Access keys are NOT listed
 
-**2. Actual Execution**
+### 4.2 Actual Execution
 
 ```bash
 aws-nuke nuke -c aws-nuke/config.yaml --profile aws-nuke-example --no-dry-run
 ```
 
-### Common Errors & Fixes
-<hr>
+## Common Errors & Fixes
 
-**❌ Error: No account alias**
+#### ❌ Error: No account alias
 
 ```bash
 # terminal output
@@ -240,7 +233,7 @@ Go to AWS → IAM Dashboard → Create alias. You can set alias  from terminal a
 aws iam create-account-alias--account-alias aws-nuke-dev
 ```
 
-**❌ Error: Profile not found**
+#### ❌ Error: Profile not found
 
 ```
 The config profile could not be found
@@ -259,7 +252,7 @@ If no profile is configured then you can use `default` :
 --profile default
 ```
 
-**❌ Error: Access lost after nuke**
+#### ❌ Error: Access lost after nuke
 
 Cause:
 - IAMUser not protected
@@ -267,8 +260,7 @@ Cause:
 
 Fix: Recreate user via root login
 
-### Resources Deleted / Not Deleted
-<hr>
+## Resources Deleted / Not Deleted
 
 AWS Nuke removes:
 
@@ -286,8 +278,7 @@ What Does NOT Get Deleted
 - Billing info
 - Root user
 
-### Extras
-<hr>
+## Extras
 
 AWS Nuke is one of the most powerful tools in AWS infrastructure management.
 
@@ -337,11 +328,9 @@ Used incorrectly, it:
     - Resetting experiments
     - Cost control
 
-<br>
-
 <hr>
 
-*References*
+## References
 
 1. https://aws-nuke.ekristen.dev/ - *Official docs*
 2. https://github.com/ekristen/aws-nuke - *Github*

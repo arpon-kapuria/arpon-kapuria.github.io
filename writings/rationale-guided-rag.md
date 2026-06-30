@@ -1,20 +1,17 @@
 ---
 title: Rationale-Guided Retrieval Augmented Generation for Medical Question Answering
-category: Research Journal
+description: A concise summary and analysis of Rationale-Guided retrieval-augmented generation framework designed for Medical Question Answering
 
 date: June 20, 2025
 modified: June 20, 2025
 
-meta-title: Rationale-Guided Retrieval Augmented Generation for Medical Question Answering
-meta-description: A concise summary and analysis of Rationale-Guided retrieval-augmented generation framework designed for Medical Question Answering
-
 author: Arpon Kapuria
-status: Published
+category: Research Journal
+tags: RAG, Paper Summary
 ---
 
 
-### Background
-<hr>
+## Background
 
 The authors address the challenge of **hallucination**, **outdated knowledge** and **irrelevant retrieval** in medical QA systems powered by large language models (LLMs). While RAG frameworks offer some mitigation, they remain limited by:
 
@@ -23,30 +20,26 @@ The authors address the challenge of **hallucination**, **outdated knowledge** a
 - Biases in biomedical corpora,
 - Lack of integration between rationale reasoning and retrieval.
 
-### Methodology
-<hr>
+## Methodology
 
 Their proposed solution **RAG²** enhances standard RAG via three key modules:
 
-- **Rationale Based Query Formulation:**
+1. **Rationale Based Query Formulation:**
     - An LLM is prompted **(Chain-of-Thought)** to generate a rationale for a medical question.
     - This rationale is then used as a more focused query for retrieval.
-- **Balanced Retrieval:**
+2. **Balanced Retrieval:**
     - Documents are retrieved equally from multiple biomedical corpora to reduce source bias.
     - Then the retrieved documents are reranked using a medical domain focused reranker **(MedCPT)** to sort documents that are more closely aligned with the query.
-- **Lightweight Filtering model**:
+3. **Lightweight Filtering model**:
     - A lightweight classifier **(Flan-T5-large)** trained on snippet rationales scored by perplexity score.
     - During the training of Filtering model, authors introduced a threshold value, while constructing the dataset, for precise labelling as perplexity can not be enough for accuracy.
     - Then filters retrieved snippets to retain only informative ones.
-💡
 
-### Workflow
-<hr>
+## Workflow
 
 ![Rationale-Guided-RAG Algorithm](../images/rationale-guided-rag-algorithm.png)
 
-### Evaluation
-<hr>
+## Evaluation
 
 - Evaluated on multiple biomedical QA datasets.
 - RAG² achieves **5.6–6.1% absolute gains** over standard LLM baselines.
@@ -54,10 +47,8 @@ Their proposed solution **RAG²** enhances standard RAG via three key modules:
 - Rationales generated from higher performing models (eg. chatGPT) yields the highest performance improvements.
 - Shows rationale queries can be effective with smaller open source models as well.
 
-<br>
-
 <hr>
 
-*References*
+## References
 
 - [Rationale-Guided Retrieval Augmented Generation for Medical Question Answering](https://aclanthology.org/2025.naacl-long.635/) (Sohn et al., NAACL 2025)

@@ -1,15 +1,13 @@
 ---
-title: BetterDB-Powered RAG Observability and Latency Analysis !
-category: Dev Journal
+title: BetterDB Powered RAG Observability and Latency Analysis 
+description: An end-to-end Retrieval-Augmented Generation (RAG) pipeline instrumented with BetterDB for Redis / Valkey observability and latency inspection
 
 date: May 19, 2026
 modified: May 19, 2026
 
-meta-title: BetterDB-Powered RAG Observability and Latency Analysis
-meta-description: An end-to-end Retrieval-Augmented Generation (RAG) pipeline instrumented with BetterDB for Redis/Valkey observability and latency inspection
-
 author: Arpon Kapuria
-status: Published
+category: Dev Journal
+tags: RAG, Observability
 ---
 
 This project demonstrates an end-to-end **Retrieval-Augmented Generation (RAG)** pipeline instrumented with `BetterDB` for `Redis/Valkey` **observability** and latency inspection.
@@ -24,10 +22,9 @@ The workflow covers:
 
 The stack combines FastAPI, Redis/Valkey, sentence-transformers embeddings, OpenRouter-hosted LLM inference, and BetterDB telemetry to analyze how different pipeline components contribute to overall response latency.
 
-> As prerequisites, Python 3.12+ and Docker must be installed on the machine. [Project Code - Github](https://github.com/arpon-kapuria/betterdb-rag-observability)
+> *Github Repository: [betterdb-rag-observability](https://github.com/arpon-kapuria/betterdb-rag-observability)*
 
 ## Architecture
-<hr>
 
 Valkey is deployed locally in this setup to minimize Redis network RTT and isolate inference latency from retrieval latency during observability experiments.
 
@@ -45,9 +42,8 @@ User Query → FastAPI (/query) → Rate Limit Check                rag:doc:{sha
 ```
 
 ## Workflow
-<hr>
 
-### 1. Environment Setup
+### 2.1 Environment Setup
 
 Create and synchronize the Python environment and dependencies using `uv`.
 
@@ -58,12 +54,9 @@ source .venv/bin/activate
 uv sync
 ```
 
-
 The RAG pipeline implementation is located inside the `rag/` directory. The initial pipeline codebase was generated using Claude Code and later customized for the project requirements.
 
-
-
-### 2. BetterDB Credentials
+### 2.2 BetterDB Credentials
 
 To connect BetterDB with the local Redis/Valkey instance:
 
@@ -75,7 +68,7 @@ To connect BetterDB with the local Redis/Valkey instance:
    - Agent token
    - Generated Docker command
 
-### 3. Environment Variables
+### 2.3 Environment Variables
 
 Create a `.env` file and configure the required credentials. Feel free to use any model provider instead of OpenRouter.
 
@@ -88,7 +81,7 @@ OPENAI_API_KEY=<openrouter_api_key>
 REDIS_URL=redis://localhost:6379
 ```
 
-### 4. Local Valkey Setup
+### 2.4 Local Valkey Setup
 
 This project uses **Valkey**, the open-source fork of Redis, running locally through Docker. 
 
@@ -100,7 +93,7 @@ Pull the image from Docker Hub and start the container.
 docker-compose up -d
 ```
 
-**Verify Container Health:**
+#### Verify Container Health
 
 Check whether the container is running correctly.
 
@@ -108,16 +101,16 @@ Check whether the container is running correctly.
 docker-compose ps
 ```
 
-**Observed Response:**
+#### Observed Response
 
 ```text
 NAME      STATUS
 valkey    Up
 ```
 
-### 5. Connect Valkey to BetterDB
+### 2.5 Connect Valkey to BetterDB
 
-**Start BetterDB Agent:**
+#### Start BetterDB Agent:
 
 Run the BetterDB agent container and connect it to the local Valkey instance.
 
@@ -135,7 +128,7 @@ docker run -d \
 >
 > On Linux, replace it with: `172.17.0.1`
 
-**Verify BetterDB Agent Connection:**
+#### Verify BetterDB Agent Connection
 
 Check container logs to confirm the agent successfully connected.
 
@@ -143,7 +136,7 @@ Check container logs to confirm the agent successfully connected.
 docker logs betterdb-agent
 ```
 
-**Expected log:**
+#### Expected log
 
 ```text
 [Agent] WebSocket connected, sending hello
@@ -154,9 +147,9 @@ After successful connection:
 - the `betterdb-agent` container should appear in Docker
 
 
-### 6. Model Configuration
+### 2.6 Model Configuration
 
-**Chat Model:**
+#### Chat Model
 
 The project uses `nvidia/nemotron-3-super-120b-a12b:free
 ` through OpenRouter using the OpenAI SDK.
@@ -167,14 +160,14 @@ Set the OpenRouter API key in `.env`:
 OPENAI_API_KEY=<openrouter_api_key>
 ```
 
-**Embedding Model:**
+#### Embedding Model
 
 The embedding model used is `BAAI/bge-base-en-v1.5` via local inference using `sentence-transformers`.
 
 
-### 7. Run the Application
+### 2.7 Run the Application
 
-**Start the FastAPI Server:** 
+#### Start the FastAPI Server:
 
 ```bash
 # Run the application server using Uvicorn
@@ -186,25 +179,24 @@ This starts:
 - the RAG pipeline
 - retrieval and generation APIs
 
-**Verify API Endpoints:**
+#### Verify API Endpoints:
 
 After successful startup, open `http://localhost:8000/docs`. FastAPI Swagger UI should display all available API endpoints.
 
 ## Test Endpoints 
-<hr>
 
-**1. Health check (`/health`)**
+### 3.1 Health check (`/health`)
 
 ```bash
 curl http://localhost:8000/health
 ```
 
-**Observed Response:**
+#### Observed Response
 ```json
 {"redis": "ok", "key_counts": {"rag:doc:": 0, "semantic_cache:": 0, "rate_limit:": 0, "langchain:memory:session:": 0}}
 ```
 
-**2. Ingest a PDF (`/ingest`)**
+### 3.2 Ingest a PDF (`/ingest`)
 
 Upload the PDF manually through the endpoint UI or use the command below.
 
@@ -214,12 +206,12 @@ curl -F "file=@Arpon-Kapuria-CV.pdf" \
      http://localhost:8000/ingest
 ```
 
-**Observed Response:**
+#### Observed Response
 ```json
 {"chunks_stored": 14, "source": "Arpon-Kapuria-CV.pdf", "keys_preview": ["rag:doc:abc...", ...]}
 ```
 
-**3. Check stats (`/stats`)**
+### 3.3 Check stats (`/stats`)
 
 ```bash
 curl http://localhost:8000/stats
@@ -265,19 +257,17 @@ You'll get something like this -
 }
 ```
 
-**Observe in BetterDB:**
+#### Observe in BetterDB:
 
 - Open BetterDB → your connection → Key Analytics → Trigger Collections (if not updated)
 - `rag:doc:*` = 14 keys, ~21 KB/key, **w/TTL = 0** (no expiry)
 
 ## Feature: MCP Server Debug
-<hr>
 
 Ask any AI Agent plain-English questions — BetterDB answers from real Redis data. No dashboards needed. The MCP integration works with Claude Code, Cline, or any MCP-compatible AI agent. I am using `cline` with open source models from OpenRouter.
 
-### Setup MCP
+### 4.1 Setup MCP
 
-Find the `.json` / `.yaml` file where mcp servers are written for your agent and add:
 ```json
 {
   "mcpServers": {
@@ -294,7 +284,7 @@ Find the `.json` / `.yaml` file where mcp servers are written for your agent and
 }
 ```
 
-**Questions to ask the Agent via MCP**
+### 4.2 Questions to ask the Agent via MCP
 
 ```
 "What are the slowest commands in the last 24h?"
@@ -309,13 +299,12 @@ Each question maps to a BetterDB MCP tool call that returns real data.
 
 
 ## Feature: Semantic Cache TTL Bug
-<hr>
 
 `semantic:cache:*` and `rag:doc:*` keys are written with no TTL — silent memory bloat.
 
 Every semantically distinct query generates a new Redis hash entry. Without TTL expiration, semantic cache growth becomes effectively unbounded over long-running workloads.
 
-### 1. Cache Miss
+### 5.1 Cache Miss
 Runs the query for the first time, triggering retrieval and cache creation.
 
 ```bash
@@ -327,12 +316,12 @@ curl -X 'POST' \
   -d '{"query": "Where did Arpon Kapuria graduate from?", "session_id": "default"}'
 ```
 
-**Observed Response:**
+#### Observed Response:
 ```json
 {"response": "...", "cache_hit": false, "session_id": "default", "docs_used": 3, "latency_ms": 2932.9}
 ```
 
-### 2. Cache Hit
+### 5.2 Cache Hit
 Repeating the same query returns the cached response with lower latency.
 
 ```bash
@@ -344,12 +333,12 @@ curl -X 'POST' \
   -d '{"query": "Where did Arpon Kapuria graduate from?", "session_id": "default"}'
 ```
 
-**Observed Response:**
+#### Observed Response:
 ```json
 {"response": "...", "cache_hit": true, "session_id": "default", "docs_used": 0,"latency_ms": 402.8}
 ```
 
-### 3. Semantic Cache Hit
+### 5.3 Semantic Cache Hit
 A semantically similar query reuses the cached result through embedding similarity.
 
 ```bash
@@ -361,12 +350,12 @@ curl -X 'POST' \
   -d '{"query": "Arpon Kapuria'\''s graduation college?", "session_id": "default"}'
 ```
 
-**Observed Response:**
+#### Observed Response:
 ```json
 {"response": "...", "cache_hit": true, "session_id": "default", "docs_used": 0,"latency_ms": 373.5}
 ```
 
-### 4. New Query Cache Miss
+### 5.4 New Query Cache Miss
 A different query bypasses the cache and triggers full retrieval again.
 
 ```bash
@@ -378,24 +367,25 @@ curl -X 'POST' \
   -d '{"query": "Does he have any open source contributions?", "session_id": "default"}'
 ```
 
-**Observed Response:**
+#### Observed Response:
+
 ```json
 {"response": "...", "cache_hit": false, "session_id": "default", "docs_used": 3,"latency_ms": 7228.8}
 ```
 
-### 5. Observe in BetterDB
+### 5.5 Observe in BetterDB
 
 - Key Analytics → `semantic:cache:*` → **w/TTL = 0**
 - Memory grows with every new unique query
 - No expiry = unbounded growth
 
-### 6. Ask the Agent
+### 5.6 Ask the Agent
 
 ```
 "Why does my semantic cache have no TTL, and what happens to hit quality as data changes?"
 ```
 
-**The bug in code (`rag/pipeline.py:98`):**
+#### The bug in code (`rag/pipeline.py:98`):
 
 ```python
 # BUG — no expire
@@ -411,12 +401,11 @@ r.expire(rag_doc_key(chunk), 60 * 60 * 24 * 30)  # 30 days
 ```
 
 ## Feature: Agent Memory Runaway
-<hr>
 
 
 `langchain:memory:session:*` hash grows with every query — no TTL, no size limit.
 
-### 1. Session Memory Growth
+### 6.1 Session Memory Growth
 Send multiple queries using the same `session_id` to simulate accumulating agent memory.
 
 ```bash
@@ -436,7 +425,7 @@ for Q in \
 done
 ```
 
-### 2. Observe in BetterDB
+### 6.2 Observe in BetterDB
 
 - Key Analytics → `langchain:memory:session:*`
 - Key count stays **1** (same HASH key)
@@ -444,7 +433,7 @@ done
 - `w/TTL = 0` — grows forever
 
 
-### 3. Inspect Session State
+### 6.3 Inspect Session State
 Check the stored Redis session memory and observe hash growth over time.
 
 ```bash
@@ -452,13 +441,13 @@ curl http://localhost:8000/stats
 # Shows langchain:memory:session:runaway-demo key size
 ```
 
-### 4. Ask the Agent
+### 6.4 Ask the Agent
 
 ```
 "Show agent memory observability — which session key is growing and what is the runaway pattern?"
 ```
 
-**The bug in code (`rag/pipeline.py:126`):**
+#### The bug in code (`rag/pipeline.py:126`):
 
 ```python
 # BUG — no expire, no size limit
@@ -473,14 +462,13 @@ pipe.execute()
 ```
 
 ## Feature: Rate Limiter Abuse Detection
-<hr>
 
 Demonstrates Redis-based rate limiting using the `INCR + EXPIRE` pattern.  
 
 The script simulates repeated requests from the same user to trigger burst traffic, session growth, and observability events visible in BetterDB.
 
 
-### 1. Normal Requests (Within Limit)
+### 7.1. Normal Requests (Within Limit)
 
 Sends 5 sequential requests from the same user.  
 All requests should return `HTTP 200`.
@@ -496,7 +484,7 @@ for i in $(seq 1 5); do
 done
 ```
 
-**Observed Response:**
+#### Observed Response:
 
 ```bash
 Query 1: HTTP 200
@@ -506,7 +494,7 @@ Query 4: HTTP 200
 Query 5: HTTP 200
 ```
 
-### 2. Burst Traffic Simulation
+### 7.2 Burst Traffic Simulation
 
 Launches 20 concurrent requests from the same user to intentionally exceed the configured rate limit.
 
@@ -526,7 +514,7 @@ wait
 echo "All requests completed"
 ```
 
-**Observed Response:**
+#### Observed Response:
 
 ```bash
 Query 1: HTTP 200
@@ -540,20 +528,20 @@ Query 12: HTTP 429
 
 The first requests succeed until the Redis rate limit threshold is exceeded. Subsequent requests are rejected with `HTTP 429`.
 
-### 3. Observe in BetterDB
+### 7.3 Observe in BetterDB
 
 - Key Analytics → `rate:limit:user:abuser:*`
 - `rate:limit:user:abuser:minute` — **w/TTL = 1** (60s window), value = 20
 - `rate:limit:user:abuser:hour` — **w/TTL = 1** (3600s window)
 - Click **Trigger Collection** immediately after burst to capture minute key before TTL expires
 
-### 4. Ask the Agent
+### 7.4 Ask the Agent
 
 ```
 "Show me per-client INCR/EXPIRE command breakdown for rate_limit:* keys. Any burst patterns?"
 ```
 
-**The rate limit code (`rag/pipeline.py:49`):**
+#### The rate limit code (`rag/pipeline.py:49`):
 
 ```python
 # Correct pattern — rate_limit keys DO have TTL (contrast with rag:doc:* which don't)
@@ -565,9 +553,8 @@ if cnt > 10:
 ```
 
 ## Feature: Combined Rate Limit + Session Runaway
-<hr>
 
-### 1. Section Difference
+### 8.1 Section Difference
 Compares isolated rate limiting with combined burst traffic and session memory growth with previous section
 
 <div class="comparison-table">
@@ -581,12 +568,12 @@ Compares isolated rate limiting with combined burst traffic and session memory g
 
 </div>
 
-**In one burst you see 3 features at once:**
+#### In one burst you see 3 features at once:
 - **Feature 2** — `semantic:cache:*` grows (new unique queries cached, no TTL)
 - **Feature 3** — `langchain:memory:session:burst:test` memory grows (same key, bigger HASH)
 - **Feature 4** — queries 11–20 return `HTTP 429`
 
-### 2. Burst Traffic Test
+### 8.2 Burst Traffic Test
 
 Paste entire block into terminal — all 20 fire simultaneously:
 
@@ -625,7 +612,7 @@ wait
 echo "> All 20 done"
 ```
 
-### 3. Observe in BetterDB
+### 8.3 Observe in BetterDB
 
 <div class="comparison-table">
 
@@ -638,25 +625,24 @@ echo "> All 20 done"
 
 </div>
 
-**Key insight — rate limit vs session memory**
+#### Key insight — rate limit vs session memory
 
 - `rate:limit:user:demo:minute`   w/TTL=1  ← RESETS every 60s (correct design)
 - `langchain:memory:session:*`    w/TTL=0  ← NEVER resets (the bug)
 
 Rate limit = ephemeral by design. Session memory = permanent by mistake. BetterDB shows both in same dashboard row — `w/TTL` column tells the story.
 
-### 4. Ask the Agent
+### 8.4 Ask the Agent
 
 ```
 "Show me the burst:test session — how much memory has it accumulated vs the rate limit keys?"
 ```
 
 ## Feature: RAG Pipeline Latency Attribution
-<hr>
 
 In this setup, Redis HGETALL is **not** the dominant bottleneck because Valkey is running locally with negligible RTT. The primary latency source is remote LLM inference.
 
-### 1. Redis Latency Benchmark
+### 9.1 Redis Latency Benchmark
 Measure sequential `HGETALL` latency directly on `rag:doc:*` keys.
 
 ```bash
@@ -684,7 +670,7 @@ print(f'Full scan ({len(keys)} keys): {(time.perf_counter()-t0)*1000:.0f}ms tota
 "
 ```
 
-**Observed Response:**
+#### Observed Response:
 ```
 Total rag:doc:* keys: 14
 Per-key HGETALL:  avg=0.7ms  p95=1.1ms  max=1.1ms
@@ -696,7 +682,7 @@ This confirms that:
 - Sequential HGETALL retrieval is healthy
 - Redis contributes negligible overhead to the pipeline
 
-### 2. API Response Latency
+### 9.2 API Response Latency
 Compare Redis retrieval time with end-to-end RAG query latency.
 
 ```bash
@@ -707,7 +693,7 @@ curl -X POST http://localhost:8000/query \
      | python3 -m json.tool
 ```
 
-**Observed Response:**
+#### Observed Response:
 ```bash
 {
     "response": "The candidate’s AWS experience includes working with S3, EKS, IAM, and VPC (provisioning infrastructure via Terraform on AWS), along with CI/CD pipelines on the platform.",
@@ -722,7 +708,7 @@ The total query latency is: `9969.9ms ≈ 10 second`
 
 > The high inference latency is primarily due to using a free-tier OpenRouter-hosted model endpoint, which introduces queueing, cold-start, and remote inference overhead.
 
-### 3. RAG Latency Waterfall
+### 9.3 RAG Latency Waterfall
 Break down latency across embedding, retrieval, Redis, and LLM generation stages.
 
 ```
@@ -735,7 +721,7 @@ LLM generation:     ~10000ms ← BOTTLENECK
 Total:              ~10400ms
 ```
 
-**Latency Attribution:**
+#### Latency Attribution:
 
 Redis contribution: `9ms / 10400ms ≈ 0.09%`
 Therefore:
@@ -743,13 +729,13 @@ Therefore:
 - HGETALL retrieval is effectively negligible
 - The system is inference-bound, not retrieval-bound
 
-### 4. Ask the Agent
+### 9.4 Ask the Agent
 
 ```
 "Show per-stage latency breakdown for the RAG pipeline and identify the dominant source of latency."
 ```
 
-**Optimization Notes:**
+#### Notes on Optimization: 
 
 Even though Redis is already fast, batched retrieval is still better practice. However, in this setup, pipelining will not significantly reduce total latency because Redis already contributes <0.1% of request time.
 
@@ -769,7 +755,6 @@ results = pipe.execute()
 > If Redis were hosted remotely (cloud/managed Redis), sequential HGETALL calls could become a major bottleneck due to network RTT. Local Redis remains extremely fast.
 
 ## Quick Reference: curl Commands
-<hr>
 
 Common API commands for ingestion, querying, stress testing, and observability experiments.
 
@@ -803,7 +788,6 @@ done
 ```
 
 ## All MCP Questions
-<hr>
 
 Ask these directly in `Agent` terminal after connecting `BetterDB MCP`:
 
@@ -847,7 +831,6 @@ Ask these directly in `Agent` terminal after connecting `BetterDB MCP`:
 ```
 
 ## Key Patterns Reference
-<hr>
 
 <div class="comparison-table">
 

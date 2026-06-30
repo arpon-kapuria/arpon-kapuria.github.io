@@ -1,36 +1,32 @@
 ---
-title: Kubernetes Project Workflow (Commands & Mental Model) !
-category: Dev Journal
+title: Kubernetes Project Workflow - Commands & Mental Model 
+description: A beginner friendly guide to Kubernetes and a practical workflow.
 
 date: February 07, 2026
 modified: February 07, 2026
 
-meta-title: Kubernetes Project Workflow (Commands & Mental Model)
-meta-description: An beginner friendly guide to Kubernetes and project workflow.
-
 author: Arpon Kapuria
-status: Published
+category: Dev Journal
+tags: MLOps, Cloud Native
 ---
 
 This blog documents a **practical Kubernetes workflow** for deploying a containerized `FastAPI` application using `Docker`, `Minikube` and `kubectl`.  This is a developer-first workflow, optimized for local development and experimentation for beginners.
 
 > Github Repository: [fastapi-k8s-orchestration](https://github.com/arpon-kapuria/fastapi-k8s-orchestration)
 
-### Step 1: Start Docker
-<hr>
+## Start Docker
 
 Docker must be running before anything else.
 
-**Why?**
+#### Why?
 
 - Minikube uses Docker as its runtime (on most systems)
 - Docker builds and stores container images
 - Kubernetes ultimately runs containers, not source code
 
-### Step 2: Build the Docker Image
-<hr>
+## Build the Docker Image
 
-**Why?**
+#### Why?
 
 - Everything must be packaged as an image
 - Kubernetes cannot run source code directly
@@ -41,15 +37,14 @@ Docker must be running before anything else.
 docker build -t fastapi-k8s-orchestration .
 ```
 
-**What this does -**
+#### What this does -
 
 - Builds a container image from the `Dockerfile`
 - Tags it as `fastapi-k8s-orchestration:latest`
 
-### Step 3: Test the Image Locally
-<hr>
+## Test the Image Locally
 
-**Why?**
+#### Why?
 
 - Verifies the image works before Kubernetes
 - Saves debugging time later
@@ -61,18 +56,17 @@ docker build -t fastapi-k8s-orchestration .
 docker run -it --rm -p 9696:9696 fastapi-k8s-orchestration
 ```
 
-**What this does -**
+#### What this does -
 
 - Runs the container locally
 - Maps container port → host port
 - Removes the container after exit
 
-### Step 4: Push Image to Docker Hub (Optional)
-<hr>
+## Push Image to Docker Hub (Optional)
 
 This is required if Kubernetes needs to pull the image from a registry.
 
-**4.1 Tag the Image**
+### 4.1 Tag the Image
 
 - Docker Hub requires images in the format: `username/repository:tag`
 - Tagging does not create a copy; it creates a new reference
@@ -84,7 +78,7 @@ docker tag fastapi-k8s-orchestration:latest \
 aaaaarrp/fastapi-k8s-orchestration:latest
 ```
 
-**4.2 Push the Image**
+### 4.2 Push the Image
 
 - Makes the image available to Kubernetes nodes
 - Required for cloud clusters (EKS, GKE, etc.)
@@ -95,18 +89,17 @@ aaaaarrp/fastapi-k8s-orchestration:latest
 docker push aaaaarrp/fastapi-k8s-orchestration:latest
 ```
 
-### Step 5: Minikube — Local Kubernetes Cluster
-<hr>
+## Minikube — Local Kubernetes Cluster
 
 Minikube runs a *single-node (or multi-node) Kubernetes cluster locally*, inside Docker. 
 
-**Why?**
+#### Why?
 
 - Lightweight
 - No cloud cost
 - Perfect for learning and testing
 
-**Useful Minikube Commands**
+#### Useful Minikube Commands
 
 ```bash
 # Start the Cluster
@@ -137,20 +130,19 @@ minikube image rm <image_name>
 minikube start --nodes=2
 ```
 
-### Step 6: kubectl — Kubernetes Control Tool
-<hr>
+## Kubernetes Control Tool (kubectl)
 
 `kubectl` is the **CLI client** used to interact with the Kubernetes API. Kubernetes itself is an API-driven system. 
 
 `kubectl` is how you talk to it.
 
-**Why?**
+#### Why?
 
 - Understand cluster state
 - Debug deployments
 - Verify networking
 
-**Common Inspection Commands**
+#### Common Inspection Commands
 
 ```bash
 # List all Kubernetes resources across all namespaces
@@ -169,10 +161,9 @@ kubectl get services
 kubectl get endpoints
 ```
 
-### Step 7: Getting Images Into the Cluster
-<hr>
+## Getting Images Into the Cluster
 
-**Option 1: Load Local Image Directly**
+#### Option 1: Load Local Image Directly
 
 ```bash
 minikube image load fastapi-k8s-orchestration:latest
@@ -182,7 +173,7 @@ minikube image load fastapi-k8s-orchestration:latest
 # Best for local development
 ```
 
-**Option 2: Pull from Docker Hub**
+#### Option 2: Pull from Docker Hub
 
 ```bash
 Image → Docker Hub → Cluster
@@ -191,7 +182,7 @@ Image → Docker Hub → Cluster
 # Required for cloud Kubernetes
 ```
 
-**Option 3: Pull from Cloud Registry (e.g., AWS ECR)**
+#### Option 3: Pull from Cloud Registry (e.g., AWS ECR)
 
 ```bash
 Image → ECR → Cluster
@@ -200,32 +191,30 @@ Image → ECR → Cluster
 # Used in real production systems
 ```
 
-### Step 8: Kubernetes Manifests
-<hr>
+## Kubernetes Manifests
 
-**Create:**
+#### Create:
 
 - `deployment.yaml`
 - `service.yaml`
 
 *(They can also be combined into one file)*
 
-**Important:**
+#### Important:
 
 - Container ports must match:
     - Dockerfile
     - Deployment
     - Service
 
-### Step 9: Deploy the Application
-<hr>
+## Deploy the Application
 
-**What happens?**
+#### What happens?
 
 > Deployment → ReplicaSet → Pods
 > 
 
-**Why?**
+#### Why?
 
 - Deployment manages rollout and scaling
 - ReplicaSet ensures desired pod count
@@ -237,8 +226,7 @@ kubectl apply -f k8s/
 # `deployment.yaml` and `service.yaml` files are in k8s folder
 ```
 
-### Step 10: Access the Application
-<hr>
+## Access the Application
 
 Minikube exposes the service using a local tunnel or NodePort.
 
@@ -248,8 +236,7 @@ Minikube exposes the service using a local tunnel or NodePort.
 minikube service kubernetes-test-app
 ```
 
-### Step 11: Load Balancing & Logs
-<hr>
+#### Load Balancing & Logs
 
 ```bash
 # check running pods
@@ -259,12 +246,11 @@ kubectl get pods
 kubectl logs -f <pod-id/name>
 ```
 
-**Using Postman**
+#### Using Postman
 
 `Collection → Runs → Performance → Run Performance Test → Performance → (Fixed → 10users → 1min) → Run`
 
-### Final Step: Stop/Delete Resources
-<hr>
+## Final Step: Stop/Delete Resources
 
 ```bash
 # stop the cluster
@@ -283,8 +269,7 @@ kubectl delete pod <pod-name>
 kubectl delete rs <replicaset-name>
 ```
 
-### Mental Model Summary
-<hr>
+## Mental Model Summary
 
 ![Rationale-Guided-RAG Algorithm](../images/kubernetes-mental-model.png)
 

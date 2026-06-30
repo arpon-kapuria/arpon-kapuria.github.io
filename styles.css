@@ -25,7 +25,6 @@
     --color-shadow: rgba(30,40,60,0.07);
     --color-shadow-hover: rgba(30,40,60,0.13);
     --color-gallery-overlay: rgba(60,40,20,0.7);
-    --color-notice-border-left: #6298bc; 
     
     /* Fonts */
     --font-main: 'Spectral', 'Crimson Pro', sans-serif;
@@ -39,7 +38,6 @@
     --radius-card: 12px;
     --radius-btn: 10px;
     --radius-img: 8px;
-    --radius-notice: 6px;
 
     /* Shadows */
     --shadow-card: 0 5px 12px var(--color-shadow);
@@ -275,16 +273,17 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .content-container {
-    max-width: 890px;
+    max-width: 850px;
     margin: 0 auto;
     padding: 10px clamp(7px, 3vw, 35px) clamp(10px, 5vw, 50px);
     border-radius: 8px;
     box-sizing: border-box;
     padding-bottom: 20px;
+    line-height: 1.5;
 }
 
 /* ========================================================================
-                            LINKS & ACCESSIBILITY
+                            COMMON COMPONENTS
    ======================================================================== */
 
 a {
@@ -299,24 +298,7 @@ a:hover {
     font-weight: bold;
 }
 
-/* ========================================================================
-                                BIO SECTION
-   ======================================================================== */
-
-.greeting {
-    padding-top: 10px;
-    padding-bottom: 5px;
-    font-family: monospace, 'Crimson Pro', serif;
-    font-size: large;
-}
-
-@media (max-width: 900px) {
-    .greeting {
-        font-size: medium;
-    }
-}
-
-.availability-status {
+.message {
     margin: 1.5rem auto 0 auto;
     padding: 0.35rem 1rem;
 
@@ -340,9 +322,26 @@ a:hover {
 
 
 @media (max-width: 768px) {
-    .availability-status {
+    .message {
         font-size: 0.7rem;
         padding: 0.3rem 0.5rem;
+    }
+}
+
+/* ========================================================================
+                                BIO SECTION
+   ======================================================================== */
+
+.greeting {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-family: monospace, 'Crimson Pro', serif;
+    font-size: large;
+}
+
+@media (max-width: 900px) {
+    .greeting {
+        font-size: medium;
     }
 }
 
@@ -639,13 +638,13 @@ a:hover {
     margin-bottom: 0.5rem;
 }
 
-.project-topics {
+.project-filters {
     display: flex;
     gap: 0.4rem;
     flex-wrap: wrap;
 }
 
-.topic {
+.project-filter {
     display: inline-flex;
     align-items: center;
 
@@ -665,7 +664,7 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-    .topic {
+    .project-filter {
         font-size: 0.7rem;
         padding: 0.1rem 0.5rem;
         line-height: 1;
@@ -866,8 +865,8 @@ a:hover {
     margin-top: 0.3em;
     margin-bottom: 0.1em;
     margin-right: 0.5em;
-    padding-left: 2px;
-    font-style: italic;
+    padding-left: 1px;
+    /* font-style: italic; */
 }
 @media (max-width: 768px) {
     .article-tag-icon {
@@ -1106,7 +1105,7 @@ a:hover {
 /* ========================================= */
 
 .blog-content-md {
-    line-height: 1.6;
+    line-height: 1.5;
     font-size: clamp(0.95rem, 1.3vw, 1.1rem);
 }
 
@@ -1518,19 +1517,12 @@ a:hover {
                             RESOURCES SECTION
    ======================================================================== */
 
-.resources-sections-header {
-    font-size: larger;
-    font-family: monospace, 'Crimson Pro', serif;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-}
-
 .resource-subsection {
-  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
 }
 
-.resource-subsection h3 {
-  font-size: 1rem;
+.resource-subsection h2 {
+  font-size: larger;
   margin-bottom: 0.4rem;
   font-family: var(--font-mono);
 }
@@ -1549,20 +1541,28 @@ a:hover {
   text-decoration: underline;
 }
 
+.resource-filter {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
 
+    position: relative;
+    top: -1px;
 
-/* ========================================================================
-                                    NOTICE
-   ======================================================================== */
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
 
-.notice {
-    color: var(--color-dark-lighter-text);
-    border-left: 5px solid var(--color-notice-border-left);
-    border-radius: var(--radius-notice);
-    padding: 0.7em 1.2em;
-    font-size: 1rem;
-    letter-spacing: 0.01em;
-    font-weight: bold;
+    padding: 0.1rem 0.45rem;
+
+    border-radius: 3px;
+
+    background: #ffedd5;
+color: #c2410c;
+
+    user-select: none;
+
+    margin-right: 0.5rem;
 }
 
 /* ========================================================================
@@ -1606,7 +1606,7 @@ body.light-theme .theme-toggle {
     text-shadow: 0 0 25px #f4a261;
 }
 
-body.light-theme .availability-status {
+body.light-theme .message {
     font-weight: 600;
 
     color: #008f5a;
@@ -1626,8 +1626,7 @@ body.light-theme h5,
 body.light-theme h6,
 body.light-theme .title,
 body.light-theme .title h1,
-body.light-theme .blog-metadata-modification-time,
-body.light-theme .notice {
+body.light-theme .blog-metadata-modification-time{
     color: var(--color-light-text);
 }
 
