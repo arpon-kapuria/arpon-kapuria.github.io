@@ -5,8 +5,9 @@
   --text: #1c1c1e;
   --text-soft: #5b5b60;
   --border: #e6e6e8;
-  --accent: #2f5fff;
-  --accent-soft: #eef1ff;
+  --link: #1a95e0;
+  --accent: #F97316;
+  --link-soft: #eef1ff;
   --code-bg: #f5f5f6;
   --inline-code: #f2f1ef;
   --quote-bar: #d8d8db;
@@ -22,8 +23,9 @@
   --text: #e8e8ea;
   --text-soft: #9a9aa0;
   --border: #2a2a2d;
-  --accent: #7c9dff;
-  --accent-soft: #1c2440;
+  --link: #1a95e0;
+  --accent: #F97316;
+  --link-soft: #1c2440;
   --code-bg: #1c1c1f;
   --inline-code: #2a2a2d;
   --quote-bar: #3a3a3d;
@@ -37,8 +39,9 @@
     --text: #e8e8ea;
     --text-soft: #9a9aa0;
     --border: #2a2a2d;
-    --accent: #7c9dff;
-    --accent-soft: #1c2440;
+    --link: #1a95e0;
+    --accent: #F97316;
+    --link-soft: #1c2440;
     --code-bg: #1c1c1f;
     --quote-bar: #3a3a3d;
   }
@@ -59,8 +62,8 @@ body {
   transition: background .15s ease, color .15s ease;
 }
 
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--accent); text-decoration: underline; }
 
 /* ---------- Header ---------- */
 .site-header {
@@ -73,8 +76,13 @@ a:hover { text-decoration: underline; }
   font-family: var(--font-sans);
 }
 .site-header .brand { font-weight: 600; color: var(--text); }
-.site-header .brand-name { color: var(--text-soft); font-size: .95rem; }
+.site-header .brand-name { font-size: .95rem; }
 .site-header .sep { color: var(--border); }
+.site-header .brand:hover,
+.site-header .brand-name:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
 .theme-toggle {
   margin-left: auto;
   background: none;
@@ -141,10 +149,10 @@ a:hover { text-decoration: underline; }
   padding: .2rem 0;
   line-height: 1.45;
 }
-#toc-list a:hover { color: var(--text); text-decoration: none; }
+#toc-list a:hover { color: var(--accent); text-decoration: none; }
 #toc-list a.active {
-  color: var(--accent);
-  font-weight: 600;
+  color: var(--link);
+  font-weight: 700;
 }
 #toc-list .toc-h3 a { padding-left: 1.1rem; font-size: .8rem; }
 #toc-list .toc-h3 a::before { content: ""; }
@@ -164,7 +172,7 @@ a:hover { text-decoration: underline; }
 
 .article-header { margin-bottom: 3rem; }
 .article-header h1 {
-  font-size: 2rem;
+  font-size: 2.1rem;
   line-height: 1.25;
   margin: 0 0 1rem;
   font-weight: 700;
@@ -174,7 +182,7 @@ a:hover { text-decoration: underline; }
   color: var(--text-soft);
   font-size: 1.1rem;
   margin: 0 0 1.2rem;
-  font-style: italic;
+  /* font-style: italic; */
 }
 .article-meta {
   font-family: var(--font-sans);

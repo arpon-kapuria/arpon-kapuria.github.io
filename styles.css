@@ -76,192 +76,269 @@ h1, h2, h3, h4, h5, h6{
     color: var(--color-dark-lighter-text);
 }
 
-/* Theme toggle feature */
+ 
+/* ---------- Theme toggle ---------- */
 .theme-toggle {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--color-navbar-text);
-    transition:
-      transform 0.25s ease,
-      color 0.25s ease,
-      text-shadow 0.25s ease,
-      opacity 0.25s ease;
-}
-.theme-toggle i {
-    font-size: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-navbar-text);
+  background: none;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
 }
 .theme-toggle:hover {
-    transform: scale(1.25);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.3);
+}
+.theme-toggle svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  display: none;
+}
+/* Moon by default (dark mode = no .light-theme on body) */
+.theme-toggle #icon-sun  { display: none; }
+.theme-toggle #icon-moon { display: block; fill: currentColor; }
+ 
+/* Light mode: hide moon, show sun */
+body.light-theme .theme-toggle #icon-moon { display: none; }
+body.light-theme .theme-toggle #icon-sun  { display: block; }
+body.light-theme .theme-toggle #icon-sun circle { fill: currentColor; stroke: none; }
+ 
+/* ---------- Base navbar ---------- */
+.navbar {
+  width: 100%;
+  background: var(--color-navbar-bg);
+  color: var(--color-navbar-text);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow:
+    0 4px 24px 0 rgba(35, 86, 145, 0.18),
+    0 2px 8px 0 rgba(0, 0, 0, 0.12);
+}
+ 
+/* ---------- Container ---------- */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 56px;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+ 
+/* ---------- Logo ---------- */
+.navbar-logo {
+  font-family: var(--font-logo);
+  font-size: 1.5rem;
+  color: var(--color-navbar-text);
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+ 
+/* ---------- Nav links (desktop row) ---------- */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+ 
+.navbar-links a {
+  color: var(--color-navbar-text);
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: var(--font-main);
+  font-weight: 500;
+  padding: 2px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.navbar-links a:hover {
+  color: var(--color-link);
+}
+.navbar-links a.active {
+  color: var(--color-link);
+  border-bottom: 2px solid var(--color-link);
+}
+ 
+/* Thin vertical rule before CV/Resume */
+.nav-divider {
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+ 
+/* CV / Resume inline pair */
+.nav-inline-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.nav-inline-group a {
+  padding: 2px 0;
+}
+.nav-slash {
+  color: var(--color-navbar-text);
+  opacity: 0.45;
+  font-size: 0.9rem;
+  user-select: none;
+}
+ 
+/* ---------- Right controls (theme + hamburger) ---------- */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-left: 1.5rem;
+}
+ 
+/* ---------- Hamburger button ---------- */
+.navbar-toggle {
+  display: none;     
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 4px;
+  width: 32px;
+  height: 32px;
+}
+.hamburger-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-navbar-text);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease, width 0.2s ease;
+  transform-origin: center;
+}
+ 
+/* Hamburger → X animation when open */
+.navbar-toggle[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.navbar-toggle[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.navbar-toggle[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+ 
+/* =====================================================================
+   RESPONSIVE — mobile breakpoint
+   ===================================================================== */
+@media (max-width: 1024px) {
+  .navbar-logo {
+    font-size: 1.3rem;
+  }
 }
 
-
-/* ========================================================================
-                                HEADER & NAVIGATION
-   ======================================================================== */
-
-.navbar {
+@media (max-width: 860px) {
+ 
+  .navbar-container {
+    padding: 0 1.1rem;
+  }
+ 
+  /* Show hamburger */
+  .navbar-toggle {
+    display: flex;
+  }
+ 
+  /* Links panel: full-width slide-down from behind the navbar */
+  .navbar-links {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
     width: 100%;
     background: var(--color-navbar-bg);
-    color: var(--color-navbar-text);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+ 
+    /* Slide animation via max-height */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      max-height 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.22s ease;
+ 
+    /* Match navbar shadow on bottom edge */
     box-shadow:
-      0 4px 24px 0 rgba(35, 86, 145, 0.18), /* radiant blue glow */
-      0 2px 8px 0 rgba(0,0,0,0.12); /* soft dark shadow */
-}
-.navbar-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
-    height: 56px;
-}
-.navbar-logo-theme {
-    display: flex;
-    align-items: center;
-}
-
-.navbar-logo-theme .theme-toggle {
-    margin-left: 20px;
-    margin-top: 1px;
-}
-
-.navbar-logo {
-    font-family: var(--font-logo);
-    font-size: 1.5rem;
-    color: var(--color-navbar-text);
-    letter-spacing: 1px;
-    text-decoration: none;
-}
-.navbar-links {
-    display: flex;
-    gap: 1.6rem;
-    /* TODO: Change gap value to 1.6 when publications is added */
-}
-.navbar-links a {
-    color: var(--color-navbar-text);
-    text-decoration: none;
-    font-size: 1.05rem;
-    font-family: var(--font-main);
-    font-weight: 500;
-    transition: color 0.2s;
-    padding: 2px 0;
-    border-bottom: 2px solid transparent;
-}
-
-.navbar-links a.active {
+      0 8px 24px rgba(35, 86, 145, 0.15),
+      0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+ 
+  .navbar-links.open {
+    max-height: 480px;  /* tall enough for all links */
+    opacity: 1;
+  }
+ 
+  /* Each link: full-width row with a subtle separator */
+  .navbar-links a {
+    display: block;
+    padding: 0.8rem 1.4rem;
+    font-size: 0.97rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    border-left: none;
+  }
+  .navbar-links a:last-of-type {
+    border-bottom: none;
+  }
+  /* Keep active underline out of mobile — use left accent instead */
+  .navbar-links a.active {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    border-left: 3px solid var(--color-link);
+    padding-left: calc(1.4rem - 3px);
     color: var(--color-link);
-    /* border-bottom: 2px solid var(--color-link); */
-}
-
-.nav-inline-group {
-    display: inline-flex;
+  }
+ 
+  /* Hide the desktop divider on mobile */
+  .nav-divider { display: none; }
+ 
+  /* CV/Resume row */
+  .nav-inline-group {
+    display: flex;
     align-items: center;
-    gap: 0.25rem; /* very tight spacing */
+    gap: 0.3rem;
+    padding: 0.8rem 1.4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .nav-inline-group a {
+    padding: 0;
+    border-bottom: none !important;
+    border-left: none !important;
+    display: inline;
+  }
 }
-
-/* ===================== NAVBAR DROPDOWN FOR MOBILE ===================== */
-
-.navbar-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--color-navbar-text);
-    font-size: 2rem;
-    cursor: pointer;
-    margin-left: auto;
-    z-index: 200;
+ 
+@media (max-width: 400px) {
+  .navbar-logo { font-size: 1.1rem; }
 }
-@media (max-width: 1024px) {
-    .navbar-container {
-        flex-direction: row;
-        height: 56px;
-        padding: 0 1rem;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .navbar-logo {
-        margin-left: 0;
-        font-size: 1.1rem;
-    }
-    .navbar-logo-theme .theme-toggle {
-        margin-left: 12px;
-    }
-    .theme-toggle i {
-        font-size: 1rem;
-    }
-    .navbar-toggle {
-        display: block;
-    }
-    .navbar-links {
-        position: absolute;
-        top: 56px;
-        right: 0;
-        background: var(--color-navbar-bg);
-        width: 180px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        box-shadow: 0 8px 24px rgba(35, 86, 145, 0.18);
-        border-radius: 0 0 0 12px;
-        padding: 0.7em 0 0.7em 0.7em;
-        display: none;
-        z-index: 150;
-        transition: all 0.3s;
-    }
-    .navbar-links.open {
-        display: flex;
-    }
-    .navbar-links a {
-        width: 100%;
-        padding: 0.8em 0.7em;
-        font-size: 1rem;
-        border-bottom: 1px solid #222a3a;
-    }
-    .navbar-links a:last-child {
-        border-bottom: none;
-    }
-
-    .nav-inline-group {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        gap: 0.25rem;
-        padding: 0.8em 0.7em;  
-    }
-
-    .nav-inline-group a {
-        width: auto; 
-        padding: 0;
-        border-bottom: none;    
-    }
-}
-@media (min-width: 768px) {
-    .navbar-links a.active {
-        border-bottom: 2px solid var(--color-link);
-    }
-}
-@media (max-width: 480px) {
-    .navbar-links {
-        width: 100vw;
-        left: 0;
-        right: 0;
-        border-radius: 0 0 0 0;
-        padding-left: 0.2em;
-    }
-    .navbar-links a {
-        font-size: 0.98rem;
-        /* padding: 0.8em 0.7em; */
-    }
-}
-
+ 
 /* ========================================================================
                             MAIN LAYOUT & CONTAINERS
    ======================================================================== */
@@ -1602,7 +1679,7 @@ body.light-theme .links a:hover i {
 }
 
 body.light-theme .theme-toggle {
-    color: var(--color-accent);
+    color: var(--color-light-bg);
     text-shadow: 0 0 25px #f4a261;
 }
 
