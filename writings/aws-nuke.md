@@ -36,7 +36,7 @@ Although most of the people understand these concepts, but still iterating them 
 
 > AWS Nuke uses your **profile to authenticate**, not the account ID directly. There are other ways to authenticate with AWS CLI. You can find them `aws-nuke`’s official documentation.
 
-#### 1. Filters (Critical Safety Mechanism)
+#### 2. Filters (Critical Safety Mechanism)
 
 Filters define what should **NOT be deleted**. Without filters → you can lock yourself out.
 

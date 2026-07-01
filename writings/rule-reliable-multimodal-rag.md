@@ -35,7 +35,7 @@ The proposed system, **RULE**, tackles these two problems through:
 
 ## Workflow
 
-![RULE Algorithm](../images/rule-paper-algorithm.png)
+![RULE Algorithm | 50](../images/rule-paper-algorithm.png)
 
 ## Evaluation
 

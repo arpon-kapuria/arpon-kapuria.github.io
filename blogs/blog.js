@@ -146,8 +146,19 @@
   };
 
   renderer.image = function (href, title, text) {
+    let width = "", height = "";
+    const sizeMatch = text.match(/\|(\d+)(?:x(\d+))?$/);
+    if (sizeMatch) {
+      width = `width="${sizeMatch[1]}"`;
+      height = sizeMatch[2] ? `height="${sizeMatch[2]}"` : "";
+      text = text.replace(/\|(\d+)(?:x(\d+))?$/, "").trim();
+    }
     const cap = title ? `<figcaption>${escapeHtml(title)}</figcaption>` : "";
-    return `<figure><img src="${href}" alt="${escapeHtml(text || "")}" loading="lazy">${cap}</figure>`;
+    return `<figure><img src="${href}" alt="${escapeHtml(text)}" ${width} ${height} loading="lazy" style="max-width:100%">${cap}</figure>`;
+  };
+
+  renderer.link = function (href, title, text) {
+    return `<a href="${href}"${title ? ` title="${escapeHtml(title)}"` : ''} target="_blank" rel="noopener noreferrer">${text}</a>`;
   };
 
   renderer.code = function (code, infostring) {
@@ -251,6 +262,24 @@
     set("meta-canonical", url);
   }
 
+  /* ---------------- Back to Top ---------------- */
+  function initBackToTop() {
+    const button = document.getElementById("back-to-top");
+
+    if (!button) return;
+
+    window.addEventListener("scroll", () => {
+      button.classList.toggle("show", window.scrollY > 300);
+    });
+
+    button.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  }
+
   /* ---------------- Main ---------------- */
   async function init() {
     const params = new URLSearchParams(window.location.search);
@@ -313,6 +342,7 @@
     });
 
     buildTOC();
+    initBackToTop();
   }
 
   init();
