@@ -20,9 +20,8 @@ tags: AWS, Tooling, Infrastructure
 
 It is designed to handle environment creation and dependency management automatically.
 
-> Run this command to create a new project with **`uv` :**
-
 ```bash
+# Run this command to create a new project with uv
 uv init <project_name>
 ```
 

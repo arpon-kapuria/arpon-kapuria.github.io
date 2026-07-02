@@ -27,7 +27,7 @@
   --accent: #F97316;
   --link-soft: #1c2440;
   --code-bg: #1c1c1f;
-  --inline-code: #2a2a2d;
+  --inline-code: #171616;
   --quote-bar: #3a3a3d;
   --shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
@@ -256,67 +256,107 @@ a:hover { color: var(--accent); text-decoration: underline; }
   margin: 2.5rem 0;
 }
 
-.markdown-body code {
+.markdown-body code:not(pre code) {
   font-family: var(--font-mono);
   font-size: .83em;
   font-weight: 600;
   background: var(--inline-code);
-  color: #eb5757;;
+  color: #ed6363;
   padding: .15em .45em;
   border-radius: 5px;
 }
 
+
 /* Code block wrapper */
 .code-block {
-  margin: 1.4rem 0;
+  margin: 1.6rem 0;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid #2a2a3d;
-  background: #13131f;
+  border: 1px solid #e8ddd0;
+  background: #fdf8f2;
   font-size: .85rem;
 }
+
+/* Header */
 .code-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: .45rem .85rem;
-  background: #1e1e2e;
-  border-bottom: 1px solid #2a2a3d;
+  padding: .4rem .9rem;
+  background: #f5ede2;
+  border-bottom: 1px solid #e8ddd0;
 }
+
+/* Language label */
 .code-lang {
   font-family: var(--font-mono);
-  font-size: .75rem;
-  color: #7c7fa3;
-  text-transform: lowercase;
-  letter-spacing: .04em;
+  font-size: .72rem;
+  font-weight: 500;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: .08em;
 }
+
+/* Copy button */
 .copy-btn {
   font-family: var(--font-sans);
-  font-size: .72rem;
-  color: #7c7fa3;
+  font-size: .7rem;
+  font-weight: 500;
+  color: var(--text-soft);
   background: none;
-  border: 1px solid #2a2a3d;
+  border: 1px solid #d0d7de;
   border-radius: 5px;
-  padding: .2rem .55rem;
+  padding: .18rem .5rem;
   cursor: pointer;
-  transition: color .15s, border-color .15s;
+  transition: color .15s, border-color .15s, background .15s;
 }
-.copy-btn:hover { color: #cdd6f4; border-color: #4a4a6a; }
+.copy-btn:hover {
+  color: var(--text);
+  border-color: var(--text-soft);
+  background: #ede3d8;
+}
 
+/* Code body */
 .code-block pre {
-  padding: 1rem 1rem;
+  margin: 0;
+  padding: 1.1rem 1rem;
   overflow-x: auto;
   background: transparent;
   border: none;
   border-radius: 0;
+  line-height: 1.65;
 }
 .code-block pre code {
   background: none;
-  color: #cdd6f4;
   padding: 0;
   border-radius: 0;
-  font-size: 1em;
+  font-size: .84rem;
   font-family: var(--font-mono);
+  font-weight: 500;
+  /* no color here — hljs owns it */
+}
+
+/* Dark mode */
+[data-theme="dark"] .code-block {
+  background: #0d1117;
+  border-color: #30363d;
+}
+[data-theme="dark"] .code-header {
+  background: #161b22;
+  border-color: #30363d;
+}
+[data-theme="dark"] .copy-btn {
+  border-color: #30363d;
+}
+[data-theme="dark"] .copy-btn:hover {
+  background: #21262d;
+  border-color: #8b949e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .code-block { background: #0d1117; border-color: #30363d; }
+  :root:not([data-theme="light"]) .code-header { background: #161b22; border-color: #30363d; }
+  :root:not([data-theme="light"]) .copy-btn { border-color: #30363d; }
 }
 
 /* KaTeX display math centering */
@@ -348,7 +388,6 @@ a:hover { color: var(--accent); text-decoration: underline; }
 
 
 /* ---------- Back to Top ---------- */
-
 #back-to-top {
   position: fixed;
   right: 1.8rem;
@@ -440,5 +479,9 @@ a:hover { color: var(--accent); text-decoration: underline; }
   .markdown-body h2 { font-size: 1.35rem; }
   .markdown-body h3 { font-size: 1.1rem; }
   .markdown-body h4 { font-size: 1rem; }
+  .code-block { border-radius: 8px; }
+  .code-block pre { padding: .9rem .85rem; }
+  .code-lang { font-size: .68rem; }
+  .copy-btn { font-size: .67rem; padding: .15rem .4rem; }
   /* .layout { padding: 0 1.1rem 3rem; gap: 1.5rem; } */
 }

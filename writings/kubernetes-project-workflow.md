@@ -248,7 +248,8 @@ kubectl logs -f <pod-id/name>
 
 #### Using Postman
 
-`Collection → Runs → Performance → Run Performance Test → Performance → (Fixed → 10users → 1min) → Run`
+
+> Collection → Runs → Performance → Run Performance Test → Performance → (Fixed → 10users → 1min) → Run
 
 ## Final Step: Stop/Delete Resources
 

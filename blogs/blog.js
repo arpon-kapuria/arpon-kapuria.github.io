@@ -18,6 +18,16 @@
     } else {
       root.removeAttribute("data-theme");
     }
+
+    const isDark = (theme === "dark") ||
+    (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+    const hlTheme = document.getElementById("hljs-theme");
+    if (hlTheme) {
+      hlTheme.href = isDark
+        ? "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+        : "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css";
+    }
   }
 
   const savedTheme = localStorage.getItem("blog-theme");
@@ -161,17 +171,24 @@
   };
 
   renderer.code = function (code, infostring) {
-    const lang = (infostring || "").trim().split(/\s+/)[0];
+    const raw = (infostring || "").trim().split(/\s+/)[0];
+    const aliasMap = {
+      sh: "bash", shell: "bash", zsh: "bash", console: "bash",
+      cuda: "cpp", cu: "cpp",
+    };
+    const normalized = aliasMap[raw] || raw;
+
     let highlighted;
     try {
-      highlighted = lang && hljs.getLanguage(lang)
-        ? hljs.highlight(code, { language: lang }).value
+      highlighted = normalized && hljs.getLanguage(normalized)
+        ? hljs.highlight(code, { language: normalized }).value
         : hljs.highlightAuto(code).value;
     } catch (e) {
       highlighted = escapeHtml(code);
     }
-    const langLabel = lang || "text";
-    const langClass = lang ? ` class="language-${lang}"` : "";
+
+    const langLabel = raw || "text";
+    const langClass = normalized ? ` class="language-${normalized}"` : "";
     return `<div class="code-block">
       <div class="code-header">
         <span class="code-lang">${escapeHtml(langLabel)}</span>
@@ -310,9 +327,7 @@
     // Protect math before marked sees it, then restore after
     const { src: safeSrc, stash } = protectMath(body);
     const sized = processImageSizes(safeSrc);
-    console.log("sized:", sized.slice(0, 500));        // did regex match?
     const rawHtml = marked.parse(sized);
-    console.log("rawHtml:", rawHtml.slice(0, 500));    // did marked escape it?
     const html = restoreMath(rawHtml, stash);
 
     document.getElementById("article-title").textContent = meta.title || "Untitled";
