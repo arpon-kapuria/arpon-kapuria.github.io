@@ -128,6 +128,17 @@
     });
   }
 
+  function processImageSizes(src) {
+    // ![alt|400](url) or ![alt|400x300](url)
+    return src.replace(
+      /!\[([^\]]*?)\|(\d+)(?:x(\d+))?\]\(([^)]+)\)/g,
+      (_, alt, w, h, url) => {
+        const size = h ? `width="${w}" height="${h}"` : `width="${w}"`;
+        return `<img src="${url}" alt="${alt}" ${size} style="max-width:100%" loading="lazy">`;
+      }
+    );
+  }
+
   /* ---------------- Markdown renderer setup ---------------- */
   const headingRegistry = []; // {level, text, id}
 
@@ -143,18 +154,6 @@
       return `<h${level} id="${id}">${text}</h${level}>\n`;
     }
     return `<h${level}>${text}</h${level}>\n`;
-  };
-
-  renderer.image = function (href, title, text) {
-    let width = "", height = "";
-    const sizeMatch = text.match(/\|(\d+)(?:x(\d+))?$/);
-    if (sizeMatch) {
-      width = `width="${sizeMatch[1]}"`;
-      height = sizeMatch[2] ? `height="${sizeMatch[2]}"` : "";
-      text = text.replace(/\|(\d+)(?:x(\d+))?$/, "").trim();
-    }
-    const cap = title ? `<figcaption>${escapeHtml(title)}</figcaption>` : "";
-    return `<figure><img src="${href}" alt="${escapeHtml(text)}" ${width} ${height} loading="lazy" style="max-width:100%">${cap}</figure>`;
   };
 
   renderer.link = function (href, title, text) {
@@ -174,18 +173,19 @@
     const langLabel = lang || "text";
     const langClass = lang ? ` class="language-${lang}"` : "";
     return `<div class="code-block">
-  <div class="code-header">
-    <span class="code-lang">${escapeHtml(langLabel)}</span>
-    <button class="copy-btn" aria-label="Copy code">Copy</button>
-  </div>
-  <pre><code${langClass}>${highlighted}</code></pre>
-</div>\n`;
+      <div class="code-header">
+        <span class="code-lang">${escapeHtml(langLabel)}</span>
+        <button class="copy-btn" aria-label="Copy code">Copy</button>
+      </div>
+      <pre><code${langClass}>${highlighted}</code></pre>
+    </div>\n`;
   };
 
   marked.setOptions({
     renderer,
     gfm: true,
     breaks: false,
+    html: true,
   });
 
   /* ---------------- Build TOC ---------------- */
@@ -309,7 +309,10 @@
 
     // Protect math before marked sees it, then restore after
     const { src: safeSrc, stash } = protectMath(body);
-    const rawHtml = marked.parse(safeSrc);
+    const sized = processImageSizes(safeSrc);
+    console.log("sized:", sized.slice(0, 500));        // did regex match?
+    const rawHtml = marked.parse(sized);
+    console.log("rawHtml:", rawHtml.slice(0, 500));    // did marked escape it?
     const html = restoreMath(rawHtml, stash);
 
     document.getElementById("article-title").textContent = meta.title || "Untitled";
