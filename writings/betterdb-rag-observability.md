@@ -1,5 +1,5 @@
 ---
-title: BetterDB Powered RAG Observability and Latency Analysis 
+title: RAG Observability and Latency Analysis using BetterDB
 description: An end-to-end Retrieval-Augmented Generation (RAG) pipeline instrumented with BetterDB for Redis / Valkey observability and latency inspection
 
 date: May 19, 2026
