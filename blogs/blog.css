@@ -18,7 +18,7 @@
 }
 
 [data-theme="dark"] {
-  --bg: #121212;
+  --bg: #11141b;
   --bg-soft: #1a1a1c;
   --text: #e8e8ea;
   --text-soft: #9a9aa0;
@@ -34,7 +34,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #121212;
+    --bg: #11141b;
     --bg-soft: #1a1a1c;
     --text: #e8e8ea;
     --text-soft: #9a9aa0;
@@ -354,9 +354,9 @@ a:hover { color: var(--accent); text-decoration: underline; }
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .code-block { background: #0d1117; border-color: #30363d; }
+  :root:not([data-theme="light"]) .code-block { background: #0e1117; border-color: #30363d; }
   :root:not([data-theme="light"]) .code-header { background: #161b22; border-color: #30363d; }
-  :root:not([data-theme="light"]) .copy-btn { border-color: #30363d; }
+  :root:not([data-theme="light"]) .copy-btn { border-color: #26292c; }
 }
 
 /* KaTeX display math centering */
