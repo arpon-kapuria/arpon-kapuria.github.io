@@ -659,6 +659,7 @@ a:hover {
 .experience-container { padding-bottom: 20px; }
 .work-container, .thesis-container, .project-container {
     display: flex;
+    align-items: center;
     margin-bottom: 5px;
     padding: 10px 0;
     border-bottom: 1px solid var(--color-dark-section-border);
@@ -671,13 +672,25 @@ a:hover {
     align-self: center;
 }
 .project-image {
-    max-width: 120px;
+    width: 120px;
     max-height: 150px;
+
     margin-right: 30px;
-    align-self: center;
     object-fit: contain;
-    transform: scale(1.15);
+
+    cursor: zoom-in;
+    transition: transform .2s ease;
+
+    border: 1px solid #11141b;
+    border-radius: 3px;
+    padding: 4px;
+    background: #fff;
 }
+
+.project-image:hover {
+    transform: scale(1.08);
+}
+
 .thesis-image { padding-top: 5px; max-height: 150px; }
 .work-content, .thesis-content, .project-content { flex: 3; }
 .work-content p, .thesis-content p, .project-content p {

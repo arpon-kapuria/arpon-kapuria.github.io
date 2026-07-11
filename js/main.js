@@ -67,32 +67,28 @@ window.UI = (function () {
 
 	// Image Modal for profile picture 
 	function initImageModal() {
-		const img = document.getElementById("profile-image");
-
 		const modal = document.getElementById("image-modal");
 		const modalImg = document.getElementById("enlarged-image");
 		const closeBtn = document.getElementById("close-modal");
 
-		if (!img || !modal || !modalImg || !closeBtn) return;
+		if (!modal || !modalImg || !closeBtn) return;
 
-		// Open modal
-		img.addEventListener("click", () => {
-		modal.style.display = "block";
-
-		// Always use current visible image
-		modalImg.src = img.src;
+		document.querySelectorAll(".modal-image").forEach(img => {
+			img.addEventListener("click", () => {
+				modal.style.display = "block";
+				modalImg.src = img.src;
+				modalImg.alt = img.alt;
+			});
 		});
 
-		// Close button
 		closeBtn.addEventListener("click", () => {
-		modal.style.display = "none";
+			modal.style.display = "none";
 		});
 
-		// Click outside closes modal
 		modal.addEventListener("click", (e) => {
-		if (e.target === modal) {
-			modal.style.display = "none";
-		}
+			if (e.target === modal) {
+				modal.style.display = "none";
+			}
 		});
 	}
 
